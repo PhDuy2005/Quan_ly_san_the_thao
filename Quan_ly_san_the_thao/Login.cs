@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Quan_ly_san_the_thao
 {
-    public partial class ScheduleForm : Form
+    public partial class LoginForm : Form
     {
-        public ScheduleForm()
+        public LoginForm()
         {
             InitializeComponent();
         }

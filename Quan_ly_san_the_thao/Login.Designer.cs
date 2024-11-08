@@ -1,6 +1,6 @@
 ﻿namespace Quan_ly_san_the_thao
 {
-    partial class ScheduleForm
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // ScheduleForm
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "ScheduleForm";
-            this.Text = "Ứng dụng quản lí sân thể thao";
+            this.Name = "LoginForm";
+            this.Text = "Đăng nhập";
             this.ResumeLayout(false);
 
         }
@@ -44,4 +44,3 @@
         #endregion
     }
 }
-
