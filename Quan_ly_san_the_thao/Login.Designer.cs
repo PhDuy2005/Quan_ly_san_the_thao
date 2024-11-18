@@ -37,6 +37,7 @@
             this.ckBox_RememberMe = new System.Windows.Forms.CheckBox();
             this.lb_SignIn = new System.Windows.Forms.Label();
             this.llb_SignIn = new System.Windows.Forms.LinkLabel();
+            this.lb_Login = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lb_Username
@@ -76,6 +77,7 @@
             this.tb_Password.Name = "tb_Password";
             this.tb_Password.Size = new System.Drawing.Size(299, 28);
             this.tb_Password.TabIndex = 3;
+            this.tb_Password.UseSystemPasswordChar = true;
             // 
             // btn_Login
             // 
@@ -133,11 +135,23 @@
             this.llb_SignIn.TabStop = true;
             this.llb_SignIn.Text = "Đăng ký";
             // 
+            // lb_Login
+            // 
+            this.lb_Login.AutoSize = true;
+            this.lb_Login.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Login.Location = new System.Drawing.Point(232, 41);
+            this.lb_Login.Name = "lb_Login";
+            this.lb_Login.Size = new System.Drawing.Size(345, 34);
+            this.lb_Login.TabIndex = 15;
+            this.lb_Login.Text = "Đăng nhập tài khoản";
+            this.lb_Login.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lb_Login);
             this.Controls.Add(this.llb_SignIn);
             this.Controls.Add(this.lb_SignIn);
             this.Controls.Add(this.ckBox_RememberMe);
@@ -165,5 +179,6 @@
         private System.Windows.Forms.CheckBox ckBox_RememberMe;
         private System.Windows.Forms.Label lb_SignIn;
         private System.Windows.Forms.LinkLabel llb_SignIn;
+        private System.Windows.Forms.Label lb_Login;
     }
 }

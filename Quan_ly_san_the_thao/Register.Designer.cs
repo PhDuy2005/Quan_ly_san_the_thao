@@ -140,9 +140,9 @@
             this.tb_Password.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_Password.Location = new System.Drawing.Point(267, 238);
             this.tb_Password.Name = "tb_Password";
-            this.tb_Password.PasswordChar = '*';
             this.tb_Password.Size = new System.Drawing.Size(299, 28);
             this.tb_Password.TabIndex = 8;
+            this.tb_Password.UseSystemPasswordChar = true;
             // 
             // tb_PasswordConfirm
             // 
@@ -150,9 +150,9 @@
             this.tb_PasswordConfirm.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_PasswordConfirm.Location = new System.Drawing.Point(267, 288);
             this.tb_PasswordConfirm.Name = "tb_PasswordConfirm";
-            this.tb_PasswordConfirm.PasswordChar = '*';
             this.tb_PasswordConfirm.Size = new System.Drawing.Size(299, 28);
             this.tb_PasswordConfirm.TabIndex = 9;
+            this.tb_PasswordConfirm.UseSystemPasswordChar = true;
             // 
             // btn_Register
             // 
@@ -169,7 +169,7 @@
             // btn_Exit
             // 
             this.btn_Exit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Exit.BackColor = System.Drawing.Color.Salmon;
+            this.btn_Exit.BackColor = System.Drawing.Color.Tomato;
             this.btn_Exit.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Exit.Location = new System.Drawing.Point(315, 355);
             this.btn_Exit.Name = "btn_Exit";
@@ -231,11 +231,11 @@
             // 
             this.lb_Register.AutoSize = true;
             this.lb_Register.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Register.Location = new System.Drawing.Point(231, 21);
+            this.lb_Register.Location = new System.Drawing.Point(150, 24);
             this.lb_Register.Name = "lb_Register";
-            this.lb_Register.Size = new System.Drawing.Size(144, 34);
+            this.lb_Register.Size = new System.Drawing.Size(303, 34);
             this.lb_Register.TabIndex = 14;
-            this.lb_Register.Text = "Đăng ký";
+            this.lb_Register.Text = "Đăng ký tài khoản";
             // 
             // Register
             // 
