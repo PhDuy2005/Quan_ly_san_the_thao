@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace Quan_ly_san_the_thao
 {
-    public partial class SportListForm : Form
+    public partial class TimeSelection : Form
     {
-        public SportListForm()
+        public TimeSelection()
         {
             InitializeComponent();
         }
-
     }
 }
