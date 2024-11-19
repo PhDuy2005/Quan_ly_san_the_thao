@@ -17,5 +17,9 @@ namespace Quan_ly_san_the_thao
             InitializeComponent();
         }
 
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
