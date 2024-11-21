@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lb_Login = new System.Windows.Forms.Label();
+            this.lb_CreateNewPw = new System.Windows.Forms.Label();
             this.tb_NewPw = new System.Windows.Forms.TextBox();
             this.tb_CurentPw = new System.Windows.Forms.TextBox();
             this.lb_NewPw = new System.Windows.Forms.Label();
@@ -39,16 +39,16 @@
             this.btn_Back = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lb_Login
+            // lb_CreateNewPw
             // 
-            this.lb_Login.AutoSize = true;
-            this.lb_Login.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Login.Location = new System.Drawing.Point(243, 41);
-            this.lb_Login.Name = "lb_Login";
-            this.lb_Login.Size = new System.Drawing.Size(301, 34);
-            this.lb_Login.TabIndex = 16;
-            this.lb_Login.Text = "Tạo mật khẩu mới";
-            this.lb_Login.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_CreateNewPw.AutoSize = true;
+            this.lb_CreateNewPw.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_CreateNewPw.Location = new System.Drawing.Point(243, 41);
+            this.lb_CreateNewPw.Name = "lb_CreateNewPw";
+            this.lb_CreateNewPw.Size = new System.Drawing.Size(301, 34);
+            this.lb_CreateNewPw.TabIndex = 16;
+            this.lb_CreateNewPw.Text = "Tạo mật khẩu mới";
+            this.lb_CreateNewPw.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tb_NewPw
             // 
@@ -145,7 +145,7 @@
             this.Controls.Add(this.tb_CurentPw);
             this.Controls.Add(this.lb_NewPw);
             this.Controls.Add(this.lb_CurentPw);
-            this.Controls.Add(this.lb_Login);
+            this.Controls.Add(this.lb_CreateNewPw);
             this.Name = "ChangePassword";
             this.Text = "ChangePassword";
             this.ResumeLayout(false);
@@ -155,7 +155,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lb_Login;
+        private System.Windows.Forms.Label lb_CreateNewPw;
         private System.Windows.Forms.TextBox tb_NewPw;
         private System.Windows.Forms.TextBox tb_CurentPw;
         private System.Windows.Forms.Label lb_NewPw;
