@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btn_Back = new System.Windows.Forms.Button();
-            this.btn_Login = new System.Windows.Forms.Button();
+            this.btn_ChangePw = new System.Windows.Forms.Button();
             this.tb_NewPwConfirm = new System.Windows.Forms.TextBox();
             this.lb_NewPwConfirm = new System.Windows.Forms.Label();
             this.tb_NewPw = new System.Windows.Forms.TextBox();
@@ -48,15 +48,15 @@
             this.btn_Back.Text = "Quay lại";
             this.btn_Back.UseVisualStyleBackColor = false;
             // 
-            // btn_Login
+            // btn_ChangePw
             // 
-            this.btn_Login.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Login.Location = new System.Drawing.Point(249, 222);
-            this.btn_Login.Name = "btn_Login";
-            this.btn_Login.Size = new System.Drawing.Size(324, 49);
-            this.btn_Login.TabIndex = 30;
-            this.btn_Login.Text = "Đổi mật khẩu";
-            this.btn_Login.UseVisualStyleBackColor = true;
+            this.btn_ChangePw.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ChangePw.Location = new System.Drawing.Point(249, 222);
+            this.btn_ChangePw.Name = "btn_ChangePw";
+            this.btn_ChangePw.Size = new System.Drawing.Size(324, 49);
+            this.btn_ChangePw.TabIndex = 30;
+            this.btn_ChangePw.Text = "Đổi mật khẩu";
+            this.btn_ChangePw.UseVisualStyleBackColor = true;
             // 
             // tb_NewPwConfirm
             // 
@@ -115,7 +115,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btn_Back);
-            this.Controls.Add(this.btn_Login);
+            this.Controls.Add(this.btn_ChangePw);
             this.Controls.Add(this.tb_NewPwConfirm);
             this.Controls.Add(this.lb_NewPwConfirm);
             this.Controls.Add(this.tb_NewPw);
@@ -131,7 +131,7 @@
         #endregion
 
         private System.Windows.Forms.Button btn_Back;
-        private System.Windows.Forms.Button btn_Login;
+        private System.Windows.Forms.Button btn_ChangePw;
         private System.Windows.Forms.TextBox tb_NewPwConfirm;
         private System.Windows.Forms.Label lb_NewPwConfirm;
         private System.Windows.Forms.TextBox tb_NewPw;
