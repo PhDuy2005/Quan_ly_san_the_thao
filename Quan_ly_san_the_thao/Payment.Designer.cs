@@ -46,6 +46,7 @@
             this.cl_RentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FieldInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -244,11 +245,22 @@
             this.cl_Discount.MinimumWidth = 6;
             this.cl_Discount.Name = "cl_Discount";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label1.Location = new System.Drawing.Point(132, 416);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(236, 28);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "//Xóa nút quay lại với nyc";
+            // 
             // Payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 508);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgv_FieldInfo);
             this.Controls.Add(this.btn_Back);
             this.Controls.Add(this.btn_Pay);
@@ -291,5 +303,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_RentTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_UnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_Discount;
+        private System.Windows.Forms.Label label1;
     }
 }
