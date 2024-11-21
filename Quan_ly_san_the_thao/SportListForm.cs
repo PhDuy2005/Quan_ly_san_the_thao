@@ -16,6 +16,5 @@ namespace Quan_ly_san_the_thao
         {
             InitializeComponent();
         }
-
     }
 }
