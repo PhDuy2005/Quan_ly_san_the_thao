@@ -28,140 +28,133 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tàiKhoảnToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.xemThôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.đổiMậtKhẩuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lb_Greeting = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lb_chooseSport = new System.Windows.Forms.Label();
-            this.btn_Badminton = new System.Windows.Forms.Button();
-            this.btn_Basketball = new System.Windows.Forms.Button();
-            this.btn_Volleyball = new System.Windows.Forms.Button();
-            this.btn_Football = new System.Windows.Forms.Button();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tàiKhoảnToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.xemThôngTinToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.đổiMậtKhẩuToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.lb_Greeting = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.xemThôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.đổiMậtKhẩuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tàiKhoảnToolStripMenuItem
-            // 
-            this.tàiKhoảnToolStripMenuItem.Name = "tàiKhoảnToolStripMenuItem";
-            this.tàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            // 
-            // tàiKhoảnToolStripMenuItem1
-            // 
-            this.tàiKhoảnToolStripMenuItem1.Name = "tàiKhoảnToolStripMenuItem1";
-            this.tàiKhoảnToolStripMenuItem1.Size = new System.Drawing.Size(32, 19);
-            // 
-            // xemThôngTinToolStripMenuItem
-            // 
-            this.xemThôngTinToolStripMenuItem.Name = "xemThôngTinToolStripMenuItem";
-            this.xemThôngTinToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            // 
-            // đổiMậtKhẩuToolStripMenuItem
-            // 
-            this.đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            // 
-            // lb_Greeting
-            // 
-            this.lb_Greeting.Location = new System.Drawing.Point(0, 0);
-            this.lb_Greeting.Name = "lb_Greeting";
-            this.lb_Greeting.Size = new System.Drawing.Size(100, 23);
-            this.lb_Greeting.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 100);
-            this.panel1.TabIndex = 0;
-            // 
-            // lb_chooseSport
-            // 
-            this.lb_chooseSport.Location = new System.Drawing.Point(0, 0);
-            this.lb_chooseSport.Name = "lb_chooseSport";
-            this.lb_chooseSport.Size = new System.Drawing.Size(100, 23);
-            this.lb_chooseSport.TabIndex = 0;
-            // 
-            // btn_Badminton
-            // 
-            this.btn_Badminton.Location = new System.Drawing.Point(0, 0);
-            this.btn_Badminton.Name = "btn_Badminton";
-            this.btn_Badminton.Size = new System.Drawing.Size(75, 23);
-            this.btn_Badminton.TabIndex = 0;
-            // 
-            // btn_Basketball
-            // 
-            this.btn_Basketball.Location = new System.Drawing.Point(0, 0);
-            this.btn_Basketball.Name = "btn_Basketball";
-            this.btn_Basketball.Size = new System.Drawing.Size(75, 23);
-            this.btn_Basketball.TabIndex = 0;
-            // 
-            // btn_Volleyball
-            // 
-            this.btn_Volleyball.Location = new System.Drawing.Point(0, 0);
-            this.btn_Volleyball.Name = "btn_Volleyball";
-            this.btn_Volleyball.Size = new System.Drawing.Size(75, 23);
-            this.btn_Volleyball.TabIndex = 0;
-            // 
-            // btn_Football
-            // 
-            this.btn_Football.Location = new System.Drawing.Point(0, 0);
-            this.btn_Football.Name = "btn_Football";
-            this.btn_Football.Size = new System.Drawing.Size(75, 23);
-            this.btn_Football.TabIndex = 0;
             // 
             // menuStrip
             // 
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thoátToolStripMenuItem,
-            this.tàiKhoảnToolStripMenuItem2});
+            this.thoátToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(903, 28);
-            this.menuStrip.TabIndex = 0;
+            this.menuStrip.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip";
             // 
             // thoátToolStripMenuItem
             // 
+            this.thoátToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xemThôngTinToolStripMenuItem,
+            this.đổiMậtKhẩuToolStripMenuItem,
+            this.đăngXuấtToolStripMenuItem});
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(61, 24);
-            this.thoátToolStripMenuItem.Text = "Thoát";
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
+            this.thoátToolStripMenuItem.Text = "Tài khoản";
             // 
-            // tàiKhoảnToolStripMenuItem2
+            // lb_Greeting
             // 
-            this.tàiKhoảnToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xemThôngTinToolStripMenuItem1,
-            this.đổiMậtKhẩuToolStripMenuItem1});
-            this.tàiKhoảnToolStripMenuItem2.Name = "tàiKhoảnToolStripMenuItem2";
-            this.tàiKhoảnToolStripMenuItem2.Size = new System.Drawing.Size(85, 24);
-            this.tàiKhoảnToolStripMenuItem2.Text = "Tài khoản";
+            this.lb_Greeting.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lb_Greeting.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.lb_Greeting.Location = new System.Drawing.Point(3, 43);
+            this.lb_Greeting.Name = "lb_Greeting";
+            this.lb_Greeting.Size = new System.Drawing.Size(796, 88);
+            this.lb_Greeting.TabIndex = 2;
+            this.lb_Greeting.Text = "CHÀO MỪNG [TÊN KHÁCH HÀNG]";
+            this.lb_Greeting.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // xemThôngTinToolStripMenuItem1
+            // label1
             // 
-            this.xemThôngTinToolStripMenuItem1.Name = "xemThôngTinToolStripMenuItem1";
-            this.xemThôngTinToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.xemThôngTinToolStripMenuItem1.Text = "Xem thông tin";
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(4, 143);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(796, 54);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Xin vui lòng chọn môn";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // đổiMậtKhẩuToolStripMenuItem1
+            // button1
             // 
-            this.đổiMậtKhẩuToolStripMenuItem1.Name = "đổiMậtKhẩuToolStripMenuItem1";
-            this.đổiMậtKhẩuToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.đổiMậtKhẩuToolStripMenuItem1.Text = "Đổi mật khẩu";
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.button1.Location = new System.Drawing.Point(12, 225);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(175, 63);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Cầu lông";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.button2.Location = new System.Drawing.Point(217, 225);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(175, 63);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Bóng rổ";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.button3.Location = new System.Drawing.Point(613, 225);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(175, 63);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "Bóng đá";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.button4.Location = new System.Drawing.Point(415, 225);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(175, 63);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "Bóng chuyền";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // xemThôngTinToolStripMenuItem
+            // 
+            this.xemThôngTinToolStripMenuItem.Name = "xemThôngTinToolStripMenuItem";
+            this.xemThôngTinToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.xemThôngTinToolStripMenuItem.Text = "Xem thông tin";
+            // 
+            // đổiMậtKhẩuToolStripMenuItem
+            // 
+            this.đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
+            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
+            // 
+            // đăngXuấtToolStripMenuItem
+            // 
+            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             // 
             // SportListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(903, 406);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lb_Greeting);
             this.Controls.Add(this.menuStrip);
-            this.MainMenuStrip = this.menuStrip;
             this.Name = "SportListForm";
             this.Text = "SportListForm";
             this.menuStrip.ResumeLayout(false);
@@ -172,21 +165,17 @@
         }
 
         #endregion
-        private System.Windows.Forms.ToolStripMenuItem tàiKhoảnToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tàiKhoảnToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem xemThôngTinToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem đổiMậtKhẩuToolStripMenuItem;
-        private System.Windows.Forms.Label lb_Greeting;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lb_chooseSport;
-        private System.Windows.Forms.Button btn_Badminton;
-        private System.Windows.Forms.Button btn_Basketball;
-        private System.Windows.Forms.Button btn_Volleyball;
-        private System.Windows.Forms.Button btn_Football;
+
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tàiKhoảnToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem xemThôngTinToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem đổiMậtKhẩuToolStripMenuItem1;
+        private System.Windows.Forms.Label lb_Greeting;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ToolStripMenuItem xemThôngTinToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem đổiMậtKhẩuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
     }
 }

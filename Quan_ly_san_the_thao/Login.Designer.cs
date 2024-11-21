@@ -34,7 +34,6 @@
             this.tb_Password = new System.Windows.Forms.TextBox();
             this.btn_Login = new System.Windows.Forms.Button();
             this.llb_ForgotPassword = new System.Windows.Forms.LinkLabel();
-            this.ckBox_RememberMe = new System.Windows.Forms.CheckBox();
             this.lb_SignIn = new System.Windows.Forms.Label();
             this.llb_SignIn = new System.Windows.Forms.LinkLabel();
             this.lb_Login = new System.Windows.Forms.Label();
@@ -101,18 +100,6 @@
             this.llb_ForgotPassword.TabStop = true;
             this.llb_ForgotPassword.Text = "Quên mật khẩu?";
             // 
-            // ckBox_RememberMe
-            // 
-            this.ckBox_RememberMe.AutoSize = true;
-            this.ckBox_RememberMe.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckBox_RememberMe.Location = new System.Drawing.Point(168, 218);
-            this.ckBox_RememberMe.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
-            this.ckBox_RememberMe.Name = "ckBox_RememberMe";
-            this.ckBox_RememberMe.Size = new System.Drawing.Size(139, 22);
-            this.ckBox_RememberMe.TabIndex = 7;
-            this.ckBox_RememberMe.Text = "Lưu đăng nhập";
-            this.ckBox_RememberMe.UseVisualStyleBackColor = true;
-            // 
             // lb_SignIn
             // 
             this.lb_SignIn.AutoSize = true;
@@ -154,7 +141,6 @@
             this.Controls.Add(this.lb_Login);
             this.Controls.Add(this.llb_SignIn);
             this.Controls.Add(this.lb_SignIn);
-            this.Controls.Add(this.ckBox_RememberMe);
             this.Controls.Add(this.llb_ForgotPassword);
             this.Controls.Add(this.btn_Login);
             this.Controls.Add(this.tb_Password);
@@ -176,7 +162,6 @@
         private System.Windows.Forms.TextBox tb_Password;
         private System.Windows.Forms.Button btn_Login;
         private System.Windows.Forms.LinkLabel llb_ForgotPassword;
-        private System.Windows.Forms.CheckBox ckBox_RememberMe;
         private System.Windows.Forms.Label lb_SignIn;
         private System.Windows.Forms.LinkLabel llb_SignIn;
         private System.Windows.Forms.Label lb_Login;
