@@ -248,9 +248,9 @@
             this.pn_Friday.Controls.Add(this.btn_Friday8AM);
             this.pn_Friday.Controls.Add(this.btn_Friday7AM);
             this.pn_Friday.Controls.Add(this.lb_Friday);
-            this.pn_Friday.Location = new System.Drawing.Point(767, 82);
+            this.pn_Friday.Location = new System.Drawing.Point(807, 82);
             this.pn_Friday.Name = "pn_Friday";
-            this.pn_Friday.Size = new System.Drawing.Size(83, 699);
+            this.pn_Friday.Size = new System.Drawing.Size(85, 699);
             this.pn_Friday.TabIndex = 16;
             // 
             // btn_Friday9AM
@@ -455,7 +455,7 @@
             // 
             this.btn_Sunday6PM.Location = new System.Drawing.Point(0, 495);
             this.btn_Sunday6PM.Name = "btn_Sunday6PM";
-            this.btn_Sunday6PM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday6PM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday6PM.TabIndex = 9;
             this.btn_Sunday6PM.UseVisualStyleBackColor = true;
             // 
@@ -463,7 +463,7 @@
             // 
             this.btn_Sunday4PM.Location = new System.Drawing.Point(0, 429);
             this.btn_Sunday4PM.Name = "btn_Sunday4PM";
-            this.btn_Sunday4PM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday4PM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday4PM.TabIndex = 7;
             this.btn_Sunday4PM.UseVisualStyleBackColor = true;
             // 
@@ -471,7 +471,7 @@
             // 
             this.btn_Sunday2PM.Location = new System.Drawing.Point(0, 329);
             this.btn_Sunday2PM.Name = "btn_Sunday2PM";
-            this.btn_Sunday2PM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday2PM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday2PM.TabIndex = 6;
             this.btn_Sunday2PM.UseVisualStyleBackColor = true;
             // 
@@ -527,7 +527,7 @@
             // 
             this.btn_Sunday1PM.Location = new System.Drawing.Point(0, 279);
             this.btn_Sunday1PM.Name = "btn_Sunday1PM";
-            this.btn_Sunday1PM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday1PM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday1PM.TabIndex = 5;
             this.btn_Sunday1PM.UseVisualStyleBackColor = true;
             // 
@@ -535,7 +535,7 @@
             // 
             this.btn_Sunday9AM.Location = new System.Drawing.Point(0, 167);
             this.btn_Sunday9AM.Name = "btn_Sunday9AM";
-            this.btn_Sunday9AM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday9AM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday9AM.TabIndex = 4;
             this.btn_Sunday9AM.UseVisualStyleBackColor = true;
             // 
@@ -575,7 +575,7 @@
             // 
             this.btn_Sunday3PM.Location = new System.Drawing.Point(0, 379);
             this.btn_Sunday3PM.Name = "btn_Sunday3PM";
-            this.btn_Sunday3PM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday3PM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday3PM.TabIndex = 8;
             this.btn_Sunday3PM.UseVisualStyleBackColor = true;
             // 
@@ -583,7 +583,7 @@
             // 
             this.btn_Sunday10AM.Location = new System.Drawing.Point(0, 217);
             this.btn_Sunday10AM.Name = "btn_Sunday10AM";
-            this.btn_Sunday10AM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday10AM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday10AM.TabIndex = 3;
             this.btn_Sunday10AM.UseVisualStyleBackColor = true;
             // 
@@ -591,7 +591,7 @@
             // 
             this.btn_Sunday8AM.Location = new System.Drawing.Point(0, 117);
             this.btn_Sunday8AM.Name = "btn_Sunday8AM";
-            this.btn_Sunday8AM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday8AM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday8AM.TabIndex = 2;
             this.btn_Sunday8AM.UseVisualStyleBackColor = true;
             // 
@@ -609,7 +609,7 @@
             this.lb_sunday.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lb_sunday.Location = new System.Drawing.Point(0, 1);
             this.lb_sunday.Name = "lb_sunday";
-            this.lb_sunday.Size = new System.Drawing.Size(83, 53);
+            this.lb_sunday.Size = new System.Drawing.Size(95, 53);
             this.lb_sunday.TabIndex = 0;
             this.lb_sunday.Text = "Chủ nhật";
             this.lb_sunday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -626,7 +626,7 @@
             // 
             this.btn_Sunday8PM.Location = new System.Drawing.Point(0, 595);
             this.btn_Sunday8PM.Name = "btn_Sunday8PM";
-            this.btn_Sunday8PM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday8PM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday8PM.TabIndex = 12;
             this.btn_Sunday8PM.UseVisualStyleBackColor = true;
             // 
@@ -634,7 +634,7 @@
             // 
             this.btn_Sunday9PM.Location = new System.Drawing.Point(0, 645);
             this.btn_Sunday9PM.Name = "btn_Sunday9PM";
-            this.btn_Sunday9PM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday9PM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday9PM.TabIndex = 11;
             this.btn_Sunday9PM.UseVisualStyleBackColor = true;
             // 
@@ -653,16 +653,16 @@
             this.pn_Sunday.Controls.Add(this.btn_Sunday8AM);
             this.pn_Sunday.Controls.Add(this.btn_Sunday7AM);
             this.pn_Sunday.Controls.Add(this.lb_sunday);
-            this.pn_Sunday.Location = new System.Drawing.Point(945, 82);
+            this.pn_Sunday.Location = new System.Drawing.Point(989, 82);
             this.pn_Sunday.Name = "pn_Sunday";
-            this.pn_Sunday.Size = new System.Drawing.Size(83, 699);
+            this.pn_Sunday.Size = new System.Drawing.Size(100, 699);
             this.pn_Sunday.TabIndex = 17;
             // 
             // btn_Sunday7PM
             // 
             this.btn_Sunday7PM.Location = new System.Drawing.Point(0, 545);
             this.btn_Sunday7PM.Name = "btn_Sunday7PM";
-            this.btn_Sunday7PM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday7PM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday7PM.TabIndex = 10;
             this.btn_Sunday7PM.UseVisualStyleBackColor = true;
             // 
@@ -670,7 +670,7 @@
             // 
             this.btn_Sunday7AM.Location = new System.Drawing.Point(0, 67);
             this.btn_Sunday7AM.Name = "btn_Sunday7AM";
-            this.btn_Sunday7AM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday7AM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday7AM.TabIndex = 1;
             this.btn_Sunday7AM.UseVisualStyleBackColor = true;
             // 
@@ -700,9 +700,9 @@
             this.pn_Saturnday.Controls.Add(this.btn_Saturnday8AM);
             this.pn_Saturnday.Controls.Add(this.btn_Saturnday7AM);
             this.pn_Saturnday.Controls.Add(this.lb_Saturnday);
-            this.pn_Saturnday.Location = new System.Drawing.Point(856, 82);
+            this.pn_Saturnday.Location = new System.Drawing.Point(898, 82);
             this.pn_Saturnday.Name = "pn_Saturnday";
-            this.pn_Saturnday.Size = new System.Drawing.Size(83, 699);
+            this.pn_Saturnday.Size = new System.Drawing.Size(85, 699);
             this.pn_Saturnday.TabIndex = 18;
             // 
             // lb_Wednesday
@@ -847,7 +847,7 @@
             // 
             this.lb_6PM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb_6PM.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lb_6PM.Location = new System.Drawing.Point(0, 495);
+            this.lb_6PM.Location = new System.Drawing.Point(0, 497);
             this.lb_6PM.Name = "lb_6PM";
             this.lb_6PM.Size = new System.Drawing.Size(83, 44);
             this.lb_6PM.TabIndex = 17;
@@ -925,9 +925,9 @@
             this.panel1.Controls.Add(this.lb_8AM);
             this.panel1.Controls.Add(this.lb_1PM);
             this.panel1.Controls.Add(this.lb_7AM);
-            this.panel1.Location = new System.Drawing.Point(322, 82);
+            this.panel1.Location = new System.Drawing.Point(352, 82);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(83, 699);
+            this.panel1.Size = new System.Drawing.Size(85, 699);
             this.panel1.TabIndex = 19;
             // 
             // lb_2PM
@@ -956,7 +956,7 @@
             // 
             this.lb_1PM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb_1PM.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lb_1PM.Location = new System.Drawing.Point(0, 279);
+            this.lb_1PM.Location = new System.Drawing.Point(0, 281);
             this.lb_1PM.Name = "lb_1PM";
             this.lb_1PM.Size = new System.Drawing.Size(83, 44);
             this.lb_1PM.TabIndex = 13;
@@ -967,7 +967,7 @@
             // 
             this.lb_7AM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb_7AM.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lb_7AM.Location = new System.Drawing.Point(0, 65);
+            this.lb_7AM.Location = new System.Drawing.Point(0, 67);
             this.lb_7AM.Name = "lb_7AM";
             this.lb_7AM.Size = new System.Drawing.Size(83, 44);
             this.lb_7AM.TabIndex = 13;
@@ -989,9 +989,9 @@
             this.pn_Monday.Controls.Add(this.btn_Monday8AM);
             this.pn_Monday.Controls.Add(this.btn_Monday7AM);
             this.pn_Monday.Controls.Add(this.lb_Monday);
-            this.pn_Monday.Location = new System.Drawing.Point(411, 82);
+            this.pn_Monday.Location = new System.Drawing.Point(443, 82);
             this.pn_Monday.Name = "pn_Monday";
-            this.pn_Monday.Size = new System.Drawing.Size(83, 699);
+            this.pn_Monday.Size = new System.Drawing.Size(85, 699);
             this.pn_Monday.TabIndex = 15;
             // 
             // mCd_calendar
@@ -1000,6 +1000,7 @@
             this.mCd_calendar.MaxSelectionCount = 1;
             this.mCd_calendar.Name = "mCd_calendar";
             this.mCd_calendar.TabIndex = 14;
+            this.mCd_calendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.mCd_calendarDateChanged);
             // 
             // btn_Thursday8PM
             // 
@@ -1112,9 +1113,9 @@
             this.pn_Thursday.Controls.Add(this.btn_Thursday8AM);
             this.pn_Thursday.Controls.Add(this.btn_Thursday7AM);
             this.pn_Thursday.Controls.Add(this.lb_Thursday);
-            this.pn_Thursday.Location = new System.Drawing.Point(678, 82);
+            this.pn_Thursday.Location = new System.Drawing.Point(716, 82);
             this.pn_Thursday.Name = "pn_Thursday";
-            this.pn_Thursday.Size = new System.Drawing.Size(83, 699);
+            this.pn_Thursday.Size = new System.Drawing.Size(85, 699);
             this.pn_Thursday.TabIndex = 20;
             // 
             // btn_Thursday3PM
@@ -1140,9 +1141,9 @@
             this.pn_Wednesday.Controls.Add(this.btn_Wednesday8AM);
             this.pn_Wednesday.Controls.Add(this.btn_Wednesday7AM);
             this.pn_Wednesday.Controls.Add(this.lb_Wednesday);
-            this.pn_Wednesday.Location = new System.Drawing.Point(589, 82);
+            this.pn_Wednesday.Location = new System.Drawing.Point(625, 82);
             this.pn_Wednesday.Name = "pn_Wednesday";
-            this.pn_Wednesday.Size = new System.Drawing.Size(83, 699);
+            this.pn_Wednesday.Size = new System.Drawing.Size(85, 699);
             this.pn_Wednesday.TabIndex = 21;
             // 
             // btn_Tuesday9AM
@@ -1195,9 +1196,9 @@
             this.pn_Tuesday.Controls.Add(this.btn_Tuesday8AM);
             this.pn_Tuesday.Controls.Add(this.btn_Tuesday7AM);
             this.pn_Tuesday.Controls.Add(this.lb_Tuesday);
-            this.pn_Tuesday.Location = new System.Drawing.Point(500, 82);
+            this.pn_Tuesday.Location = new System.Drawing.Point(534, 82);
             this.pn_Tuesday.Name = "pn_Tuesday";
-            this.pn_Tuesday.Size = new System.Drawing.Size(83, 699);
+            this.pn_Tuesday.Size = new System.Drawing.Size(85, 699);
             this.pn_Tuesday.TabIndex = 22;
             // 
             // btn_Tuesday7AM
@@ -1318,7 +1319,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 863);
+            this.ClientSize = new System.Drawing.Size(1113, 863);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pn_Friday);
             this.Controls.Add(this.pn_Sunday);
