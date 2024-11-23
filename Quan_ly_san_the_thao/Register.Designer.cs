@@ -43,13 +43,13 @@
             this.lb_SignInOption = new System.Windows.Forms.Label();
             this.llb_Login = new System.Windows.Forms.LinkLabel();
             this.pn_Register = new System.Windows.Forms.Panel();
-            this.lb_Register = new System.Windows.Forms.Label();
-            this.lb_Gender = new System.Windows.Forms.Label();
-            this.rdBtn_Male = new System.Windows.Forms.RadioButton();
-            this.rdBtn_Female = new System.Windows.Forms.RadioButton();
-            this.rdBtn_Other = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.tb_Email = new System.Windows.Forms.TextBox();
+            this.lb_Email = new System.Windows.Forms.Label();
+            this.rdBtn_Other = new System.Windows.Forms.RadioButton();
+            this.rdBtn_Female = new System.Windows.Forms.RadioButton();
+            this.rdBtn_Male = new System.Windows.Forms.RadioButton();
+            this.lb_Gender = new System.Windows.Forms.Label();
+            this.lb_Register = new System.Windows.Forms.Label();
             this.pn_Register.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -226,7 +226,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pn_Register.Controls.Add(this.tb_Email);
-            this.pn_Register.Controls.Add(this.label1);
+            this.pn_Register.Controls.Add(this.lb_Email);
             this.pn_Register.Controls.Add(this.rdBtn_Other);
             this.pn_Register.Controls.Add(this.rdBtn_Female);
             this.pn_Register.Controls.Add(this.rdBtn_Male);
@@ -251,56 +251,30 @@
             this.pn_Register.Size = new System.Drawing.Size(613, 538);
             this.pn_Register.TabIndex = 14;
             // 
-            // lb_Register
+            // tb_Email
             // 
-            this.lb_Register.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lb_Register.AutoSize = true;
-            this.lb_Register.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Register.Location = new System.Drawing.Point(168, 24);
-            this.lb_Register.Name = "lb_Register";
-            this.lb_Register.Size = new System.Drawing.Size(303, 34);
-            this.lb_Register.TabIndex = 14;
-            this.lb_Register.Text = "Đăng ký tài khoản";
+            this.tb_Email.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tb_Email.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_Email.ForeColor = System.Drawing.Color.LightGray;
+            this.tb_Email.Location = new System.Drawing.Point(267, 275);
+            this.tb_Email.Name = "tb_Email";
+            this.tb_Email.Size = new System.Drawing.Size(299, 28);
+            this.tb_Email.TabIndex = 20;
+            this.tb_Email.Text = "VD: NguyenVanA@gmail.com";
+            this.tb_Email.Enter += new System.EventHandler(this.Email_Enter);
+            this.tb_Email.Leave += new System.EventHandler(this.Email_Leave);
             // 
-            // lb_Gender
+            // lb_Email
             // 
-            this.lb_Gender.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lb_Gender.AutoSize = true;
-            this.lb_Gender.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Gender.Location = new System.Drawing.Point(136, 233);
-            this.lb_Gender.Margin = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.lb_Gender.Name = "lb_Gender";
-            this.lb_Gender.Size = new System.Drawing.Size(90, 20);
-            this.lb_Gender.TabIndex = 15;
-            this.lb_Gender.Text = "Giới tính:";
-            // 
-            // rdBtn_Male
-            // 
-            this.rdBtn_Male.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rdBtn_Male.AutoSize = true;
-            this.rdBtn_Male.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdBtn_Male.Location = new System.Drawing.Point(267, 231);
-            this.rdBtn_Male.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            this.rdBtn_Male.Name = "rdBtn_Male";
-            this.rdBtn_Male.Size = new System.Drawing.Size(70, 24);
-            this.rdBtn_Male.TabIndex = 16;
-            this.rdBtn_Male.TabStop = true;
-            this.rdBtn_Male.Text = "Nam";
-            this.rdBtn_Male.UseVisualStyleBackColor = true;
-            // 
-            // rdBtn_Female
-            // 
-            this.rdBtn_Female.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rdBtn_Female.AutoSize = true;
-            this.rdBtn_Female.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdBtn_Female.Location = new System.Drawing.Point(357, 231);
-            this.rdBtn_Female.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            this.rdBtn_Female.Name = "rdBtn_Female";
-            this.rdBtn_Female.Size = new System.Drawing.Size(54, 24);
-            this.rdBtn_Female.TabIndex = 17;
-            this.rdBtn_Female.TabStop = true;
-            this.rdBtn_Female.Text = "Nữ";
-            this.rdBtn_Female.UseVisualStyleBackColor = true;
+            this.lb_Email.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lb_Email.AutoSize = true;
+            this.lb_Email.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Email.Location = new System.Drawing.Point(161, 283);
+            this.lb_Email.Margin = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.lb_Email.Name = "lb_Email";
+            this.lb_Email.Size = new System.Drawing.Size(65, 20);
+            this.lb_Email.TabIndex = 19;
+            this.lb_Email.Text = "Email:";
             // 
             // rdBtn_Other
             // 
@@ -316,30 +290,56 @@
             this.rdBtn_Other.Text = "Khác";
             this.rdBtn_Other.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // rdBtn_Female
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(161, 283);
-            this.label1.Margin = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 20);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Email:";
+            this.rdBtn_Female.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rdBtn_Female.AutoSize = true;
+            this.rdBtn_Female.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdBtn_Female.Location = new System.Drawing.Point(357, 231);
+            this.rdBtn_Female.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.rdBtn_Female.Name = "rdBtn_Female";
+            this.rdBtn_Female.Size = new System.Drawing.Size(54, 24);
+            this.rdBtn_Female.TabIndex = 17;
+            this.rdBtn_Female.TabStop = true;
+            this.rdBtn_Female.Text = "Nữ";
+            this.rdBtn_Female.UseVisualStyleBackColor = true;
             // 
-            // tb_Email
+            // rdBtn_Male
             // 
-            this.tb_Email.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tb_Email.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_Email.ForeColor = System.Drawing.Color.LightGray;
-            this.tb_Email.Location = new System.Drawing.Point(267, 275);
-            this.tb_Email.Name = "tb_Email";
-            this.tb_Email.Size = new System.Drawing.Size(299, 28);
-            this.tb_Email.TabIndex = 20;
-            this.tb_Email.Text = "VD: NguyenVanA@gmail.com";
-            this.tb_Email.Enter += new System.EventHandler(this.Email_Enter);
-            this.tb_Email.Leave += new System.EventHandler(this.Email_Leave);
+            this.rdBtn_Male.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rdBtn_Male.AutoSize = true;
+            this.rdBtn_Male.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdBtn_Male.Location = new System.Drawing.Point(267, 231);
+            this.rdBtn_Male.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.rdBtn_Male.Name = "rdBtn_Male";
+            this.rdBtn_Male.Size = new System.Drawing.Size(70, 24);
+            this.rdBtn_Male.TabIndex = 16;
+            this.rdBtn_Male.TabStop = true;
+            this.rdBtn_Male.Text = "Nam";
+            this.rdBtn_Male.UseVisualStyleBackColor = true;
+            // 
+            // lb_Gender
+            // 
+            this.lb_Gender.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lb_Gender.AutoSize = true;
+            this.lb_Gender.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Gender.Location = new System.Drawing.Point(136, 233);
+            this.lb_Gender.Margin = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.lb_Gender.Name = "lb_Gender";
+            this.lb_Gender.Size = new System.Drawing.Size(90, 20);
+            this.lb_Gender.TabIndex = 15;
+            this.lb_Gender.Text = "Giới tính:";
+            // 
+            // lb_Register
+            // 
+            this.lb_Register.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lb_Register.AutoSize = true;
+            this.lb_Register.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Register.Location = new System.Drawing.Point(168, 24);
+            this.lb_Register.Name = "lb_Register";
+            this.lb_Register.Size = new System.Drawing.Size(303, 34);
+            this.lb_Register.TabIndex = 14;
+            this.lb_Register.Text = "Đăng ký tài khoản";
             // 
             // Register
             // 
@@ -375,7 +375,7 @@
         private System.Windows.Forms.Panel pn_Register;
         private System.Windows.Forms.Label lb_Register;
         private System.Windows.Forms.TextBox tb_Email;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb_Email;
         private System.Windows.Forms.RadioButton rdBtn_Other;
         private System.Windows.Forms.RadioButton rdBtn_Female;
         private System.Windows.Forms.RadioButton rdBtn_Male;
