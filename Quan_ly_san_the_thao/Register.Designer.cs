@@ -177,7 +177,7 @@
             this.btn_Register.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Register.BackColor = System.Drawing.Color.Lime;
             this.btn_Register.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Register.Location = new System.Drawing.Point(167, 435);
+            this.btn_Register.Location = new System.Drawing.Point(337, 435);
             this.btn_Register.Name = "btn_Register";
             this.btn_Register.Size = new System.Drawing.Size(110, 39);
             this.btn_Register.TabIndex = 10;
@@ -189,7 +189,7 @@
             this.btn_Exit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Exit.BackColor = System.Drawing.Color.Tomato;
             this.btn_Exit.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Exit.Location = new System.Drawing.Point(337, 435);
+            this.btn_Exit.Location = new System.Drawing.Point(165, 435);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(110, 39);
             this.btn_Exit.TabIndex = 11;
