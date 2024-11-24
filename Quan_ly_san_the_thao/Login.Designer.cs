@@ -99,6 +99,7 @@
             this.llb_ForgotPassword.TabIndex = 6;
             this.llb_ForgotPassword.TabStop = true;
             this.llb_ForgotPassword.Text = "Quên mật khẩu?";
+            this.llb_ForgotPassword.VisitedLinkColor = System.Drawing.Color.Blue;
             // 
             // lb_SignIn
             // 
@@ -121,6 +122,7 @@
             this.llb_SignIn.TabIndex = 9;
             this.llb_SignIn.TabStop = true;
             this.llb_SignIn.Text = "Đăng ký";
+            this.llb_SignIn.VisitedLinkColor = System.Drawing.Color.Blue;
             // 
             // lb_Login
             // 
