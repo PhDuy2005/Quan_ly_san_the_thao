@@ -141,14 +141,21 @@
             this.pn_Tuesday = new System.Windows.Forms.Panel();
             this.btn_Tuesday7AM = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lb_priceTable = new System.Windows.Forms.Label();
-            this.lb_Morning = new System.Windows.Forms.Label();
-            this.lb_MorningPrice = new System.Windows.Forms.Label();
-            this.lb_Afternoon = new System.Windows.Forms.Label();
-            this.lb_AfternoonPrice = new System.Windows.Forms.Label();
-            this.lb_Evening = new System.Windows.Forms.Label();
+            this.Tpn_PriceTable = new System.Windows.Forms.TableLayoutPanel();
             this.lb_EveningPrice = new System.Windows.Forms.Label();
+            this.lb_Evening = new System.Windows.Forms.Label();
+            this.lb_AfternoonPrice = new System.Windows.Forms.Label();
+            this.lb_Afternoon = new System.Windows.Forms.Label();
+            this.lb_MorningPrice = new System.Windows.Forms.Label();
+            this.lb_Morning = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lb_court1 = new System.Windows.Forms.Label();
+            this.lb_court2 = new System.Windows.Forms.Label();
+            this.lb_court3 = new System.Windows.Forms.Label();
+            this.ckBox_court1 = new System.Windows.Forms.CheckBox();
+            this.ckBox_court2 = new System.Windows.Forms.CheckBox();
+            this.ckBox_court3 = new System.Windows.Forms.CheckBox();
             this.pn_Friday.SuspendLayout();
             this.pn_Sunday.SuspendLayout();
             this.pn_Saturnday.SuspendLayout();
@@ -158,7 +165,8 @@
             this.pn_Wednesday.SuspendLayout();
             this.pn_Tuesday.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.Tpn_PriceTable.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Thursday2PM
@@ -248,9 +256,9 @@
             this.pn_Friday.Controls.Add(this.btn_Friday8AM);
             this.pn_Friday.Controls.Add(this.btn_Friday7AM);
             this.pn_Friday.Controls.Add(this.lb_Friday);
-            this.pn_Friday.Location = new System.Drawing.Point(767, 82);
+            this.pn_Friday.Location = new System.Drawing.Point(807, 82);
             this.pn_Friday.Name = "pn_Friday";
-            this.pn_Friday.Size = new System.Drawing.Size(83, 699);
+            this.pn_Friday.Size = new System.Drawing.Size(85, 699);
             this.pn_Friday.TabIndex = 16;
             // 
             // btn_Friday9AM
@@ -455,7 +463,7 @@
             // 
             this.btn_Sunday6PM.Location = new System.Drawing.Point(0, 495);
             this.btn_Sunday6PM.Name = "btn_Sunday6PM";
-            this.btn_Sunday6PM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday6PM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday6PM.TabIndex = 9;
             this.btn_Sunday6PM.UseVisualStyleBackColor = true;
             // 
@@ -463,7 +471,7 @@
             // 
             this.btn_Sunday4PM.Location = new System.Drawing.Point(0, 429);
             this.btn_Sunday4PM.Name = "btn_Sunday4PM";
-            this.btn_Sunday4PM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday4PM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday4PM.TabIndex = 7;
             this.btn_Sunday4PM.UseVisualStyleBackColor = true;
             // 
@@ -471,7 +479,7 @@
             // 
             this.btn_Sunday2PM.Location = new System.Drawing.Point(0, 329);
             this.btn_Sunday2PM.Name = "btn_Sunday2PM";
-            this.btn_Sunday2PM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday2PM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday2PM.TabIndex = 6;
             this.btn_Sunday2PM.UseVisualStyleBackColor = true;
             // 
@@ -527,7 +535,7 @@
             // 
             this.btn_Sunday1PM.Location = new System.Drawing.Point(0, 279);
             this.btn_Sunday1PM.Name = "btn_Sunday1PM";
-            this.btn_Sunday1PM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday1PM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday1PM.TabIndex = 5;
             this.btn_Sunday1PM.UseVisualStyleBackColor = true;
             // 
@@ -535,7 +543,7 @@
             // 
             this.btn_Sunday9AM.Location = new System.Drawing.Point(0, 167);
             this.btn_Sunday9AM.Name = "btn_Sunday9AM";
-            this.btn_Sunday9AM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday9AM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday9AM.TabIndex = 4;
             this.btn_Sunday9AM.UseVisualStyleBackColor = true;
             // 
@@ -575,7 +583,7 @@
             // 
             this.btn_Sunday3PM.Location = new System.Drawing.Point(0, 379);
             this.btn_Sunday3PM.Name = "btn_Sunday3PM";
-            this.btn_Sunday3PM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday3PM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday3PM.TabIndex = 8;
             this.btn_Sunday3PM.UseVisualStyleBackColor = true;
             // 
@@ -583,7 +591,7 @@
             // 
             this.btn_Sunday10AM.Location = new System.Drawing.Point(0, 217);
             this.btn_Sunday10AM.Name = "btn_Sunday10AM";
-            this.btn_Sunday10AM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday10AM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday10AM.TabIndex = 3;
             this.btn_Sunday10AM.UseVisualStyleBackColor = true;
             // 
@@ -591,7 +599,7 @@
             // 
             this.btn_Sunday8AM.Location = new System.Drawing.Point(0, 117);
             this.btn_Sunday8AM.Name = "btn_Sunday8AM";
-            this.btn_Sunday8AM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday8AM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday8AM.TabIndex = 2;
             this.btn_Sunday8AM.UseVisualStyleBackColor = true;
             // 
@@ -609,7 +617,7 @@
             this.lb_sunday.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lb_sunday.Location = new System.Drawing.Point(0, 1);
             this.lb_sunday.Name = "lb_sunday";
-            this.lb_sunday.Size = new System.Drawing.Size(83, 53);
+            this.lb_sunday.Size = new System.Drawing.Size(95, 53);
             this.lb_sunday.TabIndex = 0;
             this.lb_sunday.Text = "Chủ nhật";
             this.lb_sunday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -626,7 +634,7 @@
             // 
             this.btn_Sunday8PM.Location = new System.Drawing.Point(0, 595);
             this.btn_Sunday8PM.Name = "btn_Sunday8PM";
-            this.btn_Sunday8PM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday8PM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday8PM.TabIndex = 12;
             this.btn_Sunday8PM.UseVisualStyleBackColor = true;
             // 
@@ -634,7 +642,7 @@
             // 
             this.btn_Sunday9PM.Location = new System.Drawing.Point(0, 645);
             this.btn_Sunday9PM.Name = "btn_Sunday9PM";
-            this.btn_Sunday9PM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday9PM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday9PM.TabIndex = 11;
             this.btn_Sunday9PM.UseVisualStyleBackColor = true;
             // 
@@ -653,16 +661,16 @@
             this.pn_Sunday.Controls.Add(this.btn_Sunday8AM);
             this.pn_Sunday.Controls.Add(this.btn_Sunday7AM);
             this.pn_Sunday.Controls.Add(this.lb_sunday);
-            this.pn_Sunday.Location = new System.Drawing.Point(945, 82);
+            this.pn_Sunday.Location = new System.Drawing.Point(989, 82);
             this.pn_Sunday.Name = "pn_Sunday";
-            this.pn_Sunday.Size = new System.Drawing.Size(83, 699);
+            this.pn_Sunday.Size = new System.Drawing.Size(100, 699);
             this.pn_Sunday.TabIndex = 17;
             // 
             // btn_Sunday7PM
             // 
             this.btn_Sunday7PM.Location = new System.Drawing.Point(0, 545);
             this.btn_Sunday7PM.Name = "btn_Sunday7PM";
-            this.btn_Sunday7PM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday7PM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday7PM.TabIndex = 10;
             this.btn_Sunday7PM.UseVisualStyleBackColor = true;
             // 
@@ -670,7 +678,7 @@
             // 
             this.btn_Sunday7AM.Location = new System.Drawing.Point(0, 67);
             this.btn_Sunday7AM.Name = "btn_Sunday7AM";
-            this.btn_Sunday7AM.Size = new System.Drawing.Size(83, 44);
+            this.btn_Sunday7AM.Size = new System.Drawing.Size(95, 44);
             this.btn_Sunday7AM.TabIndex = 1;
             this.btn_Sunday7AM.UseVisualStyleBackColor = true;
             // 
@@ -700,9 +708,9 @@
             this.pn_Saturnday.Controls.Add(this.btn_Saturnday8AM);
             this.pn_Saturnday.Controls.Add(this.btn_Saturnday7AM);
             this.pn_Saturnday.Controls.Add(this.lb_Saturnday);
-            this.pn_Saturnday.Location = new System.Drawing.Point(856, 82);
+            this.pn_Saturnday.Location = new System.Drawing.Point(898, 82);
             this.pn_Saturnday.Name = "pn_Saturnday";
-            this.pn_Saturnday.Size = new System.Drawing.Size(83, 699);
+            this.pn_Saturnday.Size = new System.Drawing.Size(85, 699);
             this.pn_Saturnday.TabIndex = 18;
             // 
             // lb_Wednesday
@@ -847,7 +855,7 @@
             // 
             this.lb_6PM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb_6PM.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lb_6PM.Location = new System.Drawing.Point(0, 495);
+            this.lb_6PM.Location = new System.Drawing.Point(0, 497);
             this.lb_6PM.Name = "lb_6PM";
             this.lb_6PM.Size = new System.Drawing.Size(83, 44);
             this.lb_6PM.TabIndex = 17;
@@ -925,9 +933,9 @@
             this.panel1.Controls.Add(this.lb_8AM);
             this.panel1.Controls.Add(this.lb_1PM);
             this.panel1.Controls.Add(this.lb_7AM);
-            this.panel1.Location = new System.Drawing.Point(322, 82);
+            this.panel1.Location = new System.Drawing.Point(352, 82);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(83, 699);
+            this.panel1.Size = new System.Drawing.Size(85, 699);
             this.panel1.TabIndex = 19;
             // 
             // lb_2PM
@@ -956,7 +964,7 @@
             // 
             this.lb_1PM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb_1PM.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lb_1PM.Location = new System.Drawing.Point(0, 279);
+            this.lb_1PM.Location = new System.Drawing.Point(0, 281);
             this.lb_1PM.Name = "lb_1PM";
             this.lb_1PM.Size = new System.Drawing.Size(83, 44);
             this.lb_1PM.TabIndex = 13;
@@ -967,7 +975,7 @@
             // 
             this.lb_7AM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb_7AM.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lb_7AM.Location = new System.Drawing.Point(0, 65);
+            this.lb_7AM.Location = new System.Drawing.Point(0, 67);
             this.lb_7AM.Name = "lb_7AM";
             this.lb_7AM.Size = new System.Drawing.Size(83, 44);
             this.lb_7AM.TabIndex = 13;
@@ -989,16 +997,18 @@
             this.pn_Monday.Controls.Add(this.btn_Monday8AM);
             this.pn_Monday.Controls.Add(this.btn_Monday7AM);
             this.pn_Monday.Controls.Add(this.lb_Monday);
-            this.pn_Monday.Location = new System.Drawing.Point(411, 82);
+            this.pn_Monday.Location = new System.Drawing.Point(443, 82);
             this.pn_Monday.Name = "pn_Monday";
-            this.pn_Monday.Size = new System.Drawing.Size(83, 699);
+            this.pn_Monday.Size = new System.Drawing.Size(85, 699);
             this.pn_Monday.TabIndex = 15;
             // 
             // mCd_calendar
             // 
             this.mCd_calendar.Location = new System.Drawing.Point(18, 82);
+            this.mCd_calendar.MaxSelectionCount = 1;
             this.mCd_calendar.Name = "mCd_calendar";
             this.mCd_calendar.TabIndex = 14;
+            this.mCd_calendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.mCd_calendarDateChanged);
             // 
             // btn_Thursday8PM
             // 
@@ -1111,9 +1121,9 @@
             this.pn_Thursday.Controls.Add(this.btn_Thursday8AM);
             this.pn_Thursday.Controls.Add(this.btn_Thursday7AM);
             this.pn_Thursday.Controls.Add(this.lb_Thursday);
-            this.pn_Thursday.Location = new System.Drawing.Point(678, 82);
+            this.pn_Thursday.Location = new System.Drawing.Point(716, 82);
             this.pn_Thursday.Name = "pn_Thursday";
-            this.pn_Thursday.Size = new System.Drawing.Size(83, 699);
+            this.pn_Thursday.Size = new System.Drawing.Size(85, 699);
             this.pn_Thursday.TabIndex = 20;
             // 
             // btn_Thursday3PM
@@ -1139,9 +1149,9 @@
             this.pn_Wednesday.Controls.Add(this.btn_Wednesday8AM);
             this.pn_Wednesday.Controls.Add(this.btn_Wednesday7AM);
             this.pn_Wednesday.Controls.Add(this.lb_Wednesday);
-            this.pn_Wednesday.Location = new System.Drawing.Point(589, 82);
+            this.pn_Wednesday.Location = new System.Drawing.Point(625, 82);
             this.pn_Wednesday.Name = "pn_Wednesday";
-            this.pn_Wednesday.Size = new System.Drawing.Size(83, 699);
+            this.pn_Wednesday.Size = new System.Drawing.Size(85, 699);
             this.pn_Wednesday.TabIndex = 21;
             // 
             // btn_Tuesday9AM
@@ -1194,9 +1204,9 @@
             this.pn_Tuesday.Controls.Add(this.btn_Tuesday8AM);
             this.pn_Tuesday.Controls.Add(this.btn_Tuesday7AM);
             this.pn_Tuesday.Controls.Add(this.lb_Tuesday);
-            this.pn_Tuesday.Location = new System.Drawing.Point(500, 82);
+            this.pn_Tuesday.Location = new System.Drawing.Point(534, 82);
             this.pn_Tuesday.Name = "pn_Tuesday";
-            this.pn_Tuesday.Size = new System.Drawing.Size(83, 699);
+            this.pn_Tuesday.Size = new System.Drawing.Size(85, 699);
             this.pn_Tuesday.TabIndex = 22;
             // 
             // btn_Tuesday7AM
@@ -1209,32 +1219,13 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.tableLayoutPanel2);
             this.panel2.Controls.Add(this.lb_priceTable);
-            this.panel2.Controls.Add(this.tableLayoutPanel1);
+            this.panel2.Controls.Add(this.Tpn_PriceTable);
             this.panel2.Location = new System.Drawing.Point(18, 301);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(261, 480);
             this.panel2.TabIndex = 23;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.lb_EveningPrice, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lb_Evening, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lb_AfternoonPrice, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lb_Afternoon, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lb_MorningPrice, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lb_Morning, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 39);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(255, 167);
-            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lb_priceTable
             // 
@@ -1247,38 +1238,47 @@
             this.lb_priceTable.Text = "BẢNG GIÁ";
             this.lb_priceTable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lb_Morning
+            // Tpn_PriceTable
             // 
-            this.lb_Morning.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lb_Morning.AutoSize = true;
-            this.lb_Morning.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lb_Morning.Location = new System.Drawing.Point(38, 16);
-            this.lb_Morning.Name = "lb_Morning";
-            this.lb_Morning.Size = new System.Drawing.Size(50, 23);
-            this.lb_Morning.TabIndex = 0;
-            this.lb_Morning.Text = "Sáng";
+            this.Tpn_PriceTable.ColumnCount = 2;
+            this.Tpn_PriceTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.Tpn_PriceTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.Tpn_PriceTable.Controls.Add(this.lb_EveningPrice, 1, 2);
+            this.Tpn_PriceTable.Controls.Add(this.lb_Evening, 0, 2);
+            this.Tpn_PriceTable.Controls.Add(this.lb_AfternoonPrice, 1, 1);
+            this.Tpn_PriceTable.Controls.Add(this.lb_Afternoon, 0, 1);
+            this.Tpn_PriceTable.Controls.Add(this.lb_MorningPrice, 1, 0);
+            this.Tpn_PriceTable.Controls.Add(this.lb_Morning, 0, 0);
+            this.Tpn_PriceTable.Location = new System.Drawing.Point(3, 39);
+            this.Tpn_PriceTable.Name = "Tpn_PriceTable";
+            this.Tpn_PriceTable.RowCount = 3;
+            this.Tpn_PriceTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.Tpn_PriceTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.Tpn_PriceTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.Tpn_PriceTable.Size = new System.Drawing.Size(255, 167);
+            this.Tpn_PriceTable.TabIndex = 0;
             // 
-            // lb_MorningPrice
+            // lb_EveningPrice
             // 
-            this.lb_MorningPrice.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lb_MorningPrice.AutoSize = true;
-            this.lb_MorningPrice.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lb_MorningPrice.Location = new System.Drawing.Point(181, 16);
-            this.lb_MorningPrice.Name = "lb_MorningPrice";
-            this.lb_MorningPrice.Size = new System.Drawing.Size(20, 23);
-            this.lb_MorningPrice.TabIndex = 1;
-            this.lb_MorningPrice.Text = "0";
+            this.lb_EveningPrice.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lb_EveningPrice.AutoSize = true;
+            this.lb_EveningPrice.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lb_EveningPrice.Location = new System.Drawing.Point(181, 127);
+            this.lb_EveningPrice.Name = "lb_EveningPrice";
+            this.lb_EveningPrice.Size = new System.Drawing.Size(20, 23);
+            this.lb_EveningPrice.TabIndex = 5;
+            this.lb_EveningPrice.Text = "0";
             // 
-            // lb_Afternoon
+            // lb_Evening
             // 
-            this.lb_Afternoon.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lb_Afternoon.AutoSize = true;
-            this.lb_Afternoon.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lb_Afternoon.Location = new System.Drawing.Point(38, 71);
-            this.lb_Afternoon.Name = "lb_Afternoon";
-            this.lb_Afternoon.Size = new System.Drawing.Size(50, 23);
-            this.lb_Afternoon.TabIndex = 2;
-            this.lb_Afternoon.Text = "Chều";
+            this.lb_Evening.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lb_Evening.AutoSize = true;
+            this.lb_Evening.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lb_Evening.Location = new System.Drawing.Point(46, 127);
+            this.lb_Evening.Name = "lb_Evening";
+            this.lb_Evening.Size = new System.Drawing.Size(35, 23);
+            this.lb_Evening.TabIndex = 4;
+            this.lb_Evening.Text = "Tối";
             // 
             // lb_AfternoonPrice
             // 
@@ -1291,33 +1291,130 @@
             this.lb_AfternoonPrice.TabIndex = 3;
             this.lb_AfternoonPrice.Text = "0";
             // 
-            // lb_Evening
+            // lb_Afternoon
             // 
-            this.lb_Evening.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lb_Evening.AutoSize = true;
-            this.lb_Evening.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lb_Evening.Location = new System.Drawing.Point(38, 127);
-            this.lb_Evening.Name = "lb_Evening";
-            this.lb_Evening.Size = new System.Drawing.Size(50, 23);
-            this.lb_Evening.TabIndex = 4;
-            this.lb_Evening.Text = "Sáng";
+            this.lb_Afternoon.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lb_Afternoon.AutoSize = true;
+            this.lb_Afternoon.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lb_Afternoon.Location = new System.Drawing.Point(36, 71);
+            this.lb_Afternoon.Name = "lb_Afternoon";
+            this.lb_Afternoon.Size = new System.Drawing.Size(55, 23);
+            this.lb_Afternoon.TabIndex = 2;
+            this.lb_Afternoon.Text = "Chiều";
             // 
-            // lb_EveningPrice
+            // lb_MorningPrice
             // 
-            this.lb_EveningPrice.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lb_EveningPrice.AutoSize = true;
-            this.lb_EveningPrice.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lb_EveningPrice.Location = new System.Drawing.Point(173, 127);
-            this.lb_EveningPrice.Name = "lb_EveningPrice";
-            this.lb_EveningPrice.Size = new System.Drawing.Size(35, 23);
-            this.lb_EveningPrice.TabIndex = 5;
-            this.lb_EveningPrice.Text = "Tối";
+            this.lb_MorningPrice.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lb_MorningPrice.AutoSize = true;
+            this.lb_MorningPrice.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lb_MorningPrice.Location = new System.Drawing.Point(181, 16);
+            this.lb_MorningPrice.Name = "lb_MorningPrice";
+            this.lb_MorningPrice.Size = new System.Drawing.Size(20, 23);
+            this.lb_MorningPrice.TabIndex = 1;
+            this.lb_MorningPrice.Text = "0";
+            // 
+            // lb_Morning
+            // 
+            this.lb_Morning.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lb_Morning.AutoSize = true;
+            this.lb_Morning.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lb_Morning.Location = new System.Drawing.Point(38, 16);
+            this.lb_Morning.Name = "lb_Morning";
+            this.lb_Morning.Size = new System.Drawing.Size(50, 23);
+            this.lb_Morning.TabIndex = 0;
+            this.lb_Morning.Text = "Sáng";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.ckBox_court3, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.ckBox_court2, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lb_court1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lb_court2, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lb_court3, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.ckBox_court1, 1, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 244);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(261, 176);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // lb_court1
+            // 
+            this.lb_court1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lb_court1.AutoSize = true;
+            this.lb_court1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lb_court1.Location = new System.Drawing.Point(38, 17);
+            this.lb_court1.Name = "lb_court1";
+            this.lb_court1.Size = new System.Drawing.Size(54, 23);
+            this.lb_court1.TabIndex = 1;
+            this.lb_court1.Text = "Sân 1";
+            // 
+            // lb_court2
+            // 
+            this.lb_court2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lb_court2.AutoSize = true;
+            this.lb_court2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lb_court2.Location = new System.Drawing.Point(38, 75);
+            this.lb_court2.Name = "lb_court2";
+            this.lb_court2.Size = new System.Drawing.Size(54, 23);
+            this.lb_court2.TabIndex = 3;
+            this.lb_court2.Text = "Sân 2";
+            // 
+            // lb_court3
+            // 
+            this.lb_court3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lb_court3.AutoSize = true;
+            this.lb_court3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lb_court3.Location = new System.Drawing.Point(38, 134);
+            this.lb_court3.Name = "lb_court3";
+            this.lb_court3.Size = new System.Drawing.Size(54, 23);
+            this.lb_court3.TabIndex = 5;
+            this.lb_court3.Text = "Sân 3";
+            // 
+            // ckBox_court1
+            // 
+            this.ckBox_court1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ckBox_court1.AutoSize = true;
+            this.ckBox_court1.Location = new System.Drawing.Point(186, 20);
+            this.ckBox_court1.Name = "ckBox_court1";
+            this.ckBox_court1.Size = new System.Drawing.Size(18, 17);
+            this.ckBox_court1.TabIndex = 6;
+            this.ckBox_court1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ckBox_court1.UseVisualStyleBackColor = true;
+            // 
+            // ckBox_court2
+            // 
+            this.ckBox_court2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ckBox_court2.AutoSize = true;
+            this.ckBox_court2.Location = new System.Drawing.Point(186, 78);
+            this.ckBox_court2.Name = "ckBox_court2";
+            this.ckBox_court2.Size = new System.Drawing.Size(18, 17);
+            this.ckBox_court2.TabIndex = 7;
+            this.ckBox_court2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ckBox_court2.UseVisualStyleBackColor = true;
+            // 
+            // ckBox_court3
+            // 
+            this.ckBox_court3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ckBox_court3.AutoSize = true;
+            this.ckBox_court3.Location = new System.Drawing.Point(186, 137);
+            this.ckBox_court3.Name = "ckBox_court3";
+            this.ckBox_court3.Size = new System.Drawing.Size(18, 17);
+            this.ckBox_court3.TabIndex = 8;
+            this.ckBox_court3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ckBox_court3.UseVisualStyleBackColor = true;
             // 
             // TimeSelection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 863);
+            this.ClientSize = new System.Drawing.Size(1113, 863);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pn_Friday);
             this.Controls.Add(this.pn_Sunday);
@@ -1339,8 +1436,10 @@
             this.pn_Wednesday.ResumeLayout(false);
             this.pn_Tuesday.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.Tpn_PriceTable.ResumeLayout(false);
+            this.Tpn_PriceTable.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1460,7 +1559,7 @@
         private System.Windows.Forms.Panel pn_Tuesday;
         private System.Windows.Forms.Button btn_Tuesday7AM;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel Tpn_PriceTable;
         private System.Windows.Forms.Label lb_priceTable;
         private System.Windows.Forms.Label lb_Morning;
         private System.Windows.Forms.Label lb_EveningPrice;
@@ -1468,5 +1567,12 @@
         private System.Windows.Forms.Label lb_AfternoonPrice;
         private System.Windows.Forms.Label lb_Afternoon;
         private System.Windows.Forms.Label lb_MorningPrice;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label lb_court1;
+        private System.Windows.Forms.Label lb_court2;
+        private System.Windows.Forms.Label lb_court3;
+        private System.Windows.Forms.CheckBox ckBox_court1;
+        private System.Windows.Forms.CheckBox ckBox_court3;
+        private System.Windows.Forms.CheckBox ckBox_court2;
     }
 }
