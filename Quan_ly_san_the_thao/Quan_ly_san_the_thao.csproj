@@ -88,6 +88,12 @@
     <Compile Include="OTPCode.Designer.cs">
       <DependentUpon>OTPCode.cs</DependentUpon>
     </Compile>
+    <Compile Include="PasswordConfirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PasswordConfirmation.Designer.cs">
+      <DependentUpon>PasswordConfirmation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Payment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OTPCode.resx">
       <DependentUpon>OTPCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PasswordConfirmation.resx">
+      <DependentUpon>PasswordConfirmation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payment.resx">
       <DependentUpon>Payment.cs</DependentUpon>
