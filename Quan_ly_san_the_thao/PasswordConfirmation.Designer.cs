@@ -53,6 +53,7 @@
             this.tb_Password.Name = "tb_Password";
             this.tb_Password.Size = new System.Drawing.Size(406, 28);
             this.tb_Password.TabIndex = 4;
+            this.tb_Password.UseSystemPasswordChar = true;
             // 
             // ckBox_ShowPassword
             // 
