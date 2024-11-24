@@ -16,7 +16,9 @@ namespace Quan_ly_san_the_thao
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             Application.Run(new TimeSelection());
+
         }
     }
 }
