@@ -58,9 +58,9 @@
             // 
             this.tb_PhoneNumber.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_PhoneNumber.ForeColor = System.Drawing.Color.LightGray;
-            this.tb_PhoneNumber.Location = new System.Drawing.Point(43, 159);
+            this.tb_PhoneNumber.Location = new System.Drawing.Point(18, 159);
             this.tb_PhoneNumber.Name = "tb_PhoneNumber";
-            this.tb_PhoneNumber.Size = new System.Drawing.Size(365, 28);
+            this.tb_PhoneNumber.Size = new System.Drawing.Size(406, 28);
             this.tb_PhoneNumber.TabIndex = 3;
             this.tb_PhoneNumber.Text = "Nhập số điện thoại...";
             this.tb_PhoneNumber.Enter += new System.EventHandler(this.Phone_Enter);
