@@ -16,23 +16,5 @@ namespace Quan_ly_san_the_thao
         {
             InitializeComponent();
         }
-
-        private void Password_Enter(object sender, EventArgs e)
-        {
-            if (tb_Password.Text == "Nhập mật khẩu...")
-            {
-                tb_Password.Text = "";
-                tb_Password.ForeColor = Color.Black;
-            }
-        }
-
-        private void Password_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(tb_Password.Text))
-            {
-                tb_Password.Text = "Nhập mật khẩu...";
-                tb_Password.ForeColor = Color.LightGray;
-            }
-        }
     }
 }

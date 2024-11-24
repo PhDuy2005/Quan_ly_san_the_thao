@@ -53,9 +53,6 @@
             this.tb_Password.Name = "tb_Password";
             this.tb_Password.Size = new System.Drawing.Size(406, 28);
             this.tb_Password.TabIndex = 4;
-            this.tb_Password.Text = "Nhập mật khẩu...";
-            this.tb_Password.Enter += new System.EventHandler(this.Password_Enter);
-            this.tb_Password.Leave += new System.EventHandler(this.Password_Leave);
             // 
             // ckBox_ShowPassword
             // 
