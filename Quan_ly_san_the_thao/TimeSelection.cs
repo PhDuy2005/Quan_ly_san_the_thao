@@ -14,12 +14,130 @@ namespace Quan_ly_san_the_thao
     {
         Dictionary<string, DateTime> dates = new Dictionary<string, DateTime>();
         Dictionary<string, string> dateText = new Dictionary<string, string>();
+        Dictionary<string, Dictionary<int, Button>> timeDict = 
+            new Dictionary<string, Dictionary<int, Button>>();
         public TimeSelection()
         {
             InitializeComponent();
-
+            InitializeTimeDict();
             UpdateDates();
         }
+
+        private void InitializeTimeDict()
+        {
+            // Monday
+            Dictionary<int, Button> item = new Dictionary<int, Button>();
+            item.Add(7, btn_Monday7AM);
+            item.Add(8, btn_Monday8AM);
+            item.Add(9, btn_Monday9AM);
+            item.Add(10, btn_Monday10AM);
+            item.Add(13, btn_Monday1PM);
+            item.Add(14, btn_Monday2PM);
+            item.Add(15, btn_Monday3PM);
+            item.Add(16, btn_Monday4PM);
+            item.Add(18, btn_Monday6PM);
+            item.Add(19, btn_Monday7PM);
+            item.Add(20, btn_Monday8PM);
+            item.Add(21, btn_Monday9PM);
+            timeDict.Add("Mon", item);
+
+            // Tuesday
+            item = new Dictionary<int, Button>();
+            item.Add(7, btn_Tuesday7AM);
+            item.Add(8, btn_Tuesday8AM);
+            item.Add(9, btn_Tuesday9AM);
+            item.Add(10, btn_Tuesday10AM);
+            item.Add(13, btn_Tuesday1PM);
+            item.Add(14, btn_Tuesday2PM);
+            item.Add(15, btn_Tuesday3PM);
+            item.Add(16, btn_Tuesday4PM);
+            item.Add(18, btn_Tuesday6PM);
+            item.Add(19, btn_Tuesday7PM);
+            item.Add(20, btn_Tuesday8PM);
+            item.Add(21, btn_Tuesday9PM);
+            timeDict.Add("Tue", item);
+
+            // Wednesday
+            item = new Dictionary<int, Button>();
+            item.Add(7, btn_Wednesday7AM);
+            item.Add(8, btn_Wednesday8AM);
+            item.Add(9, btn_Wednesday9AM);
+            item.Add(10, btn_Wednesday10AM);
+            item.Add(13, btn_Wednesday1PM);
+            item.Add(14, btn_Wednesday2PM);
+            item.Add(15, btn_Wednesday3PM);
+            item.Add(16, btn_Wednesday4PM);
+            item.Add(18, btn_Wednesday6PM);
+            item.Add(19, btn_Wednesday7PM);
+            item.Add(20, btn_Wednesday8PM);
+            item.Add(21, btn_Wednesday9PM);
+            timeDict.Add("Wed", item);
+
+            // Thursday
+            item = new Dictionary<int, Button>();
+            item.Add(7, btn_Thursday7AM);
+            item.Add(8, btn_Thursday8AM);
+            item.Add(9, btn_Thursday9AM);
+            item.Add(10, btn_Thursday10AM);
+            item.Add(13, btn_Thursday1PM);
+            item.Add(14, btn_Thursday2PM);
+            item.Add(15, btn_Thursday3PM);
+            item.Add(16, btn_Thursday4PM);
+            item.Add(18, btn_Thursday6PM);
+            item.Add(19, btn_Thursday7PM);
+            item.Add(20, btn_Thursday8PM);
+            item.Add(21, btn_Thursday9PM);
+            timeDict.Add("Thu", item);
+
+            // Friday
+            item = new Dictionary<int, Button>();
+            item.Add(7, btn_Friday7AM);
+            item.Add(8, btn_Friday8AM);
+            item.Add(9, btn_Friday9AM);
+            item.Add(10, btn_Friday10AM);
+            item.Add(13, btn_Friday1PM);
+            item.Add(14, btn_Friday2PM);
+            item.Add(15, btn_Friday3PM);
+            item.Add(16, btn_Friday4PM);
+            item.Add(18, btn_Friday6PM);
+            item.Add(19, btn_Friday7PM);
+            item.Add(20, btn_Friday8PM);
+            item.Add(21, btn_Friday9PM);
+            timeDict.Add("Fri", item);
+
+            // Saturday
+            item = new Dictionary<int, Button>();
+            item.Add(7, btn_Saturnday7AM);
+            item.Add(8, btn_Saturnday8AM);
+            item.Add(9, btn_Saturnday9AM);
+            item.Add(10, btn_Saturnday10AM);
+            item.Add(13, btn_Saturnday1PM);
+            item.Add(14, btn_Saturnday2PM);
+            item.Add(15, btn_Saturnday3PM);
+            item.Add(16, btn_Saturnday4PM);
+            item.Add(18, btn_Saturnday6PM);
+            item.Add(19, btn_Saturnday7PM);
+            item.Add(20, btn_Saturnday8PM);
+            item.Add(21, btn_Saturnday9PM);
+            timeDict.Add("Sat", item);
+
+            // Sunday
+            item = new Dictionary<int, Button>();
+            item.Add(7, btn_Sunday7AM);
+            item.Add(8, btn_Sunday8AM);
+            item.Add(9, btn_Sunday9AM);
+            item.Add(10, btn_Sunday10AM);
+            item.Add(13, btn_Sunday1PM);
+            item.Add(14, btn_Sunday2PM);
+            item.Add(15, btn_Sunday3PM);
+            item.Add(16, btn_Sunday4PM);
+            item.Add(18, btn_Sunday6PM);
+            item.Add(19, btn_Sunday7PM);
+            item.Add(20, btn_Sunday8PM);
+            item.Add(21, btn_Sunday9PM);
+            timeDict.Add("Sun", item);
+        }
+
 
         /// <summary>
         /// Hàm này được gọi trong constructor và sự kiện thay đổi lựa chọn ngày trong mCd
