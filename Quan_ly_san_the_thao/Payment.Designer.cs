@@ -40,13 +40,11 @@
             this.lb_ThanhTien = new System.Windows.Forms.Label();
             this.lb_Total = new System.Windows.Forms.Label();
             this.btn_Pay = new System.Windows.Forms.Button();
-            this.btn_Back = new System.Windows.Forms.Button();
             this.dgv_FieldInfo = new System.Windows.Forms.DataGridView();
             this.cl_Field = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_RentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FieldInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,17 +189,6 @@
             this.btn_Pay.Text = "Thanh toán";
             this.btn_Pay.UseVisualStyleBackColor = false;
             // 
-            // btn_Back
-            // 
-            this.btn_Back.BackColor = System.Drawing.Color.Tomato;
-            this.btn_Back.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Back.Location = new System.Drawing.Point(134, 447);
-            this.btn_Back.Name = "btn_Back";
-            this.btn_Back.Size = new System.Drawing.Size(234, 38);
-            this.btn_Back.TabIndex = 36;
-            this.btn_Back.Text = "Quay lại";
-            this.btn_Back.UseVisualStyleBackColor = false;
-            // 
             // dgv_FieldInfo
             // 
             this.dgv_FieldInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -245,24 +232,12 @@
             this.cl_Discount.MinimumWidth = 6;
             this.cl_Discount.Name = "cl_Discount";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label1.Location = new System.Drawing.Point(132, 416);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(236, 28);
-            this.label1.TabIndex = 38;
-            this.label1.Text = "//Xóa nút quay lại với nyc";
-            // 
             // Payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 508);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgv_FieldInfo);
-            this.Controls.Add(this.btn_Back);
             this.Controls.Add(this.btn_Pay);
             this.Controls.Add(this.lb_Total);
             this.Controls.Add(this.lb_ThanhTien);
@@ -297,12 +272,10 @@
         private System.Windows.Forms.Label lb_ThanhTien;
         private System.Windows.Forms.Label lb_Total;
         private System.Windows.Forms.Button btn_Pay;
-        private System.Windows.Forms.Button btn_Back;
         private System.Windows.Forms.DataGridView dgv_FieldInfo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_Field;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_RentTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_UnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_Discount;
-        private System.Windows.Forms.Label label1;
     }
 }
