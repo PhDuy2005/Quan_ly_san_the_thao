@@ -156,6 +156,7 @@
             this.lb_Afternoon = new System.Windows.Forms.Label();
             this.lb_MorningPrice = new System.Windows.Forms.Label();
             this.lb_Morning = new System.Windows.Forms.Label();
+            this.btn_Verify = new System.Windows.Forms.Button();
             this.pn_Friday.SuspendLayout();
             this.pn_Sunday.SuspendLayout();
             this.pn_Saturnday.SuspendLayout();
@@ -1219,6 +1220,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btn_Verify);
             this.panel2.Controls.Add(this.tableLayoutPanel2);
             this.panel2.Controls.Add(this.lb_priceTable);
             this.panel2.Controls.Add(this.Tpn_PriceTable);
@@ -1410,6 +1412,18 @@
             this.lb_Morning.TabIndex = 0;
             this.lb_Morning.Text = "Sáng";
             // 
+            // btn_Verify
+            // 
+            this.btn_Verify.BackColor = System.Drawing.Color.Lime;
+            this.btn_Verify.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Verify.Location = new System.Drawing.Point(42, 429);
+            this.btn_Verify.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btn_Verify.Name = "btn_Verify";
+            this.btn_Verify.Size = new System.Drawing.Size(186, 39);
+            this.btn_Verify.TabIndex = 24;
+            this.btn_Verify.Text = "Xác nhận";
+            this.btn_Verify.UseVisualStyleBackColor = false;
+            // 
             // TimeSelection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1574,5 +1588,6 @@
         private System.Windows.Forms.CheckBox ckBox_court1;
         private System.Windows.Forms.CheckBox ckBox_court3;
         private System.Windows.Forms.CheckBox ckBox_court2;
+        private System.Windows.Forms.Button btn_Verify;
     }
 }
