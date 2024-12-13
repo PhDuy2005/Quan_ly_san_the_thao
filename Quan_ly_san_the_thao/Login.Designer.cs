@@ -87,6 +87,7 @@
             this.btn_Login.TabIndex = 5;
             this.btn_Login.Text = "Đăng nhập";
             this.btn_Login.UseVisualStyleBackColor = true;
+            this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
             // llb_ForgotPassword
             // 

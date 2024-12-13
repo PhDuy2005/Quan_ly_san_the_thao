@@ -16,5 +16,25 @@ namespace Quan_ly_san_the_thao
         {
             InitializeComponent();
         }
+
+        private void btn_Login_Click(object sender, EventArgs e)
+        {
+            DatabaseHelper dbHelper = new DatabaseHelper();
+            DataRow dr = dbHelper.GetUserDetails(tb_Username.Text);
+            int i = 0;
+            while (true)
+            {
+                try
+                {
+                    string temp = dr[i].ToString();
+                    MessageBox.Show(temp);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                    break;
+                }
+            }
+        }
     }
 }
