@@ -13,7 +13,7 @@ namespace Quan_ly_san_the_thao
 {
     public partial class SportListForm : Form
     {
-        string strCon = @"Data Source=LAPTOP-20GSDDPA\MSSQLSERVER01;Initial Catalog=IT8_PROJECT_DATABASE;Integrated Security=True";
+        string strCon = @"Data Source=.\MSSQLSERVER01;Initial Catalog=IT8_PROJECT_DATABASE;Integrated Security=True";
         SqlConnection sqlCon = null;
         string username;
 
