@@ -29,6 +29,11 @@ namespace Quan_ly_san_the_thao
 
         private void Phone_Leave(object sender, EventArgs e)
         {
+            PlaceholderShow();
+        }
+
+        private void PlaceholderShow()
+        {
             if (string.IsNullOrWhiteSpace(tb_PhoneNumber.Text))
             {
                 tb_PhoneNumber.Text = "Nhập số điện thoại...";
@@ -38,7 +43,16 @@ namespace Quan_ly_san_the_thao
 
         private void btn_Verify_Click(object sender, EventArgs e)
         {
+            int length = tb_PhoneNumber.Text.Trim().Length;
+            if (length != 10 && length != 11 && tb_PhoneNumber.Text.Trim()[0] != '0')
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ!");
+                tb_PhoneNumber.Text = string.Empty;
+                PlaceholderShow();
+                return;
+            }
 
+            //Truy vấn
         }
     }
 }

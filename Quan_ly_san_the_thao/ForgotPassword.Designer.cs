@@ -83,7 +83,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 502);
+            this.ClientSize = new System.Drawing.Size(543, 502);
             this.Controls.Add(this.btn_Verify);
             this.Controls.Add(this.tb_PhoneNumber);
             this.Controls.Add(this.lb_Note);

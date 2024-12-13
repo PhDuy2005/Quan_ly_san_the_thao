@@ -42,5 +42,13 @@ namespace Quan_ly_san_the_thao
             register.ShowDialog();
             this.Visible = true;
         }
+
+        private void llb_ForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ForgotPassword forgotPassword = new ForgotPassword();
+            this.Visible = false;
+            forgotPassword.ShowDialog();
+            this.Visible = true;
+        }
     }
 }
