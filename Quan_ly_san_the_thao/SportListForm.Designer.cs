@@ -49,7 +49,7 @@
             this.thoátToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip.Size = new System.Drawing.Size(800, 30);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -60,7 +60,7 @@
             this.tsmi_changePw,
             this.tsmi_LogOut});
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(85, 26);
             this.thoátToolStripMenuItem.Text = "Tài khoản";
             // 
             // tsmi_UserInfo
@@ -68,6 +68,7 @@
             this.tsmi_UserInfo.Name = "tsmi_UserInfo";
             this.tsmi_UserInfo.Size = new System.Drawing.Size(224, 26);
             this.tsmi_UserInfo.Text = "Xem thông tin";
+            this.tsmi_UserInfo.Click += new System.EventHandler(this.UserInfo_Click);
             // 
             // tsmi_changePw
             // 

@@ -58,6 +58,7 @@
     <Compile Include="ChangeProfile.Designer.cs">
       <DependentUpon>ChangeProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseHelper.cs" />
     <Compile Include="ForgotPassword.cs">
       <SubType>Form</SubType>
     </Compile>
