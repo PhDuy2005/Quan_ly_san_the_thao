@@ -1,4 +1,4 @@
-CREATE DATABASE IT8_PROJECT_DATABASE
+﻿CREATE DATABASE IT8_PROJECT_DATABASE
 GO
 
 USE IT8_PROJECT_DATABASE
@@ -10,8 +10,8 @@ CREATE TABLE KHACHHANG (
     TENKH    VARCHAR(60) NOT NULL,
     EMAIL    VARCHAR(60) NOT NULL,
     SDT      VARCHAR(10) NOT NULL, 
-    GTINH    BIT         NOT NULL,
-	LOAI	 VARCHAR(10)
+    GTINH    BIT         NOT NULL, --1: Nam, 0: Nữ
+	LOAI	 VARCHAR(10) --admin/customer
     CONSTRAINT CS_PK_KHACHHANG PRIMARY KEY(USERNAME)
 )
 
@@ -64,5 +64,16 @@ ALTER TABLE CTHD
 ADD CONSTRAINT PK_SANTHETHAO_TO_FK_CTHD
 FOREIGN KEY(MASANTT) REFERENCES SANTHETHAO(MASANTT)
 
+alter table KHACHHANG
+add constraint chk_gender
+check (GTINH in (0, 1));
 
+alter table KHACHHANG
+add constraint chk_type
+check (LOAI in ('admin', 'customer'));
 
+GO
+
+insert into KHACHHANG(USERNAME, PASSWRD, TENKH, EMAIL, SDT, GTINH, LOAI)
+values ('test', '12345678', N'Khách hàng kiểm thử', 'abc@gmail.com', '0123456789', 1, 'customer');
+select * from KHACHHANG;

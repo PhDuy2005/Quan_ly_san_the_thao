@@ -35,5 +35,10 @@ namespace Quan_ly_san_the_thao
                 tb_PhoneNumber.ForeColor = Color.LightGray;
             }
         }
+
+        private void btn_Verify_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
