@@ -87,6 +87,7 @@
             this.btn_Login.TabIndex = 5;
             this.btn_Login.Text = "Đăng nhập";
             this.btn_Login.UseVisualStyleBackColor = true;
+            this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
             // llb_ForgotPassword
             // 
@@ -123,6 +124,7 @@
             this.llb_SignIn.TabStop = true;
             this.llb_SignIn.Text = "Đăng ký";
             this.llb_SignIn.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.llb_SignIn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llb_SignIn_LinkClicked);
             // 
             // lb_Login
             // 

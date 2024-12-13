@@ -45,7 +45,6 @@
             this.pn_Register = new System.Windows.Forms.Panel();
             this.tb_Email = new System.Windows.Forms.TextBox();
             this.lb_Email = new System.Windows.Forms.Label();
-            this.rdBtn_Other = new System.Windows.Forms.RadioButton();
             this.rdBtn_Female = new System.Windows.Forms.RadioButton();
             this.rdBtn_Male = new System.Windows.Forms.RadioButton();
             this.lb_Gender = new System.Windows.Forms.Label();
@@ -227,7 +226,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pn_Register.Controls.Add(this.tb_Email);
             this.pn_Register.Controls.Add(this.lb_Email);
-            this.pn_Register.Controls.Add(this.rdBtn_Other);
             this.pn_Register.Controls.Add(this.rdBtn_Female);
             this.pn_Register.Controls.Add(this.rdBtn_Male);
             this.pn_Register.Controls.Add(this.lb_Gender);
@@ -275,20 +273,6 @@
             this.lb_Email.Size = new System.Drawing.Size(65, 20);
             this.lb_Email.TabIndex = 19;
             this.lb_Email.Text = "Email:";
-            // 
-            // rdBtn_Other
-            // 
-            this.rdBtn_Other.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rdBtn_Other.AutoSize = true;
-            this.rdBtn_Other.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdBtn_Other.Location = new System.Drawing.Point(431, 231);
-            this.rdBtn_Other.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            this.rdBtn_Other.Name = "rdBtn_Other";
-            this.rdBtn_Other.Size = new System.Drawing.Size(72, 24);
-            this.rdBtn_Other.TabIndex = 18;
-            this.rdBtn_Other.TabStop = true;
-            this.rdBtn_Other.Text = "Khác";
-            this.rdBtn_Other.UseVisualStyleBackColor = true;
             // 
             // rdBtn_Female
             // 
@@ -376,7 +360,6 @@
         private System.Windows.Forms.Label lb_Register;
         private System.Windows.Forms.TextBox tb_Email;
         private System.Windows.Forms.Label lb_Email;
-        private System.Windows.Forms.RadioButton rdBtn_Other;
         private System.Windows.Forms.RadioButton rdBtn_Female;
         private System.Windows.Forms.RadioButton rdBtn_Male;
         private System.Windows.Forms.Label lb_Gender;
