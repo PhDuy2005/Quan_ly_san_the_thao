@@ -16,7 +16,7 @@ namespace Quan_ly_san_the_thao
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT TenKH, USERNAME, SDT, GTinh, EMAIL, LOAI FROM Users WHERE Username = @Username";
+                string query = "SELECT TENKH, USERNAME, SDT, GTINH, EMAIL, LOAI FROM KHACHHANG WHERE Username = @Username";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Username", username);
 
@@ -29,6 +29,22 @@ namespace Quan_ly_san_the_thao
                 if (dataTable.Rows.Count > 0)
                     return dataTable.Rows[0];
                 return null;
+            }
+        }
+
+        public bool VerifyCredentials(string username, string password)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM KHACHHANG WHERE USERNAME = @Username AND PASSWRD = @Password";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Username", username);
+                command.Parameters.AddWithValue("@Password", password);
+
+                connection.Open();
+                int count = (int)command.ExecuteScalar(); // Return the count of matching records
+
+                return count > 0; // Return true if at least one match is found
             }
         }
     }

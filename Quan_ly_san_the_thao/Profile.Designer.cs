@@ -190,6 +190,7 @@
             this.btn_ChangeProfile.Size = new System.Drawing.Size(35, 35);
             this.btn_ChangeProfile.TabIndex = 33;
             this.btn_ChangeProfile.UseVisualStyleBackColor = true;
+            this.btn_ChangeProfile.Click += new System.EventHandler(this.ChangeProfile_Click);
             // 
             // lb_UserType
             // 

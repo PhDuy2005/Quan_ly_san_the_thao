@@ -16,5 +16,10 @@ namespace Quan_ly_san_the_thao
         {
             InitializeComponent();
         }
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

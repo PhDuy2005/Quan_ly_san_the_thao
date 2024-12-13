@@ -48,7 +48,7 @@
             // tb_Password
             // 
             this.tb_Password.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_Password.ForeColor = System.Drawing.Color.LightGray;
+            this.tb_Password.ForeColor = System.Drawing.Color.Black;
             this.tb_Password.Location = new System.Drawing.Point(18, 120);
             this.tb_Password.Name = "tb_Password";
             this.tb_Password.Size = new System.Drawing.Size(406, 28);
@@ -65,6 +65,7 @@
             this.ckBox_ShowPassword.TabIndex = 5;
             this.ckBox_ShowPassword.Text = "Hiện mật khẩu";
             this.ckBox_ShowPassword.UseVisualStyleBackColor = true;
+            this.ckBox_ShowPassword.CheckedChanged += new System.EventHandler(this.ShowPassword_Checked);
             // 
             // llb_ForgotPassword
             // 
@@ -78,6 +79,7 @@
             this.llb_ForgotPassword.TabStop = true;
             this.llb_ForgotPassword.Text = "Quên mật khẩu?";
             this.llb_ForgotPassword.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.llb_ForgotPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ForgotPassword_Click);
             // 
             // btn_Next
             // 
@@ -91,6 +93,7 @@
             this.btn_Next.TabIndex = 8;
             this.btn_Next.Text = "Tiếp";
             this.btn_Next.UseVisualStyleBackColor = false;
+            this.btn_Next.Click += new System.EventHandler(this.Next_Click);
             // 
             // PasswordConfirmation
             // 
