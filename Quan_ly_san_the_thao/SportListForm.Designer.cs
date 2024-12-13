@@ -92,12 +92,14 @@
             this.lb_Greeting.TabIndex = 2;
             this.lb_Greeting.Text = "CHÀO MỪNG [TÊN KHÁCH HÀNG]";
             this.lb_Greeting.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_Greeting.TextChanged += new System.EventHandler(this.lb_Greeting_TextChanged);
+            this.lb_Greeting.Resize += new System.EventHandler(this.lb_Greeting_Resize);
             // 
             // lb_ChooseSport
             // 
             this.lb_ChooseSport.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lb_ChooseSport.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.lb_ChooseSport.Location = new System.Drawing.Point(4, 143);
+            this.lb_ChooseSport.Location = new System.Drawing.Point(3, 206);
             this.lb_ChooseSport.Name = "lb_ChooseSport";
             this.lb_ChooseSport.Size = new System.Drawing.Size(796, 54);
             this.lb_ChooseSport.TabIndex = 3;
@@ -107,7 +109,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(12, 225);
+            this.button1.Location = new System.Drawing.Point(12, 289);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(175, 63);
             this.button1.TabIndex = 4;
@@ -117,7 +119,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(217, 225);
+            this.button2.Location = new System.Drawing.Point(217, 289);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(175, 63);
             this.button2.TabIndex = 5;
@@ -127,7 +129,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.button3.Location = new System.Drawing.Point(613, 225);
+            this.button3.Location = new System.Drawing.Point(613, 289);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(175, 63);
             this.button3.TabIndex = 7;
@@ -137,7 +139,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.button4.Location = new System.Drawing.Point(415, 225);
+            this.button4.Location = new System.Drawing.Point(415, 289);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(175, 63);
             this.button4.TabIndex = 6;

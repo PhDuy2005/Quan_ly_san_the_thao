@@ -15,14 +15,6 @@ CREATE TABLE KHACHHANG (
     CONSTRAINT CS_PK_KHACHHANG PRIMARY KEY(USERNAME)
 )
 
-alter table KHACHHANG
-add constraint chk_gender
-check (GTINH in (0, 1));
-
-alter table KHACHHANG
-add constraint chk_type
-check (LOAI in ('admin', 'customer'));
-
 CREATE TABLE LOAITHETHAO (
     MALOAITT  VARCHAR(10) NOT NULL,
     TENLOAITT VARCHAR(15) NOT NULL,
@@ -72,7 +64,16 @@ ALTER TABLE CTHD
 ADD CONSTRAINT PK_SANTHETHAO_TO_FK_CTHD
 FOREIGN KEY(MASANTT) REFERENCES SANTHETHAO(MASANTT)
 
-insert into KHACHHANG(USERNAME, PASSWRD, TENKH, EMAIL, SDT, GTINH, LOAI)
-values ('test', '12345678', 'Khach hang kiem thu', 'abc@gmail.com', '0123456789', 1, 'customer');
-select * from KHACHHANG;
+alter table KHACHHANG
+add constraint chk_gender
+check (GTINH in (0, 1));
 
+alter table KHACHHANG
+add constraint chk_type
+check (LOAI in ('admin', 'customer'));
+
+GO
+
+insert into KHACHHANG(USERNAME, PASSWRD, TENKH, EMAIL, SDT, GTINH, LOAI)
+values ('test', '12345678', N'Khách hàng kiểm thử', 'abc@gmail.com', '0123456789', 1, 'customer');
+select * from KHACHHANG;

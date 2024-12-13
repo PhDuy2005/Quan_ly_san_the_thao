@@ -77,6 +77,7 @@
             this.btn_Verify.TabIndex = 4;
             this.btn_Verify.Text = "Xác nhận";
             this.btn_Verify.UseVisualStyleBackColor = false;
+            this.btn_Verify.Click += new System.EventHandler(this.btn_Verify_Click);
             // 
             // ForgotPassword
             // 

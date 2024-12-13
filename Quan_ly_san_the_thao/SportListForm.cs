@@ -21,7 +21,23 @@ namespace Quan_ly_san_the_thao
             InitializeComponent();
             this.username = username;
             this.userDetail = new DatabaseHelper().GetUserDetails(username);
-            lb_Greeting.Text = "CHÀO MỪNG" + userDetail["TENKH"].ToString().ToUpper() + " ĐẾN VỚI KHU PHỨC HỢP SE SPORT";
+            lb_Greeting.Text = "CHÀO MỪNG " + userDetail["TENKH"].ToString().ToUpper() + "\r\nĐẾN VỚI KHU PHỨC HỢP SE SPORT";
+        }
+
+        private void AdjustFontSize(Label label)
+        {
+            Graphics g = label.CreateGraphics();
+            Font currentFont = label.Font;
+            SizeF textSize = g.MeasureString(label.Text, currentFont);
+
+            while (textSize.Width > label.Width || textSize.Height > label.Height)
+            {
+                currentFont = new Font(currentFont.FontFamily, currentFont.Size - 0.5f, currentFont.Style);
+                textSize = g.MeasureString(label.Text, currentFont);
+            }
+
+            label.Font = currentFont;
+            g.Dispose();
         }
 
         private void UserInfo_Click(object sender, EventArgs e)
@@ -50,6 +66,18 @@ namespace Quan_ly_san_the_thao
             {
                 Application.Exit(); // Kết thúc toàn bộ ứng dụng
             }
+        }
+
+        private void lb_Greeting_TextChanged(object sender, EventArgs e)
+        {
+            Label lb = (Label)sender;
+            AdjustFontSize(lb);
+        }
+
+        private void lb_Greeting_Resize(object sender, EventArgs e)
+        {
+            Label lb = (Label)sender;
+            AdjustFontSize(lb);
         }
     }
 }
