@@ -49,7 +49,7 @@
             this.thoátToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(800, 30);
+            this.menuStrip.Size = new System.Drawing.Size(800, 28);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -60,26 +60,26 @@
             this.tsmi_changePw,
             this.tsmi_LogOut});
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(85, 26);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.thoátToolStripMenuItem.Text = "Tài khoản";
             // 
             // tsmi_UserInfo
             // 
             this.tsmi_UserInfo.Name = "tsmi_UserInfo";
-            this.tsmi_UserInfo.Size = new System.Drawing.Size(224, 26);
+            this.tsmi_UserInfo.Size = new System.Drawing.Size(186, 26);
             this.tsmi_UserInfo.Text = "Xem thông tin";
             this.tsmi_UserInfo.Click += new System.EventHandler(this.UserInfo_Click);
             // 
             // tsmi_changePw
             // 
             this.tsmi_changePw.Name = "tsmi_changePw";
-            this.tsmi_changePw.Size = new System.Drawing.Size(224, 26);
+            this.tsmi_changePw.Size = new System.Drawing.Size(186, 26);
             this.tsmi_changePw.Text = "Đổi mật khẩu";
             // 
             // tsmi_LogOut
             // 
             this.tsmi_LogOut.Name = "tsmi_LogOut";
-            this.tsmi_LogOut.Size = new System.Drawing.Size(224, 26);
+            this.tsmi_LogOut.Size = new System.Drawing.Size(186, 26);
             this.tsmi_LogOut.Text = "Đăng xuất";
             // 
             // lb_Greeting
@@ -158,6 +158,7 @@
             this.Controls.Add(this.menuStrip);
             this.Name = "SportListForm";
             this.Text = "SportListForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SportListForm_FormClosing);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);

@@ -20,21 +20,27 @@ namespace Quan_ly_san_the_thao
         private void btn_Login_Click(object sender, EventArgs e)
         {
             DatabaseHelper dbHelper = new DatabaseHelper();
-            DataRow dr = dbHelper.GetUserDetails(tb_Username.Text);
-            int i = 0;
-            while (true)
+            DataRow dr = dbHelper.Login(tb_Username.Text);
+            if (dr[1].ToString() == tb_Password.Text)
             {
-                try
-                {
-                    string temp = dr[i].ToString();
-                    MessageBox.Show(temp);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                    break;
-                }
+                MessageBox.Show("Đăng nhập thành công");
+                this.Hide();
+
+                SportListForm sportListForm = new SportListForm(tb_Username.Text);
+                sportListForm.Show();
             }
+            else
+            {
+                MessageBox.Show("Sai username hoặc password");
+            }
+        }
+
+        private void llb_SignIn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Register register = new Register();
+            this.Visible = false;
+            register.ShowDialog();
+            this.Visible = true;
         }
     }
 }

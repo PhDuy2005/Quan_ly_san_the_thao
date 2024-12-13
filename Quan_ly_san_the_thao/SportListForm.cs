@@ -13,27 +13,27 @@ namespace Quan_ly_san_the_thao
 {
     public partial class SportListForm : Form
     {
-        string strCon = @"Data Source=.\MSSQLSERVER01;Initial Catalog=IT8_PROJECT_DATABASE;Integrated Security=True";
-        SqlConnection sqlCon = null;
         string username;
+        DataRow userDetail;
 
         public SportListForm(string username)
         {
             InitializeComponent();
-
             this.username = username;
+            this.userDetail = new DatabaseHelper().GetUserDetails(username);
+            lb_Greeting.Text = "CHÀO MỪNG" + userDetail["TENKH"].ToString().ToUpper() + " ĐẾN VỚI KHU PHỨC HỢP SE SPORT";
         }
 
         private void UserInfo_Click(object sender, EventArgs e)
         {
-            string username = this.username;
-            DatabaseHelper dbHelper = new DatabaseHelper();
-            DataRow userData = dbHelper.GetUserDetails(username);
+            //string username = this.username;
+            //DatabaseHelper dbHelper = new DatabaseHelper();
+            //DataRow userData = dbHelper.GetUserDetails(username);
 
-            if (userData != null)
+            if (userDetail != null)
             {
                 this.Hide();
-                Profile profile = new Profile(userData);
+                Profile profile = new Profile(userDetail);
                 profile.ShowDialog();
                 this.Show();
             }
@@ -43,6 +43,13 @@ namespace Quan_ly_san_the_thao
             }
         }
 
-
+        private void SportListForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Kiểm tra nếu đây không phải form chính
+            if (this != Application.OpenForms[0])
+            {
+                Application.Exit(); // Kết thúc toàn bộ ứng dụng
+            }
+        }
     }
 }

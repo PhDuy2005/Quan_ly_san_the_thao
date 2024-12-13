@@ -27,7 +27,8 @@ namespace Quan_ly_san_the_thao
         private void ChangeProfile_Click(object sender, EventArgs e)
         {
             this.Hide();
-            PasswordConfirmation passwordConfirmation = new PasswordConfirmation();
+            string username = "";
+            PasswordConfirmation passwordConfirmation = new PasswordConfirmation(username);
             passwordConfirmation.ShowDialog();
             this.Show();
         }

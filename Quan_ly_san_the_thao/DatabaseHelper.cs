@@ -16,7 +16,7 @@ namespace Quan_ly_san_the_thao
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT TenKH, USERNAME, SDT, GTinh, EMAIL, LOAI FROM KHACHHANG WHERE Username = @Username";
+                string query = "SELECT USERNAME, PASSWRD FROM KHACHHANG WHERE Username = @Username";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Username", username);
 
