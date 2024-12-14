@@ -72,9 +72,7 @@ ALTER COLUMN TENSANTT VARCHAR(50) NOT NULL
 ALTER TABLE KHACHHANG
 ALTER COLUMN SDT VARCHAR(15) NOT NULL
 
-alter table KHACHHANG
-add constraint chk_customerType
-check (LOAI in ('admin', 'normal'));
+
 
 
 
