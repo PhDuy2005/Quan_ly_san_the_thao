@@ -56,7 +56,7 @@ namespace Quan_ly_san_the_thao
             // Retrieve values from the form
             string fullname = tb_Fullname.Text.Trim();
             string phoneNumber = tb_PhoneNumber.Text.Trim();
-            string gender = rdBtn_Male.Checked ? "Male" : rdBtn_Female.Checked ? "Female" : "Other";
+            bool gender = rdBtn_Male.Checked ? true : false;
             string email = tb_Email.Text.Trim();
 
             // Update the database

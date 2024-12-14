@@ -68,7 +68,7 @@ namespace Quan_ly_san_the_thao
             }
         }
 
-        public bool UpdateCustomerInfo(string fullname, string phoneNumber, string gender, string email, string username)
+        public bool UpdateCustomerInfo(string fullname, string phoneNumber, bool gender, string email, string username)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -83,14 +83,6 @@ namespace Quan_ly_san_the_thao
                 command.Parameters.AddWithValue("@FullName", fullname);
                 command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
                 bool bitGender;
-                if (gender == true.ToString())
-                {
-                    bitGender = true;
-                }
-                else
-                {
-                    bitGender = false;
-                }
                 command.Parameters.AddWithValue("@Gender", gender);
                 command.Parameters.AddWithValue("@Email", email);
                 command.Parameters.AddWithValue("@Username", username);
