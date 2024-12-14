@@ -55,7 +55,8 @@ namespace Quan_ly_san_the_thao
 
             if (isValid)
             {
-                ChangeProfile changeProfile = new ChangeProfile(username);
+                ChangeProfile changeProfile = new ChangeProfile(new DatabaseHelper().GetUserDetails(username));
+                this.Visible = false;
                 changeProfile.ShowDialog();
                 this.DialogResult = DialogResult.OK;
             }
