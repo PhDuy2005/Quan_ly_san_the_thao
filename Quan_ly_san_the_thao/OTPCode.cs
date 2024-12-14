@@ -12,9 +12,13 @@ namespace Quan_ly_san_the_thao
 {
     public partial class OTPCode : Form
     {
-        public OTPCode()
+        private int otpGenerated;
+        private string phoneNumber;
+        public OTPCode(int otp, string phone)
         {
             InitializeComponent();
+            this.otpGenerated = otp;
+            this.phoneNumber = phone;
         }
 
         private void OTP_Enter(object sender, EventArgs e)
@@ -32,6 +36,34 @@ namespace Quan_ly_san_the_thao
             {
                 tb_OTP.Text = "Nhập mã xác nhận...";
                 tb_OTP.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void btn_Verify_Click(object sender, EventArgs e)
+        {
+            int otpEntered;
+            if (int.TryParse(tb_OTP.Text, out otpEntered))
+            {
+                if (otpEntered == otpGenerated)
+                {
+                    MessageBox.Show("Xác thực thành công! Bạn có thể đặt lại mật khẩu.");
+                    this.Hide();
+                    ChangePassword resetPW = new ChangePassword(phoneNumber);
+                    resetPW.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Mã OTP không chính xác!");
+                    tb_OTP.Text = string.Empty;
+                    tb_OTP.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Mã OTP không hợp lệ!");
+                tb_OTP.Text = string.Empty;
+                tb_OTP.Focus();
             }
         }
     }

@@ -93,5 +93,17 @@ namespace Quan_ly_san_the_thao
                 return rowsAffected > 0; // Return true if the update was successful
             }
         }
+        public bool CheckPhoneNumberExists(string phoneNumber)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM KHACHHANG WHERE SDT = @PhoneNumber";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+                connection.Open();
+                int count = (int)command.ExecuteScalar(); // Return the count of matching records
+                return count > 0; // Return true if at least one match is found
+            }
+        }
     }
 }
