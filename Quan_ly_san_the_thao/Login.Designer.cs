@@ -101,6 +101,7 @@
             this.llb_ForgotPassword.TabStop = true;
             this.llb_ForgotPassword.Text = "Quên mật khẩu?";
             this.llb_ForgotPassword.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.llb_ForgotPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llb_ForgotPassword_LinkClicked);
             // 
             // lb_SignIn
             // 

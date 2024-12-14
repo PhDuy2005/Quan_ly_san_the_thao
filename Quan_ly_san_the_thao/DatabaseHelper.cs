@@ -67,5 +67,31 @@ namespace Quan_ly_san_the_thao
                 return count > 0; // Return true if at least one match is found
             }
         }
+
+        public bool UpdateCustomerInfo(string fullname, string phoneNumber, bool gender, string email, string username)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"UPDATE KHACHHANG
+                                 SET TENKH = @FullName, 
+                                     SDT = @PhoneNumber, 
+                                     GTINH = @Gender, 
+                                     EMAIL = @Email
+                                 WHERE USERNAME = @Username";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@FullName", fullname);
+                command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+                bool bitGender;
+                command.Parameters.AddWithValue("@Gender", gender);
+                command.Parameters.AddWithValue("@Email", email);
+                command.Parameters.AddWithValue("@Username", username);
+
+                connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+
+                return rowsAffected > 0; // Return true if the update was successful
+            }
+        }
     }
 }
