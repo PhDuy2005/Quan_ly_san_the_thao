@@ -12,15 +12,18 @@ namespace Quan_ly_san_the_thao
 {
     public partial class TimeSelection : Form
     {
+        private string username, currentSport;
         Dictionary<string, DateTime> dates = new Dictionary<string, DateTime>();
         Dictionary<string, string> dateText = new Dictionary<string, string>();
         Dictionary<string, Dictionary<int, Button>> timeDict = 
             new Dictionary<string, Dictionary<int, Button>>();
-        public TimeSelection()
+        public TimeSelection(string user, string sport)
         {
             InitializeComponent();
             InitializeTimeDict();
             UpdateDates();
+            this.username = user;
+            this.currentSport = sport;
         }
 
         private void InitializeTimeDict()
