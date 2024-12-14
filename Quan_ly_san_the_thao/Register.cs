@@ -87,5 +87,17 @@ namespace Quan_ly_san_the_thao
                 tb_Email.ForeColor = Color.LightGray;
             }
         }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Login_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
+        }
     }
 }

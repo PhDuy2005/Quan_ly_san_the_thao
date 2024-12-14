@@ -194,6 +194,7 @@
             this.btn_Exit.TabIndex = 11;
             this.btn_Exit.Text = "Thoát";
             this.btn_Exit.UseVisualStyleBackColor = false;
+            this.btn_Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // lb_SignInOption
             // 
@@ -218,6 +219,7 @@
             this.llb_Login.TabIndex = 13;
             this.llb_Login.TabStop = true;
             this.llb_Login.Text = "Đăng nhập";
+            this.llb_Login.Click += new System.EventHandler(this.Login_Click);
             // 
             // pn_Register
             // 
