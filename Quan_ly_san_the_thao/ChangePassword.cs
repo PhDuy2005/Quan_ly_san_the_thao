@@ -12,9 +12,12 @@ namespace Quan_ly_san_the_thao
 {
     public partial class ChangePassword : Form
     {
-        public ChangePassword()
+        private string currentPhoneNumber;
+        public ChangePassword(string phone)
         {
             InitializeComponent();
+            this.currentPhoneNumber = phone;
         }
+
     }
 }
