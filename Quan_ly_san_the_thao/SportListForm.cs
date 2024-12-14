@@ -79,5 +79,13 @@ namespace Quan_ly_san_the_thao
             Label lb = (Label)sender;
             AdjustFontSize(lb);
         }
+
+        private void ChangePwd_click(object sender, EventArgs e)
+        {
+            ChangePassword cwd = new ChangePassword(username);
+            this.Visible = false;
+            cwd.ShowDialog();
+            this.Visible = true;
+        }
     }
 }

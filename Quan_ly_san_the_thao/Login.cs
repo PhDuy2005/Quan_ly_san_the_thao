@@ -20,7 +20,7 @@ namespace Quan_ly_san_the_thao
         private void btn_Login_Click(object sender, EventArgs e)
         {
             DatabaseHelper dbHelper = new DatabaseHelper();
-            DataRow dr = dbHelper.Login(tb_Username.Text);
+            DataRow dr = dbHelper.GetUsernameAndPwd(tb_Username.Text);
             if (dr[1].ToString() == tb_Password.Text)
             {
                 MessageBox.Show("Đăng nhập thành công");

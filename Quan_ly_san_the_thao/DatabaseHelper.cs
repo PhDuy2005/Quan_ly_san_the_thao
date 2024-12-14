@@ -12,7 +12,12 @@ namespace Quan_ly_san_the_thao
     {
         private string connectionString = @"Data Source=.\MSSQLSERVER01;Initial Catalog=IT8_PROJECT_DATABASE;Integrated Security=True";
 
-        public DataRow Login(string username)
+        /// <summary>
+        /// <para>Get the username and password of a user</para>
+        /// </summary>
+        /// <param name="username">string, username</param>
+        /// <returns>DataRow, gồm 2 trường là USERNAME và PSSWRD</returns>
+        public DataRow GetUsernameAndPwd(string username)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -103,6 +108,22 @@ namespace Quan_ly_san_the_thao
                 connection.Open();
                 int count = (int)command.ExecuteScalar(); // Return the count of matching records
                 return count > 0; // Return true if at least one match is found
+            }
+        }
+
+        public bool UpdatePassword(string username, string newPassword)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"UPDATE KHACHHANG
+                                 SET PASSWRD = @NewPassword
+                                 WHERE USERNAME = @Username";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@NewPassword", newPassword);
+                command.Parameters.AddWithValue("@Username", username);
+                connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+                return rowsAffected > 0; // Return true if the update was successful
             }
         }
     }

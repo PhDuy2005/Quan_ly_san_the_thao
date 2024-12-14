@@ -120,6 +120,7 @@
             this.btn_ChangePw.TabIndex = 23;
             this.btn_ChangePw.Text = "Đổi mật khẩu";
             this.btn_ChangePw.UseVisualStyleBackColor = true;
+            this.btn_ChangePw.Click += new System.EventHandler(this.btn_ChangePw_Click);
             // 
             // btn_Back
             // 

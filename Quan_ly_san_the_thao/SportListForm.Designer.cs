@@ -66,20 +66,21 @@
             // tsmi_UserInfo
             // 
             this.tsmi_UserInfo.Name = "tsmi_UserInfo";
-            this.tsmi_UserInfo.Size = new System.Drawing.Size(186, 26);
+            this.tsmi_UserInfo.Size = new System.Drawing.Size(224, 26);
             this.tsmi_UserInfo.Text = "Xem thông tin";
             this.tsmi_UserInfo.Click += new System.EventHandler(this.UserInfo_Click);
             // 
             // tsmi_changePw
             // 
             this.tsmi_changePw.Name = "tsmi_changePw";
-            this.tsmi_changePw.Size = new System.Drawing.Size(186, 26);
+            this.tsmi_changePw.Size = new System.Drawing.Size(224, 26);
             this.tsmi_changePw.Text = "Đổi mật khẩu";
+            this.tsmi_changePw.Click += new System.EventHandler(this.ChangePwd_click);
             // 
             // tsmi_LogOut
             // 
             this.tsmi_LogOut.Name = "tsmi_LogOut";
-            this.tsmi_LogOut.Size = new System.Drawing.Size(186, 26);
+            this.tsmi_LogOut.Size = new System.Drawing.Size(224, 26);
             this.tsmi_LogOut.Text = "Đăng xuất";
             // 
             // lb_Greeting
