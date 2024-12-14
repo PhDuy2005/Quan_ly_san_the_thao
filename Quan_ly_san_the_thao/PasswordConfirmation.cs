@@ -55,8 +55,8 @@ namespace Quan_ly_san_the_thao
 
             if (isValid)
             {
-                ChangePassword changePassword = new ChangePassword();
-                changePassword.ShowDialog();
+                ChangeProfile changeProfile = new ChangeProfile(username);
+                changeProfile.ShowDialog();
                 this.DialogResult = DialogResult.OK;
             }
             else

@@ -184,6 +184,7 @@
             this.btn_Confirm.TabIndex = 50;
             this.btn_Confirm.Text = "Xác nhận";
             this.btn_Confirm.UseVisualStyleBackColor = false;
+            this.btn_Confirm.Click += new System.EventHandler(this.Confirm_Click);
             // 
             // ChangeProfile
             // 

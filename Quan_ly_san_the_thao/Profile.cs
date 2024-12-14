@@ -22,6 +22,8 @@ namespace Quan_ly_san_the_thao
             tb_Gender.Text = userData["GTINH"].ToString();
             tb_Email.Text = userData["EMAIL"].ToString();
             tb_UserType.Text = userData["LOAI"].ToString();
+
+            
         }
 
         private void ChangeProfile_Click(object sender, EventArgs e)
@@ -32,5 +34,7 @@ namespace Quan_ly_san_the_thao
             passwordConfirmation.ShowDialog();
             this.Show();
         }
+
+
     }
 }
