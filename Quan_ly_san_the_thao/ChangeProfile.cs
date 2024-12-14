@@ -25,6 +25,7 @@ namespace Quan_ly_san_the_thao
         {
             InitializeComponent();
             this.userData = userData;
+            this.username = userData["USERNAME"].ToString();
             ShowProfile();
         }
 
