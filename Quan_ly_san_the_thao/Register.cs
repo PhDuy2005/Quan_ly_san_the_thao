@@ -106,7 +106,7 @@ namespace Quan_ly_san_the_thao
             string fullName = tb_Fullname.Text.Trim();
             string phoneNumber = tb_PhoneNumber.Text.Trim();
             string email = tb_Email.Text.Trim();
-            string gender = rdBtn_Male.Checked ? "Nam" : "Nữ";
+            bool gender = rdBtn_Male.Checked ? true : false;
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(fullName))
             {

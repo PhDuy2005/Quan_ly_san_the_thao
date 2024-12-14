@@ -41,7 +41,7 @@ namespace Quan_ly_san_the_thao
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT TenKH, USERNAME, SDT, GTinh, EMAIL, LOAI FROM KHACHHANG WHERE Username = @Username";
+                string query = "SELECT TenKH, USERNAME, SDT, GTinh, EMAIL FROM KHACHHANG WHERE Username = @Username";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Username", username);
 
@@ -87,7 +87,7 @@ namespace Quan_ly_san_the_thao
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@FullName", fullname);
                 command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-                bool bitGender;
+                //bool bitGender;
                 command.Parameters.AddWithValue("@Gender", gender);
                 command.Parameters.AddWithValue("@Email", email);
                 command.Parameters.AddWithValue("@Username", username);
@@ -115,11 +115,11 @@ namespace Quan_ly_san_the_thao
             }
         }
 
-        public bool InsertNewUser(string username, string password, string fullName, string email, string phoneNumber, string gender)
+        public bool InsertNewUser(string username, string password, string fullName, string email, string phoneNumber, bool gender)
         {
             string query = @"
-            INSERT INTO KHACHHANG (USERNAME, PASSWRD, TENKH, EMAIL, SDT, GTINH, LOAI)
-            VALUES (@Username, @Password, @FullName, @Email, @PhoneNumber, @Gender, 'customer')";
+            INSERT INTO KHACHHANG (USERNAME, PASSWRD, TENKH, EMAIL, SDT, GTINH)
+            VALUES (@Username, @Password, @FullName, @Email, @PhoneNumber, @Gender)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
