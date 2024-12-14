@@ -182,6 +182,7 @@
             this.btn_Register.TabIndex = 10;
             this.btn_Register.Text = "Đăng ký";
             this.btn_Register.UseVisualStyleBackColor = false;
+            this.btn_Register.Click += new System.EventHandler(this.Register_Click);
             // 
             // btn_Exit
             // 
@@ -194,6 +195,7 @@
             this.btn_Exit.TabIndex = 11;
             this.btn_Exit.Text = "Thoát";
             this.btn_Exit.UseVisualStyleBackColor = false;
+            this.btn_Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // lb_SignInOption
             // 
@@ -218,6 +220,7 @@
             this.llb_Login.TabIndex = 13;
             this.llb_Login.TabStop = true;
             this.llb_Login.Text = "Đăng nhập";
+            this.llb_Login.Click += new System.EventHandler(this.Login_Click);
             // 
             // pn_Register
             // 

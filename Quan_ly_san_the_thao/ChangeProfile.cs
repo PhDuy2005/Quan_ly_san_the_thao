@@ -67,7 +67,10 @@ namespace Quan_ly_san_the_thao
             {
                 MessageBox.Show("Information updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                this.DialogResult = DialogResult.OK;
+                // Redirect to the Profile form
+                Profile profileForm = new Profile(username); // Pass the username to the Profile form
+                profileForm.Show();
+                this.Close(); // Close the current form
             }
             else
             {
