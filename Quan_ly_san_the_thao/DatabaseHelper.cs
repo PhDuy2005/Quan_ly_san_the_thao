@@ -62,9 +62,9 @@ namespace Quan_ly_san_the_thao
                 command.Parameters.AddWithValue("@Password", password);
 
                 connection.Open();
-                int count = (int)command.ExecuteScalar(); // Return the count of matching records
+                int count = (int)command.ExecuteScalar(); 
 
-                return count > 0; // Return true if at least one match is found
+                return count > 0;
             }
         }
 
@@ -98,7 +98,47 @@ namespace Quan_ly_san_the_thao
                 connection.Open();
                 int rowsAffected = command.ExecuteNonQuery();
 
-                return rowsAffected > 0; // Return true if the update was successful
+                return rowsAffected > 0;
+            }
+        }
+
+        public bool CheckIfUsernameExists(string username)
+        {
+            string query = "SELECT COUNT(*) FROM KHACHHANG WHERE USERNAME = @Username";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@Username", username);
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+        }
+
+        public bool InsertNewUser(string username, string password, string fullName, string email, string phoneNumber, string gender)
+        {
+            string query = @"
+            INSERT INTO KHACHHANG (USERNAME, PASSWRD, TENKH, EMAIL, SDT, GTINH, LOAI)
+            VALUES (@Username, @Password, @FullName, @Email, @PhoneNumber, @Gender, 'customer')";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@Username", username);
+                    cmd.Parameters.AddWithValue("@Password", password);
+                    cmd.Parameters.AddWithValue("@FullName", fullName);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+                    cmd.Parameters.AddWithValue("@Gender", gender);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
             }
         }
     }

@@ -182,6 +182,7 @@
             this.btn_Register.TabIndex = 10;
             this.btn_Register.Text = "Đăng ký";
             this.btn_Register.UseVisualStyleBackColor = false;
+            this.btn_Register.Click += new System.EventHandler(this.Register_Click);
             // 
             // btn_Exit
             // 
