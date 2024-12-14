@@ -135,5 +135,3 @@ INSERT INTO SANTHETHAO VALUES (
     70,
     80
 )
-
-

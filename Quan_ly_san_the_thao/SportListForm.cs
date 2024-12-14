@@ -80,6 +80,7 @@ namespace Quan_ly_san_the_thao
             AdjustFontSize(lb);
         }
 
+
         private void tsmi_changePw_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -125,6 +126,7 @@ namespace Quan_ly_san_the_thao
             TimeSelection timeselect = new TimeSelection(username, selectedSport);
             this.Close();
             timeselect.ShowDialog();
+
         }
     }
 }

@@ -12,7 +12,12 @@ namespace Quan_ly_san_the_thao
     {
         private string connectionString = @"Data Source=.\MSSQLSERVER01;Initial Catalog=IT8_PROJECT_DATABASE;Integrated Security=True";
 
-        public DataRow Login(string username)
+        /// <summary>
+        /// <para>Get the username and password of a user</para>
+        /// </summary>
+        /// <param name="username">string, username</param>
+        /// <returns>DataRow, gồm 2 trường là USERNAME và PSSWRD</returns>
+        public DataRow GetUsernameAndPwd(string username)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -36,7 +41,7 @@ namespace Quan_ly_san_the_thao
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT TenKH, USERNAME, SDT, GTinh, EMAIL, LOAI FROM KHACHHANG WHERE Username = @Username";
+                string query = "SELECT TenKH, USERNAME, SDT, GTinh, EMAIL FROM KHACHHANG WHERE Username = @Username";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Username", username);
 
@@ -62,9 +67,9 @@ namespace Quan_ly_san_the_thao
                 command.Parameters.AddWithValue("@Password", password);
 
                 connection.Open();
-                int count = (int)command.ExecuteScalar(); // Return the count of matching records
+                int count = (int)command.ExecuteScalar(); 
 
-                return count > 0; // Return true if at least one match is found
+                return count > 0;
             }
         }
 
@@ -82,7 +87,7 @@ namespace Quan_ly_san_the_thao
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@FullName", fullname);
                 command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-                bool bitGender;
+                //bool bitGender;
                 command.Parameters.AddWithValue("@Gender", gender);
                 command.Parameters.AddWithValue("@Email", email);
                 command.Parameters.AddWithValue("@Username", username);
@@ -90,7 +95,47 @@ namespace Quan_ly_san_the_thao
                 connection.Open();
                 int rowsAffected = command.ExecuteNonQuery();
 
-                return rowsAffected > 0; // Return true if the update was successful
+                return rowsAffected > 0;
+            }
+        }
+
+        public bool CheckIfUsernameExists(string username)
+        {
+            string query = "SELECT COUNT(*) FROM KHACHHANG WHERE USERNAME = @Username";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@Username", username);
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+        }
+
+        public bool InsertNewUser(string username, string password, string fullName, string email, string phoneNumber, bool gender)
+        {
+            string query = @"
+            INSERT INTO KHACHHANG (USERNAME, PASSWRD, TENKH, EMAIL, SDT, GTINH)
+            VALUES (@Username, @Password, @FullName, @Email, @PhoneNumber, @Gender)";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@Username", username);
+                    cmd.Parameters.AddWithValue("@Password", password);
+                    cmd.Parameters.AddWithValue("@FullName", fullName);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+                    cmd.Parameters.AddWithValue("@Gender", gender);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
             }
         }
         public bool CheckPhoneNumberExists(string phoneNumber)
@@ -103,6 +148,22 @@ namespace Quan_ly_san_the_thao
                 connection.Open();
                 int count = (int)command.ExecuteScalar(); // Return the count of matching records
                 return count > 0; // Return true if at least one match is found
+            }
+        }
+
+        public bool UpdatePassword(string username, string newPassword)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"UPDATE KHACHHANG
+                                 SET PASSWRD = @NewPassword
+                                 WHERE USERNAME = @Username";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@NewPassword", newPassword);
+                command.Parameters.AddWithValue("@Username", username);
+                connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+                return rowsAffected > 0; // Return true if the update was successful
             }
         }
     }
