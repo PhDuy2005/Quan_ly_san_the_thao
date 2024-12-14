@@ -13,12 +13,36 @@ namespace Quan_ly_san_the_thao
     public partial class ChangeProfile : Form
     {
         string username;
+        DataRow userData;
 
         public ChangeProfile(string username)
         {
             InitializeComponent();
 
             this.username = username;
+        }
+        public ChangeProfile(DataRow userData)
+        {
+            InitializeComponent();
+            this.userData = userData;
+            ShowProfile();
+        }
+
+        void ShowProfile()
+        {
+            tb_Fullname.Text = userData["TENKH"].ToString();
+            tb_PhoneNumber.Text = userData["SDT"].ToString();
+            tb_Email.Text = userData["EMAIL"].ToString();
+            if (userData["GTINH"].ToString() == true.ToString())
+            {
+                rdBtn_Male.Checked = true;
+                rdBtn_Female.Checked = false;
+            }
+            else
+            {
+                rdBtn_Female.Checked = true;
+                rdBtn_Male.Checked = false;
+            }
         }
 
         private void Back_Click(object sender, EventArgs e)
@@ -42,10 +66,7 @@ namespace Quan_ly_san_the_thao
             {
                 MessageBox.Show("Information updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Redirect to the Profile form
-                Profile profileForm = new Profile(username); // Pass the username to the Profile form
-                profileForm.Show();
-                this.Close(); // Close the current form
+                this.DialogResult = DialogResult.OK;
             }
             else
             {

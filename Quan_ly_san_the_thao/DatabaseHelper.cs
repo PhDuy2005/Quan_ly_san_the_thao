@@ -82,6 +82,15 @@ namespace Quan_ly_san_the_thao
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@FullName", fullname);
                 command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+                bool bitGender;
+                if (gender == true.ToString())
+                {
+                    bitGender = true;
+                }
+                else
+                {
+                    bitGender = false;
+                }
                 command.Parameters.AddWithValue("@Gender", gender);
                 command.Parameters.AddWithValue("@Email", email);
                 command.Parameters.AddWithValue("@Username", username);
