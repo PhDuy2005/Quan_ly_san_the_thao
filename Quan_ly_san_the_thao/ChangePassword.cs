@@ -23,7 +23,7 @@ namespace Quan_ly_san_the_thao
 
         private void btn_ChangePw_Click(object sender, EventArgs e)
         {
-            if (tb_CurentPw.Text != usernameAndPwd["PASSWORD"].ToString())
+            if (tb_CurentPw.Text != usernameAndPwd["PASSWRD"].ToString())
             {
                 MessageBox.Show("Mật khẩu hiện tại không đúng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
