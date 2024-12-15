@@ -23,8 +23,7 @@ namespace Quan_ly_san_the_thao
 
         private void btn_Back_Click(object sender, EventArgs e)
         {
-            this.Close();
-            new LoginForm().ShowDialog();
+            this.DialogResult = DialogResult.OK;
         }
 
         private void btn_ChangePw_Click(object sender, EventArgs e)

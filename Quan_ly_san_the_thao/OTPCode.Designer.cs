@@ -40,10 +40,9 @@
             // 
             this.lb_OTP.AutoSize = true;
             this.lb_OTP.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_OTP.Location = new System.Drawing.Point(9, 50);
-            this.lb_OTP.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_OTP.Location = new System.Drawing.Point(12, 62);
             this.lb_OTP.Name = "lb_OTP";
-            this.lb_OTP.Size = new System.Drawing.Size(181, 26);
+            this.lb_OTP.Size = new System.Drawing.Size(231, 34);
             this.lb_OTP.TabIndex = 2;
             this.lb_OTP.Text = "Nhập mã OTP";
             // 
@@ -51,10 +50,9 @@
             // 
             this.lb_Note.AutoSize = true;
             this.lb_Note.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Note.Location = new System.Drawing.Point(11, 87);
-            this.lb_Note.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_Note.Location = new System.Drawing.Point(15, 107);
             this.lb_Note.Name = "lb_Note";
-            this.lb_Note.Size = new System.Drawing.Size(189, 14);
+            this.lb_Note.Size = new System.Drawing.Size(226, 18);
             this.lb_Note.TabIndex = 3;
             this.lb_Note.Text = "Đừng lo việc mất tài khoản!!!";
             // 
@@ -62,10 +60,10 @@
             // 
             this.tb_OTP.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_OTP.ForeColor = System.Drawing.Color.LightGray;
-            this.tb_OTP.Location = new System.Drawing.Point(32, 129);
-            this.tb_OTP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_OTP.Location = new System.Drawing.Point(43, 159);
+            this.tb_OTP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_OTP.Name = "tb_OTP";
-            this.tb_OTP.Size = new System.Drawing.Size(275, 24);
+            this.tb_OTP.Size = new System.Drawing.Size(365, 28);
             this.tb_OTP.TabIndex = 4;
             this.tb_OTP.Text = "Nhập mã xác nhận...";
             this.tb_OTP.Enter += new System.EventHandler(this.OTP_Enter);
@@ -75,10 +73,10 @@
             // 
             this.btn_Verify.BackColor = System.Drawing.Color.Lime;
             this.btn_Verify.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Verify.Location = new System.Drawing.Point(47, 182);
-            this.btn_Verify.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.btn_Verify.Location = new System.Drawing.Point(63, 224);
+            this.btn_Verify.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btn_Verify.Name = "btn_Verify";
-            this.btn_Verify.Size = new System.Drawing.Size(244, 32);
+            this.btn_Verify.Size = new System.Drawing.Size(325, 39);
             this.btn_Verify.TabIndex = 5;
             this.btn_Verify.Text = "Xác nhận";
             this.btn_Verify.UseVisualStyleBackColor = false;
@@ -88,41 +86,42 @@
             // 
             this.btn_Back.BackColor = System.Drawing.Color.Tomato;
             this.btn_Back.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Back.Location = new System.Drawing.Point(47, 222);
-            this.btn_Back.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.btn_Back.Location = new System.Drawing.Point(63, 273);
+            this.btn_Back.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btn_Back.Name = "btn_Back";
-            this.btn_Back.Size = new System.Drawing.Size(244, 32);
+            this.btn_Back.Size = new System.Drawing.Size(325, 39);
             this.btn_Back.TabIndex = 6;
             this.btn_Back.Text = "Quay lại";
             this.btn_Back.UseVisualStyleBackColor = false;
+            this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
             // 
             // llb_Resend
             // 
             this.llb_Resend.AutoSize = true;
             this.llb_Resend.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.llb_Resend.LinkColor = System.Drawing.Color.Black;
-            this.llb_Resend.Location = new System.Drawing.Point(136, 267);
-            this.llb_Resend.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.llb_Resend.Location = new System.Drawing.Point(181, 329);
             this.llb_Resend.Name = "llb_Resend";
-            this.llb_Resend.Size = new System.Drawing.Size(74, 14);
+            this.llb_Resend.Size = new System.Drawing.Size(89, 18);
             this.llb_Resend.TabIndex = 7;
             this.llb_Resend.TabStop = true;
             this.llb_Resend.Text = "Gửi lại mã";
             this.llb_Resend.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.llb_Resend.VisitedLinkColor = System.Drawing.Color.Black;
+            this.llb_Resend.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llb_Resend_LinkClicked);
             // 
             // OTPCode
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 408);
+            this.ClientSize = new System.Drawing.Size(453, 502);
             this.Controls.Add(this.llb_Resend);
             this.Controls.Add(this.btn_Back);
             this.Controls.Add(this.btn_Verify);
             this.Controls.Add(this.tb_OTP);
             this.Controls.Add(this.lb_Note);
             this.Controls.Add(this.lb_OTP);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "OTPCode";
             this.Text = "OTPCode";
             this.ResumeLayout(false);

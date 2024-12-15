@@ -96,33 +96,40 @@ namespace Quan_ly_san_the_thao
         {
             selectedSport = "Cầu lông";
             TimeSelection timeselect = new TimeSelection(userDetail, selectedSport);
-            this.Close();
+            //this.Close();
+            this.Visible = false;
             timeselect.ShowDialog();
+            this.Visible = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             selectedSport = "Bóng rổ";
             TimeSelection timeselect = new TimeSelection(userDetail, selectedSport);
-            this.Close();
+            //this.Close();
+            this.Visible = false;
             timeselect.ShowDialog();
+            this.Visible = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             selectedSport = "Bóng chuyền";
             TimeSelection timeselect = new TimeSelection(userDetail, selectedSport);
-            this.Close();
+            //this.Close();
+            this.Visible = false;
             timeselect.ShowDialog();
+            this.Visible = true;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             selectedSport = "Bóng đá";
             TimeSelection timeselect = new TimeSelection(userDetail, selectedSport);
-            this.Close();
+            //this.Close();
+            this.Visible = false;
             timeselect.ShowDialog();
-
+            this.Visible = true;
         }
     }
 }
