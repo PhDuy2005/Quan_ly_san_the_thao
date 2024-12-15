@@ -37,6 +37,7 @@ namespace Quan_ly_san_the_thao
             InitializeTimeDict();
             UpdateDates();
             GetPrice();
+            LoadSlotsState();
         }
 
         private void InitializeTimeDict()
@@ -166,17 +167,15 @@ namespace Quan_ly_san_the_thao
             DateTime current_date = mCd_calendar.SelectionStart;
 
             // Tính toán các ngày từ Thứ Hai (Mon) đến Chủ Nhật (Sun)
-            DateTime monday = current_date.AddDays(-(int)current_date.DayOfWeek + 1);
-            if (current_date.DayOfWeek == DayOfWeek.Sunday)
-            {
-                monday = current_date.AddDays(-6);
-            }
+            DateTime monday = current_date.AddDays(-(int)current_date.DayOfWeek + 
+                (current_date.DayOfWeek == DayOfWeek.Sunday ? -6 : 1));
+            MessageBox.Show(monday.ToString());
 
             // Điền vào Dictionary `dates`
             dates["Mon"] = monday;
-            for (int i = 1; i < 7; i++)
+            for (int i = 1; i <= 6; i++) // i từ 1 đến 6 (Tue -> Sat)
             {
-                dates[((DayOfWeek)i).ToString().Substring(0, 3)] = monday.AddDays(i);
+                dates[((DayOfWeek)((i + 1) % 7)).ToString().Substring(0, 3)] = monday.AddDays(i);
             }
             dates["Sun"] = monday.AddDays(6);
 
@@ -283,7 +282,9 @@ namespace Quan_ly_san_the_thao
                 SELECT CTHD.NGHDHLUC, COUNT(*) AS BookedFields
                 FROM CTHD
                 JOIN SANTHETHAO ON CTHD.MASANTT = SANTHETHAO.MASANTT
-                WHERE SANTHETHAO.MALOAITT = @currentSport AND CTHD.NGHDHLUC >= @dayStart AND CTHD.NGHDHLUC < @dayEnd
+                WHERE SANTHETHAO.MALOAITT = @currentSport 
+                AND CTHD.NGHDHLUC >= CAST(@dayStart AS smalldatetime) 
+                AND CTHD.NGHDHLUC < CAST(@dayEnd AS smalldatetime)
                 GROUP BY CTHD.NGHDHLUC
             ";
 
@@ -319,6 +320,7 @@ namespace Quan_ly_san_the_thao
         {
             UpdateDates();
             GetPrice();
+            LoadSlotsState();
             UpdateVerifyButtonState();
         }
         void GetPrice()
