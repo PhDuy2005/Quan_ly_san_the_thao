@@ -8,9 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Twilio.TwiML.Voice;
 
 namespace Quan_ly_san_the_thao
 {
+    public enum SlotState
+    {
+        OutOfSlots = 0,
+        Available = 1,
+    }
     public partial class TimeSelection : Form
     {
         DataRow userData;
@@ -30,7 +36,7 @@ namespace Quan_ly_san_the_thao
             this.currentSport = sport;
             InitializeTimeDict();
             UpdateDates();
-            LoadSlotsInfo();
+            GetPrice();
         }
 
         private void InitializeTimeDict()
@@ -195,79 +201,98 @@ namespace Quan_ly_san_the_thao
                 dateText[day] = date.Day.ToString("D2") + "/" + date.Month.ToString("D2");
             }
         }
+        void LoadSlotsState()
+        {
+            // Lấy danh sách các slot đã được đặt
+            // Nếu 1 slot thời gian mà cả 3 sân đều đã được đặt: SlotState.OutOfSlots, btn.BackColor = Color.Red
+            // Nếu 1 slot thời gian mà ít nhất 1 sân chưa được đặt: SlotState.Available, btn.BackColor = Color.Gray
 
+            //Cách thực hiện:
+            //Truy vấn database từng ngày (từ dates['Mon'] đến dates['Sun'], thực thi 7 lệnh để đảm bảo an toàn)
+            //Đề xuất: SANTHETHAO left join CTHD on SANTHETHAO.MASANTT = CTHD.MASANTT
+
+            //Dữ liệu trong db (select * from SANTHETHAO order by MALOAITT asc, TENSANTT asc):
+            //SANTT01 LOAITT01    San bong da so 1
+            //SANTT02 LOAITT01    San bong da so 2
+            //SANTT03 LOAITT01    San bong da so 3
+            //SANTT04 LOAITT02    San bong chuyen so 1
+            //SANTT05 LOAITT02    San bong chuyen so 2
+            //SANTT06 LOAITT02    San bong chuyen so 3
+            //SANTT07 LOAITT03    San bong ro so 1
+            //SANTT08 LOAITT03    San bong ro so 2
+            //SANTT09 LOAITT03    San bong ro so 3
+            //SANTT010 LOAITT04    San cau long so 1
+            //SANTT011 LOAITT04    San cau long so 2
+            //SANTT012 LOAITT04    San cau long so 3
+        }
         private void mCd_calendarDateChanged(object sender, DateRangeEventArgs e)
         {
             UpdateDates();
-            LoadSlotsInfo();
+            GetPrice();
             UpdateVerifyButtonState();
         }
-        private void LoadSlotsInfo()
+        void GetPrice()
         {
-            slotPrices.Clear();
-            DateTime startDate = dates["Mon"];
-            DateTime endDate = dates["Sun"];
             string query = @"
-           SELECT MASANTT, GTSANG, GTTRUA, GTTOI
-           FROM SANTHETHAO
-           WHERE MALOAITT = @Sport
-       ";
-
+                select MALOAITT, GTSANG, GTTRUA, GTTOI
+                from LOAITHETHAO
+                where MALOAITT = @Sport";
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand(query, connection))
             {
-                command.Parameters.AddWithValue("@Sport", currentSport);
-
-                try
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    connection.Open();
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    command.Parameters.AddWithValue("@Sport", currentSport);
+
+                    try
                     {
-                        decimal totalGTSang = 0m;
-                        decimal totalGTTrua = 0m;
-                        decimal totalGTToi = 0m;
-                        int count = 0;
-
-                        while (reader.Read())
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            decimal gtsang = reader.GetDecimal(1);
-                            decimal gttrua = reader.GetDecimal(2);
-                            decimal gttoi = reader.GetDecimal(3);
+                            decimal GTSang = 0m;
+                            decimal GTTrua = 0m;
+                            decimal GTToi = 0m;
+                            int count = 0;
 
-                            totalGTSang += gtsang;
-                            totalGTTrua += gttrua;
-                            totalGTToi += gttoi;
-                            count++;
-                        }
+                            while (reader.Read())
+                            {
+                                decimal gtsang = reader.GetDecimal(1);
+                                decimal gttrua = reader.GetDecimal(2);
+                                decimal gttoi = reader.GetDecimal(3);
 
-                        if (count > 0)
-                        {
-                            // Calculate average prices
-                            decimal avgGTSang = totalGTSang / count;
-                            decimal avgGTTrua = totalGTTrua / count;
-                            decimal avgGTToi = totalGTToi / count;
+                                GTSang = gtsang;
+                                GTTrua = gttrua;
+                                GTToi = gttoi;
+                                count++;
+                            }
 
-                            // Update labels
-                            lb_MorningPrice.Text = $"{avgGTSang:C}";
-                            lb_AfternoonPrice.Text = $"{avgGTTrua:C}";
-                            lb_EveningPrice.Text = $"{avgGTToi:C}";
-                        }
-                        else
-                        {
-                            lb_MorningPrice.Text = "N/A";
-                            lb_AfternoonPrice.Text = "N/A";
-                            lb_EveningPrice.Text = "N/A";
+                            if (count > 0)
+                            {
+                                // Calculate average prices
+                                decimal avgGTSang = GTSang / count;
+                                decimal avgGTTrua = GTTrua / count;
+                                decimal avgGTToi = GTToi / count;
+
+                                // Update labels
+                                lb_MorningPrice.Text = $"{GTSang:C}";
+                                lb_AfternoonPrice.Text = $"{GTTrua:C}";
+                                lb_EveningPrice.Text = $"{GTToi:C}";
+                            }
+                            else
+                            {
+                                lb_MorningPrice.Text = "N/A";
+                                lb_AfternoonPrice.Text = "N/A";
+                                lb_EveningPrice.Text = "N/A";
+                            }
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Đã xảy ra lỗi khi tải thông tin giá: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Đã xảy ra lỗi khi tải thông tin giá: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
-            UpdateTotalPrice();
-            UpdateVerifyButtonState();
         }
+ 
         private void TimeSlotButton_Click(object sender, EventArgs e)
         {
             Button clickedButton = sender as Button;
@@ -278,22 +303,44 @@ namespace Quan_ly_san_the_thao
             // Giả sử tên nút theo định dạng btn_DayTime, ví dụ: btn_Monday7AM
             string buttonName = clickedButton.Name; // Ví dụ: btn_Monday7AM
 
-            // Tách phần Day và Time
-            //
-            //string[] parts = buttonName.Split(new char[] { '_', 'A', 'P', 'M' }, StringSplitOptions.RemoveEmptyEntries);
-            //if (parts.Length < 2)
-            //    return;
-            //
             string[] parts = { buttonName.Substring(4, 3), buttonName.Substring(buttonName.Length - 4, 4) };
             if (char.IsDigit(parts[1][0]) == false)
             {
                 parts[1] = parts[1].Substring(1, 3);
             }
             string dayAbbr = parts[0].Substring(0, 3); // Ví dụ: "Mon"
-            string timePart = parts[1]; // Ví dụ: "7" từ "7AM"
+            string timePart = parts[1]; // Ví dụ: "7AM"
+            int hour = -1;
 
-            if (!int.TryParse(timePart, out int hour))
-                return;
+            // Tách số giờ và phần AM/PM
+            string hourPart = timePart.Substring(0, timePart.Length - 2); // Lấy số giờ
+            string meridian = timePart.Substring(timePart.Length - 2).ToUpper(); // Lấy AM/PM
+
+            // Kiểm tra và chuyển đổi giờ
+            try
+            {
+                if (int.TryParse(hourPart, out hour))
+                {
+                    if (meridian == "PM" && hour != 12) // Thêm 12 giờ cho PM (trừ 12PM)
+                    {
+                        hour += 12;
+                    }
+                    else if (meridian == "AM" && hour == 12) // Chuyển 12AM thành 0 giờ
+                    {
+                        hour = 0;
+                    }
+                }
+                else
+                {
+                    // Xử lý lỗi nếu không thể parse
+                    throw new FormatException("Invalid time format: " + timePart);
+                }
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("Lỗi: " + ee.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
 
             // Lấy ngày tương ứng từ dictionary
             if (!dates.ContainsKey(dayAbbr))
