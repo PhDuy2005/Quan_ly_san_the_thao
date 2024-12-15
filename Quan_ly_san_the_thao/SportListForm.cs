@@ -87,9 +87,10 @@ namespace Quan_ly_san_the_thao
 
         private void tsmi_LogOut_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             LoginForm login = new LoginForm();
             login.ShowDialog();
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
