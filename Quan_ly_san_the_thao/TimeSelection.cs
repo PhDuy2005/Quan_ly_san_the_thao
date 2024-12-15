@@ -200,7 +200,10 @@ namespace Quan_ly_san_the_thao
                 dateText[day] = date.Day.ToString("D2") + "/" + date.Month.ToString("D2");
             }
         }
+        void LoadSlotsState()
+        {
 
+        }
         private void mCd_calendarDateChanged(object sender, DateRangeEventArgs e)
         {
             UpdateDates();
