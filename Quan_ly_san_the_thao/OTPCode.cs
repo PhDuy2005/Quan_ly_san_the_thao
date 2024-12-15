@@ -48,8 +48,8 @@ namespace Quan_ly_san_the_thao
                 {
                     MessageBox.Show("Xác thực thành công! Bạn có thể đặt lại mật khẩu.");
                     this.Hide();
-                    ChangePassword resetPW = new ChangePassword(phoneNumber);
-                    resetPW.ShowDialog();
+                    MakeNewPassword newPW = new MakeNewPassword(phoneNumber);
+                    newPW.ShowDialog();
                     this.Close();
                 }
                 else

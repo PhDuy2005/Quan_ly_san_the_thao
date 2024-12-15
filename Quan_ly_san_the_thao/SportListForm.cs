@@ -42,10 +42,6 @@ namespace Quan_ly_san_the_thao
 
         private void UserInfo_Click(object sender, EventArgs e)
         {
-            //string username = this.username;
-            //DatabaseHelper dbHelper = new DatabaseHelper();
-            //DataRow userData = dbHelper.GetUserDetails(username);
-
             if (userDetail != null)
             {
                 this.Hide();
@@ -55,7 +51,7 @@ namespace Quan_ly_san_the_thao
             }
             else
             {
-                MessageBox.Show("No user data found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Không tồn tại thông tin của user này.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -99,7 +95,7 @@ namespace Quan_ly_san_the_thao
         private void button1_Click(object sender, EventArgs e)
         {
             selectedSport = "Cầu lông";
-            TimeSelection timeselect = new TimeSelection(username, selectedSport);
+            TimeSelection timeselect = new TimeSelection(userDetail, selectedSport);
             this.Close();
             timeselect.ShowDialog();
         }
@@ -107,7 +103,7 @@ namespace Quan_ly_san_the_thao
         private void button2_Click(object sender, EventArgs e)
         {
             selectedSport = "Bóng rổ";
-            TimeSelection timeselect = new TimeSelection(username, selectedSport);
+            TimeSelection timeselect = new TimeSelection(userDetail, selectedSport);
             this.Close();
             timeselect.ShowDialog();
         }
@@ -115,7 +111,7 @@ namespace Quan_ly_san_the_thao
         private void button3_Click(object sender, EventArgs e)
         {
             selectedSport = "Bóng chuyền";
-            TimeSelection timeselect = new TimeSelection(username, selectedSport);
+            TimeSelection timeselect = new TimeSelection(userDetail, selectedSport);
             this.Close();
             timeselect.ShowDialog();
         }
@@ -123,7 +119,7 @@ namespace Quan_ly_san_the_thao
         private void button4_Click(object sender, EventArgs e)
         {
             selectedSport = "Bóng đá";
-            TimeSelection timeselect = new TimeSelection(username, selectedSport);
+            TimeSelection timeselect = new TimeSelection(userDetail, selectedSport);
             this.Close();
             timeselect.ShowDialog();
 

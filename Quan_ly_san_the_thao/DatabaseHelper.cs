@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Quan_ly_san_the_thao
 {
@@ -24,6 +25,25 @@ namespace Quan_ly_san_the_thao
                 string query = "SELECT USERNAME, PASSWRD FROM KHACHHANG WHERE Username = @Username";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Username", username);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+
+                connection.Open();
+                adapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count > 0)
+                    return dataTable.Rows[0];
+                return null;
+            }
+        }
+        public DataRow GetUsernameAndPwdByPhoneNumber(string phoneNumber)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT USERNAME, PASSWRD FROM KHACHHANG WHERE SDT = @PhoneNumber";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
 
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 DataTable dataTable = new DataTable();
