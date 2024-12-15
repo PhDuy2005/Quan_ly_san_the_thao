@@ -440,7 +440,9 @@ namespace Quan_ly_san_the_thao
 
             DateTime slotDate = dates[dayAbbr];
             DateTime fullDateTime = slotDate.Date.AddHours(hour);
-
+            // truy vấn xuống DB, nếu sân 1 trống thì enable, 2 3 tương tự; ngược lại thì chkbox.enable = false 
+            // mà, suggest để trong DatabaseHelper
+            // trả về bool[3]
             if (!slotPrices.ContainsKey(fullDateTime))
             {
                 MessageBox.Show("Không tìm thấy thông tin giá cho slot này.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
