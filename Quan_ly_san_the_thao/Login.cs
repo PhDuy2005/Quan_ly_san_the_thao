@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -26,8 +27,14 @@ namespace Quan_ly_san_the_thao
                 MessageBox.Show("Đăng nhập thành công");
                 this.Hide();
 
-                SportListForm sportListForm = new SportListForm(tb_Username.Text);
-                sportListForm.Show();
+                Thread t = new Thread(() =>
+                {
+                    SportListForm sportListForm = new SportListForm(tb_Username.Text);
+                    Application.Run(sportListForm);
+                });
+                t.SetApartmentState(ApartmentState.STA);
+                t.Start();
+                t.Join();
             }
             else
             {

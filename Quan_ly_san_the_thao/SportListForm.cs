@@ -13,12 +13,14 @@ namespace Quan_ly_san_the_thao
 {
     public partial class SportListForm : Form
     {
+        bool isLoggedIn;
         string username;
         DataRow userDetail;
         private string selectedSport;
         public SportListForm(string username)
         {
             InitializeComponent();
+            isLoggedIn = true;
             this.username = username;
             this.userDetail = new DatabaseHelper().GetUserDetails(username);
             lb_Greeting.Text = "CHÀO MỪNG " + userDetail["TENKH"].ToString().ToUpper() + "\r\nĐẾN VỚI KHU PHỨC HỢP SE SPORT";
@@ -88,6 +90,7 @@ namespace Quan_ly_san_the_thao
         private void tsmi_LogOut_Click(object sender, EventArgs e)
         {
             this.Hide();
+            isLoggedIn = false;
             LoginForm login = new LoginForm();
             login.ShowDialog();
             this.Close();
