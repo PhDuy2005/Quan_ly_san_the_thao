@@ -11,6 +11,11 @@ using System.Windows.Forms;
 
 namespace Quan_ly_san_the_thao
 {
+    public enum SlotState
+    {
+        OutOfSlots = 0,
+        Available = 1,
+    }
     public partial class TimeSelection : Form
     {
         DataRow userData;
