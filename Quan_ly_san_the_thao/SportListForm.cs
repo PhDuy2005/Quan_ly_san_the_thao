@@ -98,10 +98,14 @@ namespace Quan_ly_san_the_thao
             login.ShowDialog();
             this.Close();
         }
-
+        //selected sport:
+        //LOAITT01 Bong da
+        //LOAITT02    Bong chuyen
+        //LOAITT03 Bong ro
+        //LOAITT04    Cau long
         private void button1_Click(object sender, EventArgs e)
         {
-            selectedSport = "Cầu lông";
+            selectedSport = "LOAITT04"; //cầu lông
             TimeSelection timeselect = new TimeSelection(userDetail, selectedSport);
             //this.Close();
             this.Visible = false;
@@ -111,7 +115,7 @@ namespace Quan_ly_san_the_thao
 
         private void button2_Click(object sender, EventArgs e)
         {
-            selectedSport = "Bóng rổ";
+            selectedSport = "LOAITT03"; //bóng rổ
             TimeSelection timeselect = new TimeSelection(userDetail, selectedSport);
             //this.Close();
             this.Visible = false;
@@ -121,7 +125,8 @@ namespace Quan_ly_san_the_thao
 
         private void button3_Click(object sender, EventArgs e)
         {
-            selectedSport = "Bóng chuyền";
+            //selectedSport = "Bóng chuyền";
+            selectedSport = "LOAITT02";
             TimeSelection timeselect = new TimeSelection(userDetail, selectedSport);
             //this.Close();
             this.Visible = false;
@@ -131,7 +136,8 @@ namespace Quan_ly_san_the_thao
 
         private void button4_Click(object sender, EventArgs e)
         {
-            selectedSport = "Bóng đá";
+            //selectedSport = "Bóng đá";
+            selectedSport = "LOAITT01";
             TimeSelection timeselect = new TimeSelection(userDetail, selectedSport);
             //this.Close();
             this.Visible = false;
@@ -140,3 +146,4 @@ namespace Quan_ly_san_the_thao
         }
     }
 }
+

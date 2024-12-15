@@ -202,6 +202,67 @@ namespace Quan_ly_san_the_thao
             LoadSlotsInfo();
             UpdateVerifyButtonState();
         }
+        void GetPrice()
+        {
+            string query = @"
+           SELECT MASANTT, GTSANG, GTTRUA, GTTOI
+           FROM SANTHETHAO
+           WHERE MALOAITT = @Sport";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Sport", currentSport);
+
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            decimal GTSang = 0m;
+                            decimal GTTrua = 0m;
+                            decimal GTToi = 0m;
+                            int count = 0;
+
+                            while (reader.Read())
+                            {
+                                decimal gtsang = reader.GetDecimal(1);
+                                decimal gttrua = reader.GetDecimal(2);
+                                decimal gttoi = reader.GetDecimal(3);
+
+                                GTSang += gtsang;
+                                GTTrua += gttrua;
+                                GTToi += gttoi;
+                                count++;
+                            }
+
+                            if (count > 0)
+                            {
+                                // Calculate average prices
+                                decimal avgGTSang = GTSang / count;
+                                decimal avgGTTrua = GTTrua / count;
+                                decimal avgGTToi = GTToi / count;
+
+                                // Update labels
+                                lb_MorningPrice.Text = $"{avgGTSang:C}";
+                                lb_AfternoonPrice.Text = $"{avgGTTrua:C}";
+                                lb_EveningPrice.Text = $"{avgGTToi:C}";
+                            }
+                            else
+                            {
+                                lb_MorningPrice.Text = "N/A";
+                                lb_AfternoonPrice.Text = "N/A";
+                                lb_EveningPrice.Text = "N/A";
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Đã xảy ra lỗi khi tải thông tin giá: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
         private void LoadSlotsInfo()
         {
             slotPrices.Clear();
@@ -210,8 +271,7 @@ namespace Quan_ly_san_the_thao
             string query = @"
            SELECT MASANTT, GTSANG, GTTRUA, GTTOI
            FROM SANTHETHAO
-           WHERE MALOAITT = @Sport
-       ";
+           WHERE MALOAITT = @Sport";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
@@ -278,22 +338,44 @@ namespace Quan_ly_san_the_thao
             // Giả sử tên nút theo định dạng btn_DayTime, ví dụ: btn_Monday7AM
             string buttonName = clickedButton.Name; // Ví dụ: btn_Monday7AM
 
-            // Tách phần Day và Time
-            //
-            //string[] parts = buttonName.Split(new char[] { '_', 'A', 'P', 'M' }, StringSplitOptions.RemoveEmptyEntries);
-            //if (parts.Length < 2)
-            //    return;
-            //
             string[] parts = { buttonName.Substring(4, 3), buttonName.Substring(buttonName.Length - 4, 4) };
             if (char.IsDigit(parts[1][0]) == false)
             {
                 parts[1] = parts[1].Substring(1, 3);
             }
             string dayAbbr = parts[0].Substring(0, 3); // Ví dụ: "Mon"
-            string timePart = parts[1]; // Ví dụ: "7" từ "7AM"
+            string timePart = parts[1]; // Ví dụ: "7AM"
+            int hour = -1;
 
-            if (!int.TryParse(timePart, out int hour))
-                return;
+            // Tách số giờ và phần AM/PM
+            string hourPart = timePart.Substring(0, timePart.Length - 2); // Lấy số giờ
+            string meridian = timePart.Substring(timePart.Length - 2).ToUpper(); // Lấy AM/PM
+
+            // Kiểm tra và chuyển đổi giờ
+            try
+            {
+                if (int.TryParse(hourPart, out hour))
+                {
+                    if (meridian == "PM" && hour != 12) // Thêm 12 giờ cho PM (trừ 12PM)
+                    {
+                        hour += 12;
+                    }
+                    else if (meridian == "AM" && hour == 12) // Chuyển 12AM thành 0 giờ
+                    {
+                        hour = 0;
+                    }
+                }
+                else
+                {
+                    // Xử lý lỗi nếu không thể parse
+                    throw new FormatException("Invalid time format: " + timePart);
+                }
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("Lỗi: " + ee.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
 
             // Lấy ngày tương ứng từ dictionary
             if (!dates.ContainsKey(dayAbbr))
