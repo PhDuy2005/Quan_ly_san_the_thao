@@ -360,14 +360,38 @@ namespace Quan_ly_san_the_thao
                             if (count > 0)
                             {
                                 // Calculate average prices
-                                decimal avgGTSang = GTSang / count;
-                                decimal avgGTTrua = GTTrua / count;
-                                decimal avgGTToi = GTToi / count;
+                                slotPrices.Clear();
+                                foreach (var day in dates.Keys)
+                                {
+                                    DateTime date = dates[day];
+                                    foreach (var time in timeDict[day].Keys)
+                                    {
+                                        int hour = time;
+                                        DateTime slotDateTime = date.Date.AddHours(hour);
+                                        decimal price = 0m;
+
+                                        if (hour >= 7 && hour < 13)
+                                        {
+                                            price = GTSang;
+                                        }
+                                        else if (hour >= 13 && hour < 18)
+                                        {
+                                            price = GTTrua;
+                                        }
+                                        else if (hour >= 18 && hour < 22)
+                                        {
+                                            price = GTToi;
+                                        }
+
+                                        slotPrices[slotDateTime] = price;
+                                    }
+                                }
 
                                 // Update labels
                                 lb_MorningPrice.Text = $"{GTSang:C}";
                                 lb_AfternoonPrice.Text = $"{GTTrua:C}";
                                 lb_EveningPrice.Text = $"{GTToi:C}";
+
                             }
                             else
                             {
@@ -383,6 +407,7 @@ namespace Quan_ly_san_the_thao
                     }
                 }
             }
+
         }
  
         private void TimeSlotButton_Click(object sender, EventArgs e)
