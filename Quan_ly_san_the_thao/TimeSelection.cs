@@ -342,12 +342,18 @@ namespace Quan_ly_san_the_thao
             string buttonName = clickedButton.Name; // Ví dụ: btn_Monday7AM
 
             // Tách phần Day và Time
-            string[] parts = buttonName.Split(new char[] { '_', 'A', 'P', 'M' }, StringSplitOptions.RemoveEmptyEntries);
-            if (parts.Length < 2)
-                return;
-
-            string dayAbbr = parts[1].Substring(0, 3); // Ví dụ: "Mon"
-            string timePart = parts[2]; // Ví dụ: "7" từ "7AM"
+            //
+            //string[] parts = buttonName.Split(new char[] { '_', 'A', 'P', 'M' }, StringSplitOptions.RemoveEmptyEntries);
+            //if (parts.Length < 2)
+            //    return;
+            //
+            string[] parts = { buttonName.Substring(4, 3), buttonName.Substring(buttonName.Length - 4, 4) };
+            if (char.IsDigit(parts[1][0]) == false)
+            {
+                parts[1] = parts[1].Substring(1, 3);
+            }
+            string dayAbbr = parts[0].Substring(0, 3); // Ví dụ: "Mon"
+            string timePart = parts[1]; // Ví dụ: "7" từ "7AM"
 
             if (!int.TryParse(timePart, out int hour))
                 return;
