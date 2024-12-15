@@ -38,10 +38,9 @@
             // 
             this.lb_EnterPhoneNumber.AutoSize = true;
             this.lb_EnterPhoneNumber.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_EnterPhoneNumber.Location = new System.Drawing.Point(9, 49);
-            this.lb_EnterPhoneNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_EnterPhoneNumber.Location = new System.Drawing.Point(12, 60);
             this.lb_EnterPhoneNumber.Name = "lb_EnterPhoneNumber";
-            this.lb_EnterPhoneNumber.Size = new System.Drawing.Size(247, 26);
+            this.lb_EnterPhoneNumber.Size = new System.Drawing.Size(314, 34);
             this.lb_EnterPhoneNumber.TabIndex = 1;
             this.lb_EnterPhoneNumber.Text = "Nhập số điện thoại";
             // 
@@ -49,21 +48,20 @@
             // 
             this.lb_Note.AutoSize = true;
             this.lb_Note.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Note.Location = new System.Drawing.Point(11, 87);
-            this.lb_Note.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_Note.Location = new System.Drawing.Point(15, 107);
             this.lb_Note.Name = "lb_Note";
-            this.lb_Note.Size = new System.Drawing.Size(349, 14);
+            this.lb_Note.Size = new System.Drawing.Size(335, 18);
             this.lb_Note.TabIndex = 2;
-            this.lb_Note.Text = "Nhập số điện thoại của bạn để nhận mã xác nhận OTP";
+            this.lb_Note.Text = "Nhập số điện thoại của bạn để đổi mật khẩu";
             // 
             // tb_PhoneNumber
             // 
             this.tb_PhoneNumber.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_PhoneNumber.ForeColor = System.Drawing.Color.LightGray;
-            this.tb_PhoneNumber.Location = new System.Drawing.Point(40, 139);
-            this.tb_PhoneNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_PhoneNumber.Location = new System.Drawing.Point(53, 171);
+            this.tb_PhoneNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_PhoneNumber.Name = "tb_PhoneNumber";
-            this.tb_PhoneNumber.Size = new System.Drawing.Size(306, 24);
+            this.tb_PhoneNumber.Size = new System.Drawing.Size(407, 28);
             this.tb_PhoneNumber.TabIndex = 3;
             this.tb_PhoneNumber.Text = "Nhập số điện thoại...";
             this.tb_PhoneNumber.Enter += new System.EventHandler(this.Phone_Enter);
@@ -73,10 +71,10 @@
             // 
             this.btn_Verify.BackColor = System.Drawing.Color.Lime;
             this.btn_Verify.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Verify.Location = new System.Drawing.Point(69, 187);
-            this.btn_Verify.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.btn_Verify.Location = new System.Drawing.Point(92, 230);
+            this.btn_Verify.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btn_Verify.Name = "btn_Verify";
-            this.btn_Verify.Size = new System.Drawing.Size(244, 32);
+            this.btn_Verify.Size = new System.Drawing.Size(325, 39);
             this.btn_Verify.TabIndex = 4;
             this.btn_Verify.Text = "Xác nhận";
             this.btn_Verify.UseVisualStyleBackColor = false;
@@ -84,14 +82,14 @@
             // 
             // ForgotPassword
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 408);
+            this.ClientSize = new System.Drawing.Size(543, 502);
             this.Controls.Add(this.btn_Verify);
             this.Controls.Add(this.tb_PhoneNumber);
             this.Controls.Add(this.lb_Note);
             this.Controls.Add(this.lb_EnterPhoneNumber);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ForgotPassword";
             this.Text = "ForgotPassword";
             this.ResumeLayout(false);
