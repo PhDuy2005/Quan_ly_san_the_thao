@@ -148,6 +148,7 @@
             this.Controls.Add(this.lb_CurentPw);
             this.Controls.Add(this.lb_CreateNewPw);
             this.Name = "ChangePassword";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChangePassword";
             this.ResumeLayout(false);
             this.PerformLayout();

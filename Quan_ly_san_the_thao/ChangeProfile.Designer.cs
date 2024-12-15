@@ -204,6 +204,7 @@
             this.Controls.Add(this.lb_Fullname);
             this.Controls.Add(this.lb_ChangeProfile);
             this.Name = "ChangeProfile";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChangeProfile";
             this.ResumeLayout(false);
             this.PerformLayout();

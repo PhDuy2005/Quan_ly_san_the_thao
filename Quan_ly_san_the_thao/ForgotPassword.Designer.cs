@@ -91,6 +91,7 @@
             this.Controls.Add(this.lb_EnterPhoneNumber);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ForgotPassword";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ForgotPassword";
             this.ResumeLayout(false);
             this.PerformLayout();
