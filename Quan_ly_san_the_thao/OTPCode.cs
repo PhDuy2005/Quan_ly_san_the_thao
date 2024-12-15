@@ -66,5 +66,15 @@ namespace Quan_ly_san_the_thao
                 tb_OTP.Focus();
             }
         }
+
+        private void btn_Back_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void llb_Resend_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show($"Mã OTP mới đã được gửi đến số điện thoại {phoneNumber}.");
+        }
     }
 }
