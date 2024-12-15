@@ -76,6 +76,25 @@ namespace Quan_ly_san_the_thao
                 return null;
             }
         }
+        public DataRow GetUserDetailsByPhoneNumber(string phoneNumber)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM KHACHHANG WHERE SDT = @PhoneNumber";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+
+                connection.Open();
+                adapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count > 0)
+                    return dataTable.Rows[0];
+                return null;
+            }
+        }
 
         public bool VerifyCredentials(string username, string password)
         {

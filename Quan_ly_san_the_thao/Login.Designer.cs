@@ -65,7 +65,7 @@
             // 
             this.tb_Username.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_Username.Location = new System.Drawing.Point(263, 93);
-            this.tb_Username.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_Username.Margin = new System.Windows.Forms.Padding(2);
             this.tb_Username.Name = "tb_Username";
             this.tb_Username.Size = new System.Drawing.Size(225, 24);
             this.tb_Username.TabIndex = 2;
@@ -74,7 +74,7 @@
             // 
             this.tb_Password.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_Password.Location = new System.Drawing.Point(263, 133);
-            this.tb_Password.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_Password.Margin = new System.Windows.Forms.Padding(2);
             this.tb_Password.Name = "tb_Password";
             this.tb_Password.Size = new System.Drawing.Size(225, 24);
             this.tb_Password.TabIndex = 3;
@@ -84,7 +84,7 @@
             // 
             this.btn_Login.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Login.Location = new System.Drawing.Point(178, 210);
-            this.btn_Login.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Login.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(243, 40);
             this.btn_Login.TabIndex = 5;
@@ -157,10 +157,11 @@
             this.Controls.Add(this.tb_Username);
             this.Controls.Add(this.lb_Password);
             this.Controls.Add(this.lb_Username);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
+            this.Enter += new System.EventHandler(this.btn_Login_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 
