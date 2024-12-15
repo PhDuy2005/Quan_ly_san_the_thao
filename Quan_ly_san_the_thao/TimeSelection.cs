@@ -31,7 +31,6 @@ namespace Quan_ly_san_the_thao
             InitializeTimeDict();
             UpdateDates();
             GetPrice();
-            LoadSlotsInfo();
         }
 
         private void InitializeTimeDict()
@@ -201,7 +200,6 @@ namespace Quan_ly_san_the_thao
         {
             UpdateDates();
             GetPrice();
-            LoadSlotsInfo();
             UpdateVerifyButtonState();
         }
         void GetPrice()
@@ -265,71 +263,7 @@ namespace Quan_ly_san_the_thao
                 }
             }
         }
-        private void LoadSlotsInfo()
-        {
-            slotPrices.Clear();
-            DateTime startDate = dates["Mon"];
-            DateTime endDate = dates["Sun"];
-            string query = @"
-           SELECT MASANTT, GTSANG, GTTRUA, GTTOI
-           FROM SANTHETHAO
-           WHERE MALOAITT = @Sport";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand(query, connection))
-            {
-                command.Parameters.AddWithValue("@Sport", currentSport);
-
-                try
-                {
-                    connection.Open();
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        decimal totalGTSang = 0m;
-                        decimal totalGTTrua = 0m;
-                        decimal totalGTToi = 0m;
-                        int count = 0;
-
-                        while (reader.Read())
-                        {
-                            decimal gtsang = reader.GetDecimal(1);
-                            decimal gttrua = reader.GetDecimal(2);
-                            decimal gttoi = reader.GetDecimal(3);
-
-                            totalGTSang += gtsang;
-                            totalGTTrua += gttrua;
-                            totalGTToi += gttoi;
-                            count++;
-                        }
-
-                        if (count > 0)
-                        {
-                            // Calculate average prices
-                            decimal avgGTSang = totalGTSang / count;
-                            decimal avgGTTrua = totalGTTrua / count;
-                            decimal avgGTToi = totalGTToi / count;
-
-                            // Update labels
-                            lb_MorningPrice.Text = $"{avgGTSang:C}";
-                            lb_AfternoonPrice.Text = $"{avgGTTrua:C}";
-                            lb_EveningPrice.Text = $"{avgGTToi:C}";
-                        }
-                        else
-                        {
-                            lb_MorningPrice.Text = "N/A";
-                            lb_AfternoonPrice.Text = "N/A";
-                            lb_EveningPrice.Text = "N/A";
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Đã xảy ra lỗi khi tải thông tin giá: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            UpdateTotalPrice();
-            UpdateVerifyButtonState();
-        }
+ 
         private void TimeSlotButton_Click(object sender, EventArgs e)
         {
             Button clickedButton = sender as Button;
