@@ -224,6 +224,96 @@ namespace Quan_ly_san_the_thao
             //SANTT010 LOAITT04    San cau long so 1
             //SANTT011 LOAITT04    San cau long so 2
             //SANTT012 LOAITT04    San cau long so 3
+            int totalFieldsForSport = GetTotalFieldsForSport();
+
+            foreach (var day in dates.Keys)
+            {
+                DateTime date = dates[day];
+                Dictionary<DateTime, int> bookingsCount = GetBookingsCountForDate(date);
+
+                foreach (var time in timeDict[day].Keys)
+                {
+                    Button btn = timeDict[day][time];
+                    DateTime slotDateTime = date.Date.AddHours(time);
+
+                    int bookedFields = bookingsCount.ContainsKey(slotDateTime) ? bookingsCount[slotDateTime] : 0;
+                    if (bookedFields >= totalFieldsForSport)
+                    {
+                        btn.BackColor = Color.Red;
+                        btn.Enabled = false;
+                    }
+                    else
+                    {
+                        btn.BackColor = Color.Gray;
+                        btn.Enabled = true;
+                    }
+                }
+            }
+        }
+        private int GetTotalFieldsForSport()
+        {
+            int totalFields = 0;
+            string query = "SELECT COUNT(*) FROM SANTHETHAO WHERE MALOAITT = @currentSport";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@currentSport", currentSport);
+                    try
+                    {
+                        connection.Open();
+                        totalFields = (int)command.ExecuteScalar();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error retrieving total fields: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            return totalFields;
+        }
+        private Dictionary<DateTime, int> GetBookingsCountForDate(DateTime date)
+        {
+            Dictionary<DateTime, int> bookingsCount = new Dictionary<DateTime, int>();
+            DateTime dayStart = date.Date;
+            DateTime dayEnd = date.Date.AddDays(1);
+
+            string query = @"
+                SELECT CTHD.NGHDHLUC, COUNT(*) AS BookedFields
+                FROM CTHD
+                JOIN SANTHETHAO ON CTHD.MASANTT = SANTHETHAO.MASANTT
+                WHERE SANTHETHAO.MALOAITT = @currentSport AND CTHD.NGHDHLUC >= @dayStart AND CTHD.NGHDHLUC < @dayEnd
+                GROUP BY CTHD.NGHDHLUC
+            ";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@currentSport", currentSport);
+                    command.Parameters.AddWithValue("@dayStart", dayStart);
+                    command.Parameters.AddWithValue("@dayEnd", dayEnd);
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                DateTime slotTime = reader.GetDateTime(0);
+                                int count = reader.GetInt32(1);
+                                bookingsCount[slotTime] = count;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error retrieving bookings: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            return bookingsCount;
         }
         private void mCd_calendarDateChanged(object sender, DateRangeEventArgs e)
         {
