@@ -30,6 +30,7 @@ namespace Quan_ly_san_the_thao
             this.currentSport = sport;
             InitializeTimeDict();
             UpdateDates();
+            GetPrice();
             LoadSlotsInfo();
         }
 
@@ -199,15 +200,16 @@ namespace Quan_ly_san_the_thao
         private void mCd_calendarDateChanged(object sender, DateRangeEventArgs e)
         {
             UpdateDates();
+            GetPrice();
             LoadSlotsInfo();
             UpdateVerifyButtonState();
         }
         void GetPrice()
         {
             string query = @"
-           SELECT MASANTT, GTSANG, GTTRUA, GTTOI
-           FROM SANTHETHAO
-           WHERE MALOAITT = @Sport";
+                select MALOAITT, GTSANG, GTTRUA, GTTOI
+                from LOAITHETHAO
+                where MALOAITT = @Sport";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
@@ -230,9 +232,9 @@ namespace Quan_ly_san_the_thao
                                 decimal gttrua = reader.GetDecimal(2);
                                 decimal gttoi = reader.GetDecimal(3);
 
-                                GTSang += gtsang;
-                                GTTrua += gttrua;
-                                GTToi += gttoi;
+                                GTSang = gtsang;
+                                GTTrua = gttrua;
+                                GTToi = gttoi;
                                 count++;
                             }
 
@@ -244,9 +246,9 @@ namespace Quan_ly_san_the_thao
                                 decimal avgGTToi = GTToi / count;
 
                                 // Update labels
-                                lb_MorningPrice.Text = $"{avgGTSang:C}";
-                                lb_AfternoonPrice.Text = $"{avgGTTrua:C}";
-                                lb_EveningPrice.Text = $"{avgGTToi:C}";
+                                lb_MorningPrice.Text = $"{GTSang:C}";
+                                lb_AfternoonPrice.Text = $"{GTTrua:C}";
+                                lb_EveningPrice.Text = $"{GTToi:C}";
                             }
                             else
                             {
