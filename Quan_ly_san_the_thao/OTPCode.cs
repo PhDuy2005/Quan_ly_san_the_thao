@@ -50,7 +50,7 @@ namespace Quan_ly_san_the_thao
                     this.Hide();
                     MakeNewPassword newPW = new MakeNewPassword(phoneNumber);
                     newPW.ShowDialog();
-                    this.Close();
+                    this.DialogResult = DialogResult.OK;
                 }
                 else
                 {
