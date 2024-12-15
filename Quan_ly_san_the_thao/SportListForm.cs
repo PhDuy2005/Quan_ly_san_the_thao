@@ -23,7 +23,10 @@ namespace Quan_ly_san_the_thao
             isLoggedIn = true;
             this.username = username;
             this.userDetail = new DatabaseHelper().GetUserDetails(username);
-            lb_Greeting.Text = "CHÀO MỪNG " + userDetail["TENKH"].ToString().ToUpper() + "\r\nĐẾN VỚI KHU PHỨC HỢP SE SPORT";
+            Console.OutputEncoding = Encoding.Unicode;
+            Console.InputEncoding = Encoding.Unicode;
+            lb_Greeting.Text = "CHÀO MỪNG " + userDetail["TENKH"].ToString().ToUpper(new System.Globalization.CultureInfo("vi-VN")) 
+                                            + "\r\nĐẾN VỚI KHU PHỨC HỢP SE SPORT";
         }
 
         private void AdjustFontSize(Label label)

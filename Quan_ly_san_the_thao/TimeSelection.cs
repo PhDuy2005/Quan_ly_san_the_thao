@@ -208,124 +208,61 @@ namespace Quan_ly_san_the_thao
             DateTime startDate = dates["Mon"];
             DateTime endDate = dates["Sun"];
             string query = @"
-                SELECT SANTHETHAO.MASANTT, SANTHETHAO.GTSANG, SANTHETHAO.GTTRUA, SANTHETHAO.GTTOI, CTHD.NGHDHLUC
-                FROM SANTHETHAO
-                LEFT JOIN CTHD ON SANTHETHAO.MASANTT = CTHD.MASANTT
-                WHERE SANTHETHAO.MALOAITT = @Sport AND SANTHETHAO.MASANTT IN (
-                    SELECT MASANTT FROM SANTHETHAO WHERE MALOAITT = @Sport
-                )
-                AND (CTHD.NGHDHLUC BETWEEN @StartDate AND @EndDate OR CTHD.NGHDHLUC IS NULL)
-            ";
+           SELECT MASANTT, GTSANG, GTTRUA, GTTOI
+           FROM SANTHETHAO
+           WHERE MALOAITT = @Sport
+       ";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
             {
                 command.Parameters.AddWithValue("@Sport", currentSport);
-                command.Parameters.AddWithValue("@StartDate", startDate.Date);
-                command.Parameters.AddWithValue("@EndDate", endDate.Date);
 
                 try
                 {
                     connection.Open();
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        // Dictionary để lưu trữ giá tiền theo MASANTT và thời gian
-                        Dictionary<string, (decimal GTSang, decimal GTTrua, decimal GTToi)> fieldPrices = new Dictionary<string, (decimal, decimal, decimal)>();
+                        decimal totalGTSang = 0m;
+                        decimal totalGTTrua = 0m;
+                        decimal totalGTToi = 0m;
+                        int count = 0;
 
-                        // Lưu thông tin giá tiền của từng sân
                         while (reader.Read())
                         {
-                            string masantt = reader.GetString(0);
                             decimal gtsang = reader.GetDecimal(1);
                             decimal gttrua = reader.GetDecimal(2);
                             decimal gttoi = reader.GetDecimal(3);
-                            fieldPrices[masantt] = (gtsang, gttrua, gttoi);
+
+                            totalGTSang += gtsang;
+                            totalGTTrua += gttrua;
+                            totalGTToi += gttoi;
+                            count++;
                         }
 
-                        reader.NextResult();
-
-                        // Reset lại reader để đọc thông tin đặt trước
-                        reader.Close();
-
-                        // Truy vấn kiểm tra các lịch đã được đặt
-                        string bookedQuery = @"
-                            SELECT MASANTT, NGHDHLUC
-                            FROM CTHD
-                            WHERE MASANTT IN (SELECT MASANTT FROM SANTHETHAO WHERE MALOAITT = @Sport)
-                            AND NGHDHLUC BETWEEN @StartDate AND @EndDate
-                        ";
-
-                        using (SqlCommand bookedCommand = new SqlCommand(bookedQuery, connection))
+                        if (count > 0)
                         {
-                            bookedCommand.Parameters.AddWithValue("@Sport", currentSport);
-                            bookedCommand.Parameters.AddWithValue("@StartDate", startDate.Date);
-                            bookedCommand.Parameters.AddWithValue("@EndDate", endDate.Date);
+                            // Calculate average prices
+                            decimal avgGTSang = totalGTSang / count;
+                            decimal avgGTTrua = totalGTTrua / count;
+                            decimal avgGTToi = totalGTToi / count;
 
-                            using (SqlDataReader bookedReader = bookedCommand.ExecuteReader())
-                            {
-                                HashSet<DateTime> bookedSlots = new HashSet<DateTime>();
-
-                                while (bookedReader.Read())
-                                {
-                                    string masantt = bookedReader.GetString(0);
-                                    DateTime ngdhluc = bookedReader.GetDateTime(1);
-
-                                    bookedSlots.Add(ngdhluc);
-                                }
-
-                                // Duyệt qua từng sân và từng khung giờ để cập nhật trạng thái nút
-                                foreach (var day in timeDict.Keys)
-                                {
-                                    foreach (var time in timeDict[day].Keys)
-                                    {
-                                        Button slotButton = timeDict[day][time];
-                                        DateTime slotDate = dates[day];
-                                        DateTime fullDateTime = slotDate.Date.AddHours(time);
-
-                                        // Kiểm tra xem slot đã được đặt chưa
-                                        if (bookedSlots.Contains(fullDateTime))
-                                        {
-                                            slotButton.Enabled = false;
-                                            slotButton.BackColor = Color.Gray;
-                                        }
-                                        else
-                                        {
-                                            slotButton.Enabled = true;
-
-                                            // Xác định giá tiền dựa trên thời gian
-                                            // Sáng: 7-12, Trưa: 13-18, Tối: 18-22
-                                            decimal price = 0m;
-                                            foreach (var field in fieldPrices)
-                                            {
-                                                string masantt = field.Key;
-                                                (decimal GTSang, decimal GTTrua, decimal GTToi) prices = field.Value;
-
-                                                if (time >= 7 && time < 13)
-                                                {
-                                                    price += prices.GTSang;
-                                                }
-                                                else if (time >= 13 && time < 18)
-                                                {
-                                                    price += prices.GTTrua;
-                                                }
-                                                else if (time >= 18 && time < 22)
-                                                {
-                                                    price += prices.GTToi;
-                                                }
-                                            }
-
-                                            slotPrices[fullDateTime] = price;
-                                            slotButton.BackColor = SystemColors.Control;
-                                        }
-                                    }
-                                }
-                            }
+                            // Update labels
+                            lb_MorningPrice.Text = $"{avgGTSang:C}";
+                            lb_AfternoonPrice.Text = $"{avgGTTrua:C}";
+                            lb_EveningPrice.Text = $"{avgGTToi:C}";
+                        }
+                        else
+                        {
+                            lb_MorningPrice.Text = "N/A";
+                            lb_AfternoonPrice.Text = "N/A";
+                            lb_EveningPrice.Text = "N/A";
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Đã xảy ra lỗi khi tải thông tin lịch: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Đã xảy ra lỗi khi tải thông tin giá: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             UpdateTotalPrice();
@@ -373,18 +310,14 @@ namespace Quan_ly_san_the_thao
 
             if (selectedSlots.Contains(fullDateTime))
             {
-                // Bỏ chọn slot
                 selectedSlots.Remove(fullDateTime);
                 clickedButton.BackColor = SystemColors.Control;
             }
             else
             {
-                // Chọn slot
                 selectedSlots.Add(fullDateTime);
                 clickedButton.BackColor = Color.LightGreen;
             }
-
-            // Cập nhật tổng tiền
             UpdateTotalPrice();
             UpdateVerifyButtonState();
         }
@@ -403,6 +336,29 @@ namespace Quan_ly_san_the_thao
         {
             btn_Verify.Enabled = selectedSlots.Count > 0;
         }
+        private string GenerateInvoiceNumber()
+        {
+            return Guid.NewGuid().ToString("N").Substring(0, 10).ToUpper();
+        }
+        private string GetAvailableField(DateTime slot, SqlConnection connection, SqlTransaction transaction)
+        {
+            string query = @"
+                SELECT TOP 1 MASANTT
+                FROM SANTHETHAO
+                WHERE MALOAITT = @Sport AND MASANTT NOT IN (
+                    SELECT MASANTT FROM CTHD WHERE NGHDHLUC = @Slot
+                )
+            ";
+
+            using (SqlCommand cmd = new SqlCommand(query, connection, transaction))
+            {
+                cmd.Parameters.AddWithValue("@Sport", currentSport);
+                cmd.Parameters.AddWithValue("@Slot", slot);
+
+                object result = cmd.ExecuteScalar();
+                return result != null ? result.ToString() : null;
+            }
+        }
         private void btn_Verify_Click(object sender, EventArgs e)
         {
             if (selectedSlots.Count == 0)
@@ -410,10 +366,74 @@ namespace Quan_ly_san_the_thao
                 MessageBox.Show("Vui lòng chọn ít nhất một khung giờ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            Payment paymentForm = new Payment(userData, currentSport, selectedSlots, slotPrices, totalPrice);
-            this.Hide();
-            paymentForm.ShowDialog();
-            this.Show();
+            string mahd = GenerateInvoiceNumber();
+            totalPrice = selectedSlots.Sum(slot => slotPrices.ContainsKey(slot) ? slotPrices[slot] : 0m);
+            string insertHoaDonQuery = @"
+                INSERT INTO HOADON (MAHD, USERNAME, NGTTOAN, TRIGIA)
+                VALUES (@MAHD, @USERNAME, @NGTTOAN, @TRIGIA)
+            ";
+
+            string insertCTHDQuery = @"
+                INSERT INTO CTHD (MAHD, MASANTT, NGHDHLUC, TTGTSANG, TTGTTRUA, TTGTTOI)
+                VALUES (@MAHD, @MASANTT, @NGHDHLUC, @TTGTSANG, @TTGTTRUA, @TTGTTOI)
+            ";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmdHoaDon = new SqlCommand(insertHoaDonQuery, connection);
+                SqlCommand cmdCTHD = new SqlCommand(insertCTHDQuery, connection);
+
+                cmdHoaDon.Parameters.AddWithValue("@MAHD", mahd);
+                cmdHoaDon.Parameters.AddWithValue("@USERNAME", userData["USERNAME"].ToString());
+                cmdHoaDon.Parameters.AddWithValue("@NGTTOAN", DateTime.Now);
+                cmdHoaDon.Parameters.AddWithValue("@TRIGIA", totalPrice);
+
+                try
+                {
+                    connection.Open();
+                    SqlTransaction transaction = connection.BeginTransaction();
+                    cmdHoaDon.Transaction = transaction;
+                    cmdCTHD.Transaction = transaction;
+                    cmdHoaDon.ExecuteNonQuery();
+                    foreach (var slot in selectedSlots)
+                    {
+                        bool isMorning = slot.Hour >= 7 && slot.Hour < 13;
+                        bool isAfternoon = slot.Hour >= 13 && slot.Hour < 18;
+                        bool isEvening = slot.Hour >= 18 && slot.Hour < 22;
+                        string masantt = GetAvailableField(slot, connection, transaction);
+
+                        if (string.IsNullOrEmpty(masantt))
+                        {
+                            MessageBox.Show("Không có sân nào khả dụng cho thời gian đã chọn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            transaction.Rollback();
+                            return;
+                        }
+
+                        cmdCTHD.Parameters.Clear();
+                        cmdCTHD.Parameters.AddWithValue("@MAHD", mahd);
+                        cmdCTHD.Parameters.AddWithValue("@MASANTT", masantt);
+                        cmdCTHD.Parameters.AddWithValue("@NGHDHLUC", slot);
+                        cmdCTHD.Parameters.AddWithValue("@TTGTSANG", isMorning ? 1 : 0);
+                        cmdCTHD.Parameters.AddWithValue("@TTGTTRUA", isAfternoon ? 1 : 0);
+                        cmdCTHD.Parameters.AddWithValue("@TTGTTOI", isEvening ? 1 : 0);
+
+                        cmdCTHD.ExecuteNonQuery();
+                    }
+
+                    // Commit transaction
+                    transaction.Commit();
+
+                    // Proceed to payment form
+                    Payment paymentForm = new Payment(userData, mahd);
+                    this.Hide();
+                    paymentForm.ShowDialog();
+                    this.Show();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Đã xảy ra lỗi khi lưu thông tin đặt sân: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void TimeSelection_FormClosed(object sender, FormClosedEventArgs e)
