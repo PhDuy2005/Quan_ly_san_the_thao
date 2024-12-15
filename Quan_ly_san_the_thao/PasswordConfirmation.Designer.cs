@@ -106,6 +106,7 @@
             this.Controls.Add(this.tb_Password);
             this.Controls.Add(this.lb_PasswordConfirmation);
             this.Name = "PasswordConfirmation";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PasswordConfirmation";
             this.ResumeLayout(false);
             this.PerformLayout();

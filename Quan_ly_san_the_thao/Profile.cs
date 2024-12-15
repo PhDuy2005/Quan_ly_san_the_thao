@@ -25,9 +25,8 @@ namespace Quan_ly_san_the_thao
             tb_Fullname.Text = userData["TENKH"].ToString();
             tb_Username.Text = userData["USERNAME"].ToString();
             tb_PhoneNumber.Text = userData["SDT"].ToString();
-            tb_Gender.Text = userData["GTINH"].ToString();
+            tb_Gender.Text = (bool)userData["GTINH"] ? "Nam" : "Nữ";
             tb_Email.Text = userData["EMAIL"].ToString();
-            tb_UserType.Text = userData["LOAI"].ToString();
         }
 
         private void ChangeProfile_Click(object sender, EventArgs e)

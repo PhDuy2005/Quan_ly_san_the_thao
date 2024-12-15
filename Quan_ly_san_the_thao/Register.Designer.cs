@@ -336,6 +336,7 @@
             this.ClientSize = new System.Drawing.Size(949, 615);
             this.Controls.Add(this.pn_Register);
             this.Name = "Register";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
             this.pn_Register.ResumeLayout(false);
             this.pn_Register.PerformLayout();

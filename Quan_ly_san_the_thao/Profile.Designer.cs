@@ -41,8 +41,6 @@
             this.lb_Username = new System.Windows.Forms.Label();
             this.tb_Gender = new System.Windows.Forms.TextBox();
             this.btn_ChangeProfile = new System.Windows.Forms.Button();
-            this.lb_UserType = new System.Windows.Forms.Label();
-            this.tb_UserType = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lb_ProfileInfo
@@ -192,37 +190,11 @@
             this.btn_ChangeProfile.UseVisualStyleBackColor = true;
             this.btn_ChangeProfile.Click += new System.EventHandler(this.ChangeProfile_Click);
             // 
-            // lb_UserType
-            // 
-            this.lb_UserType.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lb_UserType.AutoSize = true;
-            this.lb_UserType.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_UserType.Location = new System.Drawing.Point(252, 369);
-            this.lb_UserType.Margin = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.lb_UserType.Name = "lb_UserType";
-            this.lb_UserType.Size = new System.Drawing.Size(51, 20);
-            this.lb_UserType.TabIndex = 34;
-            this.lb_UserType.Text = "Loại:";
-            // 
-            // tb_UserType
-            // 
-            this.tb_UserType.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tb_UserType.Cursor = System.Windows.Forms.Cursors.No;
-            this.tb_UserType.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_UserType.ForeColor = System.Drawing.Color.Black;
-            this.tb_UserType.Location = new System.Drawing.Point(344, 361);
-            this.tb_UserType.Name = "tb_UserType";
-            this.tb_UserType.ReadOnly = true;
-            this.tb_UserType.Size = new System.Drawing.Size(150, 28);
-            this.tb_UserType.TabIndex = 35;
-            // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tb_UserType);
-            this.Controls.Add(this.lb_UserType);
             this.Controls.Add(this.btn_ChangeProfile);
             this.Controls.Add(this.tb_Gender);
             this.Controls.Add(this.tb_Email);
@@ -236,6 +208,7 @@
             this.Controls.Add(this.lb_Username);
             this.Controls.Add(this.lb_ProfileInfo);
             this.Name = "Profile";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Profile";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -256,7 +229,5 @@
         private System.Windows.Forms.Label lb_Username;
         private System.Windows.Forms.TextBox tb_Gender;
         private System.Windows.Forms.Button btn_ChangeProfile;
-        private System.Windows.Forms.Label lb_UserType;
-        private System.Windows.Forms.TextBox tb_UserType;
     }
 }
