@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Twilio.TwiML.Voice;
 
 namespace Quan_ly_san_the_thao
 {
@@ -202,7 +203,27 @@ namespace Quan_ly_san_the_thao
         }
         void LoadSlotsState()
         {
+            // Lấy danh sách các slot đã được đặt
+            // Nếu 1 slot thời gian mà cả 3 sân đều đã được đặt: SlotState.OutOfSlots, btn.BackColor = Color.Red
+            // Nếu 1 slot thời gian mà ít nhất 1 sân chưa được đặt: SlotState.Available, btn.BackColor = Color.Gray
 
+            //Cách thực hiện:
+            //Truy vấn database từng ngày (từ dates['Mon'] đến dates['Sun'], thực thi 7 lệnh để đảm bảo an toàn)
+            //Đề xuất: SANTHETHAO left join CTHD on SANTHETHAO.MASANTT = CTHD.MASANTT
+
+            //Dữ liệu trong db (select * from SANTHETHAO order by MALOAITT asc, TENSANTT asc):
+            //SANTT01 LOAITT01    San bong da so 1
+            //SANTT02 LOAITT01    San bong da so 2
+            //SANTT03 LOAITT01    San bong da so 3
+            //SANTT04 LOAITT02    San bong chuyen so 1
+            //SANTT05 LOAITT02    San bong chuyen so 2
+            //SANTT06 LOAITT02    San bong chuyen so 3
+            //SANTT07 LOAITT03    San bong ro so 1
+            //SANTT08 LOAITT03    San bong ro so 2
+            //SANTT09 LOAITT03    San bong ro so 3
+            //SANTT010 LOAITT04    San cau long so 1
+            //SANTT011 LOAITT04    San cau long so 2
+            //SANTT012 LOAITT04    San cau long so 3
         }
         private void mCd_calendarDateChanged(object sender, DateRangeEventArgs e)
         {
