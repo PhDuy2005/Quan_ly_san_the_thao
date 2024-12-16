@@ -484,6 +484,33 @@ namespace Quan_ly_san_the_thao
                 selectedSlots.Add(fullDateTime);
                 clickedButton.BackColor = Color.LightGreen;
             }
+            bool[] fieldStatus = new DatabaseHelper().GetFieldStatus(currentSport, dates[dayAbbr], hour);
+            if (fieldStatus[0] == true)
+            {
+                ckBox_court1.Enabled = false;
+            }
+            else
+            {
+                ckBox_court1.Enabled = true;
+            }
+
+            if (fieldStatus[1] == true)
+            {
+                ckBox_court2.Enabled = false;
+            }
+            else
+            {
+                ckBox_court2.Enabled = true;
+            }
+
+            if (fieldStatus[2] == true)
+            {
+                ckBox_court3.Enabled = false;
+            }
+            else
+            {
+                ckBox_court3.Enabled = true;
+            }
             UpdateTotalPrice();
             UpdateVerifyButtonState();
         }
