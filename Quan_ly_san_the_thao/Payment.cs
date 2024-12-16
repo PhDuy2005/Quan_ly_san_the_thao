@@ -24,6 +24,21 @@ namespace Quan_ly_san_the_thao
             this.mahd = mahd;
             DisplayInformation();
         }
+        public Payment(DataRow user)
+        {
+            InitializeComponent();
+            this.userData = user;
+            displayPhen();
+        }
+
+        void displayPhen()
+        {
+            lb_ReserveDate.Text = "16/12/2024";
+            lb_ChkInDate.Text = "16/12/2024";
+            lb_Name.Text = userData["TENKH"].ToString();
+            lb_Phone.Text = userData["SDT"].ToString();
+            lb_Total.Text = "1000000";
+        }
 
         private void DisplayInformation()
         {
@@ -197,6 +212,7 @@ namespace Quan_ly_san_the_thao
 
         private void btn_Pay_Click(object sender, EventArgs e)
         {
+            mahd = "AB668C5F07";
             DialogResult result = MessageBox.Show("Bạn có muốn xác nhận thanh toán không?", "Xác nhận thanh toán", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
@@ -222,6 +238,11 @@ namespace Quan_ly_san_the_thao
             public DateTime RentTime { get; set; }
             public decimal UnitPrice { get; set; }
             public decimal Discount { get; set; }
+        }
+
+        private void Payment_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

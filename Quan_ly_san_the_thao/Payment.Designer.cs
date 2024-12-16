@@ -75,7 +75,7 @@
             this.lb_NgayNhan.AutoSize = true;
             this.lb_NgayNhan.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_NgayNhan.ForeColor = System.Drawing.Color.Gray;
-            this.lb_NgayNhan.Location = new System.Drawing.Point(540, 78);
+            this.lb_NgayNhan.Location = new System.Drawing.Point(131, 112);
             this.lb_NgayNhan.Margin = new System.Windows.Forms.Padding(0, 15, 0, 15);
             this.lb_NgayNhan.Name = "lb_NgayNhan";
             this.lb_NgayNhan.Size = new System.Drawing.Size(138, 20);
@@ -87,72 +87,73 @@
             this.lb_ReserveDate.AutoSize = true;
             this.lb_ReserveDate.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_ReserveDate.ForeColor = System.Drawing.Color.Black;
-            this.lb_ReserveDate.Location = new System.Drawing.Point(103, 112);
+            this.lb_ReserveDate.Location = new System.Drawing.Point(315, 78);
             this.lb_ReserveDate.Margin = new System.Windows.Forms.Padding(0, 15, 0, 15);
             this.lb_ReserveDate.Name = "lb_ReserveDate";
             this.lb_ReserveDate.Size = new System.Drawing.Size(192, 20);
             this.lb_ReserveDate.TabIndex = 19;
             this.lb_ReserveDate.Text = "//Đổi label theo ngày";
+            this.lb_ReserveDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lb_ChkInDate
             // 
             this.lb_ChkInDate.AutoSize = true;
             this.lb_ChkInDate.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_ChkInDate.ForeColor = System.Drawing.Color.Black;
-            this.lb_ChkInDate.Location = new System.Drawing.Point(509, 112);
+            this.lb_ChkInDate.Location = new System.Drawing.Point(315, 112);
             this.lb_ChkInDate.Margin = new System.Windows.Forms.Padding(0, 15, 0, 15);
             this.lb_ChkInDate.Name = "lb_ChkInDate";
             this.lb_ChkInDate.Size = new System.Drawing.Size(192, 20);
             this.lb_ChkInDate.TabIndex = 20;
             this.lb_ChkInDate.Text = "//Đổi label theo ngày";
+            this.lb_ChkInDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lb_NguoiDat
             // 
             this.lb_NguoiDat.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_NguoiDat.ForeColor = System.Drawing.Color.Gray;
-            this.lb_NguoiDat.Location = new System.Drawing.Point(131, 174);
+            this.lb_NguoiDat.Location = new System.Drawing.Point(131, 145);
             this.lb_NguoiDat.Margin = new System.Windows.Forms.Padding(0, 15, 0, 15);
             this.lb_NguoiDat.Name = "lb_NguoiDat";
             this.lb_NguoiDat.Size = new System.Drawing.Size(123, 20);
             this.lb_NguoiDat.TabIndex = 21;
             this.lb_NguoiDat.Text = "Người đặt";
-            this.lb_NguoiDat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb_Name
             // 
             this.lb_Name.AutoSize = true;
             this.lb_Name.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Name.ForeColor = System.Drawing.Color.Black;
-            this.lb_Name.Location = new System.Drawing.Point(85, 204);
+            this.lb_Name.Location = new System.Drawing.Point(315, 145);
             this.lb_Name.Margin = new System.Windows.Forms.Padding(0, 15, 0, 15);
             this.lb_Name.Name = "lb_Name";
             this.lb_Name.Size = new System.Drawing.Size(231, 20);
             this.lb_Name.TabIndex = 22;
             this.lb_Name.Text = "//Đổi thành tên người đặt";
+            this.lb_Name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lb_Phone
             // 
             this.lb_Phone.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Phone.ForeColor = System.Drawing.Color.Black;
-            this.lb_Phone.Location = new System.Drawing.Point(489, 204);
+            this.lb_Phone.Location = new System.Drawing.Point(315, 175);
             this.lb_Phone.Margin = new System.Windows.Forms.Padding(0, 15, 0, 15);
             this.lb_Phone.Name = "lb_Phone";
             this.lb_Phone.Size = new System.Drawing.Size(231, 20);
             this.lb_Phone.TabIndex = 23;
             this.lb_Phone.Text = "//Đổi thành SĐT";
-            this.lb_Phone.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_Phone.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lb_SDT
             // 
             this.lb_SDT.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_SDT.ForeColor = System.Drawing.Color.Gray;
-            this.lb_SDT.Location = new System.Drawing.Point(540, 174);
+            this.lb_SDT.Location = new System.Drawing.Point(130, 175);
             this.lb_SDT.Margin = new System.Windows.Forms.Padding(0, 15, 0, 15);
             this.lb_SDT.Name = "lb_SDT";
             this.lb_SDT.Size = new System.Drawing.Size(139, 20);
             this.lb_SDT.TabIndex = 24;
             this.lb_SDT.Text = "Số điện thoại";
-            this.lb_SDT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb_ThanhTien
             // 
@@ -258,6 +259,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Payment";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Payment_FormClosed);
+            this.Load += new System.EventHandler(this.Payment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_FieldInfo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

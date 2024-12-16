@@ -37,6 +37,7 @@ namespace Quan_ly_san_the_thao
             InitializeTimeDict();
             UpdateDates();
             GetPrice();
+            LoadSlotsState();
         }
 
         private void InitializeTimeDict()
@@ -166,17 +167,15 @@ namespace Quan_ly_san_the_thao
             DateTime current_date = mCd_calendar.SelectionStart;
 
             // Tính toán các ngày từ Thứ Hai (Mon) đến Chủ Nhật (Sun)
-            DateTime monday = current_date.AddDays(-(int)current_date.DayOfWeek + 1);
-            if (current_date.DayOfWeek == DayOfWeek.Sunday)
-            {
-                monday = current_date.AddDays(-6);
-            }
+            DateTime monday = current_date.AddDays(-(int)current_date.DayOfWeek + 
+                (current_date.DayOfWeek == DayOfWeek.Sunday ? -6 : 1));
+            MessageBox.Show(monday.ToString());
 
             // Điền vào Dictionary `dates`
             dates["Mon"] = monday;
-            for (int i = 1; i < 7; i++)
+            for (int i = 1; i <= 6; i++) // i từ 1 đến 6 (Tue -> Sat)
             {
-                dates[((DayOfWeek)i).ToString().Substring(0, 3)] = monday.AddDays(i);
+                dates[((DayOfWeek)((i + 1) % 7)).ToString().Substring(0, 3)] = monday.AddDays(i);
             }
             dates["Sun"] = monday.AddDays(6);
 
@@ -224,11 +223,104 @@ namespace Quan_ly_san_the_thao
             //SANTT010 LOAITT04    San cau long so 1
             //SANTT011 LOAITT04    San cau long so 2
             //SANTT012 LOAITT04    San cau long so 3
+            int totalFieldsForSport = GetTotalFieldsForSport();
+
+            foreach (var day in dates.Keys)
+            {
+                DateTime date = dates[day];
+                Dictionary<DateTime, int> bookingsCount = GetBookingsCountForDate(date);
+
+                foreach (var time in timeDict[day].Keys)
+                {
+                    Button btn = timeDict[day][time];
+                    DateTime slotDateTime = date.Date.AddHours(time);
+
+                    int bookedFields = bookingsCount.ContainsKey(slotDateTime) ? bookingsCount[slotDateTime] : 0;
+                    if (bookedFields >= totalFieldsForSport)
+                    {
+                        btn.BackColor = Color.Red;
+                        btn.Enabled = false;
+                    }
+                    else
+                    {
+                        btn.BackColor = Color.Gray;
+                        btn.Enabled = true;
+                    }
+                }
+            }
+        }
+        private int GetTotalFieldsForSport()
+        {
+            int totalFields = 0;
+            string query = "SELECT COUNT(*) FROM SANTHETHAO WHERE MALOAITT = @currentSport";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@currentSport", currentSport);
+                    try
+                    {
+                        connection.Open();
+                        totalFields = (int)command.ExecuteScalar();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error retrieving total fields: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            return totalFields;
+        }
+        private Dictionary<DateTime, int> GetBookingsCountForDate(DateTime date)
+        {
+            Dictionary<DateTime, int> bookingsCount = new Dictionary<DateTime, int>();
+            DateTime dayStart = date.Date;
+            DateTime dayEnd = date.Date.AddDays(1);
+
+            string query = @"
+                SELECT CTHD.NGHDHLUC, COUNT(*) AS BookedFields
+                FROM CTHD
+                JOIN SANTHETHAO ON CTHD.MASANTT = SANTHETHAO.MASANTT
+                WHERE SANTHETHAO.MALOAITT = @currentSport 
+                AND CTHD.NGHDHLUC >= CAST(@dayStart AS smalldatetime) 
+                AND CTHD.NGHDHLUC < CAST(@dayEnd AS smalldatetime)
+                GROUP BY CTHD.NGHDHLUC
+            ";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@currentSport", currentSport);
+                    command.Parameters.AddWithValue("@dayStart", dayStart);
+                    command.Parameters.AddWithValue("@dayEnd", dayEnd);
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                DateTime slotTime = reader.GetDateTime(0);
+                                int count = reader.GetInt32(1);
+                                bookingsCount[slotTime] = count;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error retrieving bookings: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            return bookingsCount;
         }
         private void mCd_calendarDateChanged(object sender, DateRangeEventArgs e)
         {
             UpdateDates();
             GetPrice();
+            LoadSlotsState();
             UpdateVerifyButtonState();
         }
         void GetPrice()
@@ -268,14 +360,38 @@ namespace Quan_ly_san_the_thao
                             if (count > 0)
                             {
                                 // Calculate average prices
-                                decimal avgGTSang = GTSang / count;
-                                decimal avgGTTrua = GTTrua / count;
-                                decimal avgGTToi = GTToi / count;
+                                slotPrices.Clear();
+                                foreach (var day in dates.Keys)
+                                {
+                                    DateTime date = dates[day];
+                                    foreach (var time in timeDict[day].Keys)
+                                    {
+                                        int hour = time;
+                                        DateTime slotDateTime = date.Date.AddHours(hour);
+                                        decimal price = 0m;
+
+                                        if (hour >= 7 && hour < 13)
+                                        {
+                                            price = GTSang;
+                                        }
+                                        else if (hour >= 13 && hour < 18)
+                                        {
+                                            price = GTTrua;
+                                        }
+                                        else if (hour >= 18 && hour < 22)
+                                        {
+                                            price = GTToi;
+                                        }
+
+                                        slotPrices[slotDateTime] = price;
+                                    }
+                                }
 
                                 // Update labels
                                 lb_MorningPrice.Text = $"{GTSang:C}";
                                 lb_AfternoonPrice.Text = $"{GTTrua:C}";
                                 lb_EveningPrice.Text = $"{GTToi:C}";
+
                             }
                             else
                             {
@@ -291,6 +407,7 @@ namespace Quan_ly_san_the_thao
                     }
                 }
             }
+
         }
  
         private void TimeSlotButton_Click(object sender, EventArgs e)
@@ -298,75 +415,6 @@ namespace Quan_ly_san_the_thao
             Button clickedButton = sender as Button;
             if (clickedButton == null)
                 return;
-
-            // Xác định ngày và giờ từ tên nút
-            // Giả sử tên nút theo định dạng btn_DayTime, ví dụ: btn_Monday7AM
-            string buttonName = clickedButton.Name; // Ví dụ: btn_Monday7AM
-
-            string[] parts = { buttonName.Substring(4, 3), buttonName.Substring(buttonName.Length - 4, 4) };
-            if (char.IsDigit(parts[1][0]) == false)
-            {
-                parts[1] = parts[1].Substring(1, 3);
-            }
-            string dayAbbr = parts[0].Substring(0, 3); // Ví dụ: "Mon"
-            string timePart = parts[1]; // Ví dụ: "7AM"
-            int hour = -1;
-
-            // Tách số giờ và phần AM/PM
-            string hourPart = timePart.Substring(0, timePart.Length - 2); // Lấy số giờ
-            string meridian = timePart.Substring(timePart.Length - 2).ToUpper(); // Lấy AM/PM
-
-            // Kiểm tra và chuyển đổi giờ
-            try
-            {
-                if (int.TryParse(hourPart, out hour))
-                {
-                    if (meridian == "PM" && hour != 12) // Thêm 12 giờ cho PM (trừ 12PM)
-                    {
-                        hour += 12;
-                    }
-                    else if (meridian == "AM" && hour == 12) // Chuyển 12AM thành 0 giờ
-                    {
-                        hour = 0;
-                    }
-                }
-                else
-                {
-                    // Xử lý lỗi nếu không thể parse
-                    throw new FormatException("Invalid time format: " + timePart);
-                }
-            }
-            catch (Exception ee)
-            {
-                MessageBox.Show("Lỗi: " + ee.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
-
-            // Lấy ngày tương ứng từ dictionary
-            if (!dates.ContainsKey(dayAbbr))
-                return;
-
-            DateTime slotDate = dates[dayAbbr];
-            DateTime fullDateTime = slotDate.Date.AddHours(hour);
-
-            if (!slotPrices.ContainsKey(fullDateTime))
-            {
-                MessageBox.Show("Không tìm thấy thông tin giá cho slot này.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (selectedSlots.Contains(fullDateTime))
-            {
-                selectedSlots.Remove(fullDateTime);
-                clickedButton.BackColor = SystemColors.Control;
-            }
-            else
-            {
-                selectedSlots.Add(fullDateTime);
-                clickedButton.BackColor = Color.LightGreen;
-            }
-            UpdateTotalPrice();
-            UpdateVerifyButtonState();
         }
         private void UpdateTotalPrice()
         {
@@ -408,79 +456,9 @@ namespace Quan_ly_san_the_thao
         }
         private void btn_Verify_Click(object sender, EventArgs e)
         {
-            if (selectedSlots.Count == 0)
-            {
-                MessageBox.Show("Vui lòng chọn ít nhất một khung giờ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            string mahd = GenerateInvoiceNumber();
-            totalPrice = selectedSlots.Sum(slot => slotPrices.ContainsKey(slot) ? slotPrices[slot] : 0m);
-            string insertHoaDonQuery = @"
-                INSERT INTO HOADON (MAHD, USERNAME, NGTTOAN, TRIGIA)
-                VALUES (@MAHD, @USERNAME, @NGTTOAN, @TRIGIA)
-            ";
-
-            string insertCTHDQuery = @"
-                INSERT INTO CTHD (MAHD, MASANTT, NGHDHLUC, TTGTSANG, TTGTTRUA, TTGTTOI)
-                VALUES (@MAHD, @MASANTT, @NGHDHLUC, @TTGTSANG, @TTGTTRUA, @TTGTTOI)
-            ";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand cmdHoaDon = new SqlCommand(insertHoaDonQuery, connection);
-                SqlCommand cmdCTHD = new SqlCommand(insertCTHDQuery, connection);
-
-                cmdHoaDon.Parameters.AddWithValue("@MAHD", mahd);
-                cmdHoaDon.Parameters.AddWithValue("@USERNAME", userData["USERNAME"].ToString());
-                cmdHoaDon.Parameters.AddWithValue("@NGTTOAN", DateTime.Now);
-                cmdHoaDon.Parameters.AddWithValue("@TRIGIA", totalPrice);
-
-                try
-                {
-                    connection.Open();
-                    SqlTransaction transaction = connection.BeginTransaction();
-                    cmdHoaDon.Transaction = transaction;
-                    cmdCTHD.Transaction = transaction;
-                    cmdHoaDon.ExecuteNonQuery();
-                    foreach (var slot in selectedSlots)
-                    {
-                        bool isMorning = slot.Hour >= 7 && slot.Hour < 13;
-                        bool isAfternoon = slot.Hour >= 13 && slot.Hour < 18;
-                        bool isEvening = slot.Hour >= 18 && slot.Hour < 22;
-                        string masantt = GetAvailableField(slot, connection, transaction);
-
-                        if (string.IsNullOrEmpty(masantt))
-                        {
-                            MessageBox.Show("Không có sân nào khả dụng cho thời gian đã chọn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            transaction.Rollback();
-                            return;
-                        }
-
-                        cmdCTHD.Parameters.Clear();
-                        cmdCTHD.Parameters.AddWithValue("@MAHD", mahd);
-                        cmdCTHD.Parameters.AddWithValue("@MASANTT", masantt);
-                        cmdCTHD.Parameters.AddWithValue("@NGHDHLUC", slot);
-                        cmdCTHD.Parameters.AddWithValue("@TTGTSANG", isMorning ? 1 : 0);
-                        cmdCTHD.Parameters.AddWithValue("@TTGTTRUA", isAfternoon ? 1 : 0);
-                        cmdCTHD.Parameters.AddWithValue("@TTGTTOI", isEvening ? 1 : 0);
-
-                        cmdCTHD.ExecuteNonQuery();
-                    }
-
-                    // Commit transaction
-                    transaction.Commit();
-
-                    // Proceed to payment form
-                    Payment paymentForm = new Payment(userData, mahd);
-                    this.Hide();
-                    paymentForm.ShowDialog();
-                    this.Show();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Đã xảy ra lỗi khi lưu thông tin đặt sân: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            Payment pm = new Payment(userData);
+            pm.ShowDialog();
+            this.DialogResult = DialogResult.OK;
         }
 
         private void TimeSelection_FormClosed(object sender, FormClosedEventArgs e)
