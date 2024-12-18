@@ -243,7 +243,7 @@ namespace Quan_ly_san_the_thao
                     }
                     else
                     {
-                        btn.BackColor = Color.Gray;
+                        btn.BackColor = SystemColors.Control;
                         btn.Enabled = true;
                     }
                 }
@@ -551,7 +551,7 @@ namespace Quan_ly_san_the_thao
 
                 cmdHoaDon.Parameters.AddWithValue("@MAHD", mahd);
                 cmdHoaDon.Parameters.AddWithValue("@USERNAME", userData["USERNAME"].ToString());
-                cmdHoaDon.Parameters.AddWithValue("@NGTTOAN", DateTime.Now);
+                cmdHoaDon.Parameters.AddWithValue("@NGTTOAN", DateTime.Today.AddSeconds(1));
                 cmdHoaDon.Parameters.AddWithValue("@TRIGIA", totalPrice);
 
                 try
