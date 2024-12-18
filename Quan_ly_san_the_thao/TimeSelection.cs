@@ -593,7 +593,7 @@ namespace Quan_ly_san_the_thao
                     Payment paymentForm = new Payment(userData, mahd);
                     this.Hide();
                     paymentForm.ShowDialog();
-                    this.Show();
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
