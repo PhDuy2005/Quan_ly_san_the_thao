@@ -108,54 +108,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChangePassword.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChangePassword.Designer.cs">
-      <DependentUpon>ChangePassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ChangeProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChangeProfile.Designer.cs">
-      <DependentUpon>ChangeProfile.cs</DependentUpon>
-    </Compile>
     <Compile Include="DatabaseHelper.cs" />
-    <Compile Include="ForgotPassword.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ForgotPassword.Designer.cs">
-      <DependentUpon>ForgotPassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MakeNewPassword.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MakeNewPassword.Designer.cs">
-      <DependentUpon>MakeNewPassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="OTPCode.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OTPCode.Designer.cs">
-      <DependentUpon>OTPCode.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PasswordConfirmation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PasswordConfirmation.Designer.cs">
-      <DependentUpon>PasswordConfirmation.cs</DependentUpon>
     </Compile>
     <Compile Include="Payment.cs">
       <SubType>Form</SubType>
@@ -194,29 +152,8 @@
     <Compile Include="TimeSelection.Designer.cs">
       <DependentUpon>TimeSelection.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ChangePassword.resx">
-      <DependentUpon>ChangePassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ChangeProfile.resx">
-      <DependentUpon>ChangeProfile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ForgotPassword.resx">
-      <DependentUpon>ForgotPassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MakeNewPassword.resx">
-      <DependentUpon>MakeNewPassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OTPCode.resx">
-      <DependentUpon>OTPCode.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PasswordConfirmation.resx">
-      <DependentUpon>PasswordConfirmation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payment.resx">
       <DependentUpon>Payment.cs</DependentUpon>
