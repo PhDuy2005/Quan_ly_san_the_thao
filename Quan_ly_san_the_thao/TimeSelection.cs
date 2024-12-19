@@ -484,6 +484,48 @@ namespace Quan_ly_san_the_thao
                 selectedSlots.Add(fullDateTime);
                 clickedButton.BackColor = Color.LightGreen;
             }
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                int numberOfFieldAvailible = int.Parse(GetNumberAvailableField(fullDateTime, connection));
+
+                switch (numberOfFieldAvailible)
+                {
+                    case 3:
+                        lb_S1_TrangThai.Text = "Còn trống";
+                        lb_S1_TrangThai.ForeColor = Color.Green;
+                        lb_S2_TrangThai.Text = "Còn trống";
+                        lb_S2_TrangThai.ForeColor = Color.Green;
+                        lb_S3_TrangThai.Text = "Còn trống";
+                        lb_S3_TrangThai.ForeColor = Color.Green;
+                        break;
+                    case 2:
+                        lb_S1_TrangThai.Text = "Đã đặt";
+                        lb_S1_TrangThai.ForeColor = Color.Red;
+                        lb_S2_TrangThai.Text = "Còn trống";
+                        lb_S2_TrangThai.ForeColor = Color.Green;
+                        lb_S3_TrangThai.Text = "Còn trống";
+                        lb_S3_TrangThai.ForeColor = Color.Green;
+                        break;
+                    case 1:
+                        lb_S1_TrangThai.Text = "Đã đặt";
+                        lb_S1_TrangThai.ForeColor = Color.Red;
+                        lb_S2_TrangThai.Text = "Đã đặt";
+                        lb_S2_TrangThai.ForeColor = Color.Red;
+                        lb_S3_TrangThai.Text = "Còn trống";
+                        lb_S3_TrangThai.ForeColor = Color.Green;
+                        break;
+                    case 0:
+                        lb_S1_TrangThai.Text = "Đã đặt";
+                        lb_S1_TrangThai.ForeColor = Color.Red;
+                        lb_S2_TrangThai.Text = "Đã đặt";
+                        lb_S2_TrangThai.ForeColor = Color.Red;
+                        lb_S3_TrangThai.Text = "Đã đặt";
+                        lb_S3_TrangThai.ForeColor = Color.Red;
+                        break;
+                }
+
+            }
             UpdateTotalPrice();
             UpdateVerifyButtonState();
         }
@@ -517,6 +559,25 @@ namespace Quan_ly_san_the_thao
             ";
 
             using (SqlCommand cmd = new SqlCommand(query, connection, transaction))
+            {
+                cmd.Parameters.AddWithValue("@Sport", currentSport);
+                cmd.Parameters.AddWithValue("@Slot", slot);
+
+                object result = cmd.ExecuteScalar();
+                return result != null ? result.ToString() : null;
+            }
+        }
+        private string GetNumberAvailableField(DateTime slot, SqlConnection connection)
+        {
+            string query = @"
+                SELECT count(*) AS NumberAvailableField
+                FROM SANTHETHAO
+                WHERE MALOAITT = @Sport AND MASANTT NOT IN (
+                    SELECT MASANTT FROM CTHD WHERE NGHDHLUC = @Slot
+                )
+            ";
+
+            using (SqlCommand cmd = new SqlCommand(query, connection))
             {
                 cmd.Parameters.AddWithValue("@Sport", currentSport);
                 cmd.Parameters.AddWithValue("@Slot", slot);

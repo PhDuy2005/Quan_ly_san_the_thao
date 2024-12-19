@@ -1,10 +1,13 @@
-﻿using System;
+﻿using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +16,7 @@ namespace Quan_ly_san_the_thao
 {
     public partial class Payment : Form
     {
+        List<BookingDetail> bookingDetails = new List<BookingDetail>();
         private DataRow userData;
         private string mahd;
         private string connectionString = @"Data Source=.\MSSQLSERVER01;Initial Catalog=IT8_PROJECT_DATABASE;Integrated Security=True";
@@ -23,6 +27,7 @@ namespace Quan_ly_san_the_thao
             this.userData = user;
             this.mahd = mahd;
             DisplayInformation();
+            ExportBill();
         }
 
         private void DisplayInformation()
@@ -40,9 +45,10 @@ namespace Quan_ly_san_the_thao
 
             string queryBookingDetails = @"
                 SELECT CTHD.MASANTT, CTHD.NGHDHLUC, SANTHETHAO.TENSANTT, 
-                       SANTHETHAO.GTSANG, SANTHETHAO.GTTRUA, SANTHETHAO.GTTOI
+                        LOAITHETHAO.GTSANG, LOAITHETHAO.GTTRUA, LOAITHETHAO.GTTOI
                 FROM CTHD
                 INNER JOIN SANTHETHAO ON CTHD.MASANTT = SANTHETHAO.MASANTT
+                JOIN LOAITHETHAO on LOAITHETHAO.MALOAITT = SANTHETHAO.MALOAITT
                 WHERE CTHD.MAHD = @MAHD
             ";
 
@@ -81,7 +87,7 @@ namespace Quan_ly_san_the_thao
 
                     SqlDataReader readerBooking = cmdBooking.ExecuteReader();
                     List<DateTime> slotTimes = new List<DateTime>();
-                    List<BookingDetail> bookingDetails = new List<BookingDetail>();
+                    bookingDetails = new List<BookingDetail>();
 
                     while (readerBooking.Read())
                     {
@@ -215,6 +221,111 @@ namespace Quan_ly_san_the_thao
             this.Close();
         }
 
+        void ExportBill()
+        {
+            string filePath = "";
+            // tạo SaveFileDialog để lưu file excel
+            SaveFileDialog dialog = new SaveFileDialog();
+
+            dialog.Filter = "Excel | *.xlsx | Excel 2003 | *.xls";
+
+            // Nếu mở file và chọn nơi lưu file thành công sẽ lưu đường dẫn lại dùng
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                filePath = dialog.FileName;
+
+                if (Path.GetExtension(filePath) == "")
+                {
+                    filePath = Path.Combine(filePath, "exportData.xlsx");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Mở file thất bại");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(filePath))
+            {
+                MessageBox.Show("Đường dẫn hóa đơn không hợp lệ");
+                return;
+            }
+
+            try
+            {
+                using (ExcelPackage p = new ExcelPackage())
+                {
+                    string sheetName = "Báo cáo";
+                    p.Workbook.Properties.Author = "Duy Pham Tran Khanh";
+                    p.Workbook.Worksheets.Add(sheetName);
+
+                    ExcelWorksheet ws = p.Workbook.Worksheets[sheetName];
+                    ws.Name = sheetName;
+                    ws.Cells.Style.Font.Size = 11;
+                    ws.Cells.Style.Font.Name = "Times New Roman";
+
+                    List<string> columnHeaders = new List<string>();
+                    columnHeaders.AddRange(new string[]
+                        {
+                            "Sân thể thao",
+                            "Thời gian thuê",
+                            "Đơn giá",
+                            "Chiết khấu",
+                        });
+
+                    int headerRow = 2;
+                    int columnIndex = 1;
+                    int headerCount = columnHeaders.Count;
+                    foreach (var header in columnHeaders)
+                    {
+                        var cell = ws.Cells[headerRow, columnIndex];
+                        cell.Value = header;
+                        columnIndex++;
+                    }
+                    string head = "HÓA ĐƠN " + mahd;
+                    ws.Cells[1, 1].Value = head;
+                    ws.Cells[1, 1, 1, headerCount].Merge = true;
+                    ws.Cells[1, 1, 1, headerCount].Style.Font.Bold = true;
+                    ws.Cells[1, 1, 1, headerCount].Style.Font.Size = 16;
+                    ws.Cells[1, 1, 1, headerCount].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+                    
+                    int rowIndex = headerRow + 1;
+                    int sum = 0;
+                    foreach (var question in bookingDetails)
+                    {
+                        ws.Cells[rowIndex, 1].Value = question.Field;
+                        ws.Cells[rowIndex, 2].Value = question.RentTime.ToString();
+                        sum += (int)question.UnitPrice;
+                        ws.Cells[rowIndex, 3].Value = question.UnitPrice;
+                        ws.Cells[rowIndex, 4].Value = question.Discount;
+                        //ws.Cells[rowIndex, 5].Value = question.OptionC;
+                        //ws.Cells[rowIndex, 6].Value = question.OptionD;
+
+                        //ws.Cells[rowIndex, 7].Value = question.GetStudentAnswer();
+                        //ws.Cells[rowIndex, 8].Value = question.GetCorrectAnswer();
+                        //ws.Cells[rowIndex, 9].Value = question.getScore();
+                        //ws.Cells[rowIndex, 10].Value = question.GetMaxScore();
+                        //ws.Cells[rowIndex, 11].Value = question.Note;
+                        rowIndex++;
+                    }
+                    ws.Cells[rowIndex, 1].Value = "Tổng cộng";
+                    ws.Cells[rowIndex, 1, rowIndex, 2].Merge = true;
+                    ws.Cells[rowIndex, 3].Value = sum;
+
+                    ws.Cells[ws.Dimension.Address].AutoFitColumns();
+
+                    Byte[] bin = p.GetAsByteArray();
+                    File.WriteAllBytes(filePath, bin);
+                    MessageBox.Show($"Xuất file thành công! tại {filePath}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Có lỗi khi lưu file {ex.Message}");
+            }
+
+        }
+
         // Helper class to store booking details
         private class BookingDetail
         {
@@ -223,5 +334,6 @@ namespace Quan_ly_san_the_thao
             public decimal UnitPrice { get; set; }
             public decimal Discount { get; set; }
         }
+        
     }
 }
