@@ -167,6 +167,12 @@
     <Compile Include="MakeNewPassword.Designer.cs">
       <DependentUpon>MakeNewPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="Oderred.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Oderred.Designer.cs">
+      <DependentUpon>Oderred.cs</DependentUpon>
+    </Compile>
     <Compile Include="OTPCode.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MakeNewPassword.resx">
       <DependentUpon>MakeNewPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Oderred.resx">
+      <DependentUpon>Oderred.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OTPCode.resx">
       <DependentUpon>OTPCode.cs</DependentUpon>
