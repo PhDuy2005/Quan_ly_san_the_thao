@@ -30,8 +30,10 @@
         {
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_AdminStat = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_UserInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_changePw = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_Oderred = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_LogOut = new System.Windows.Forms.ToolStripMenuItem();
             this.lb_Greeting = new System.Windows.Forms.Label();
             this.lb_ChooseSport = new System.Windows.Forms.Label();
@@ -39,7 +41,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.tsmi_Oderred = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +59,7 @@
             // thoátToolStripMenuItem
             // 
             this.thoátToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_AdminStat,
             this.tsmi_UserInfo,
             this.tsmi_changePw,
             this.tsmi_Oderred,
@@ -65,6 +67,14 @@
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
             this.thoátToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.thoátToolStripMenuItem.Text = "Tài khoản";
+            // 
+            // tsmi_AdminStat
+            // 
+            this.tsmi_AdminStat.Name = "tsmi_AdminStat";
+            this.tsmi_AdminStat.Size = new System.Drawing.Size(224, 26);
+            this.tsmi_AdminStat.Text = "Xem thống kê";
+            this.tsmi_AdminStat.Visible = false;
+            this.tsmi_AdminStat.Click += new System.EventHandler(this.tsmi_AdminStat_Click);
             // 
             // tsmi_UserInfo
             // 
@@ -79,6 +89,13 @@
             this.tsmi_changePw.Size = new System.Drawing.Size(224, 26);
             this.tsmi_changePw.Text = "Đổi mật khẩu";
             this.tsmi_changePw.Click += new System.EventHandler(this.tsmi_changePw_Click);
+            // 
+            // tsmi_Oderred
+            // 
+            this.tsmi_Oderred.Name = "tsmi_Oderred";
+            this.tsmi_Oderred.Size = new System.Drawing.Size(224, 26);
+            this.tsmi_Oderred.Text = "Sân đã đặt";
+            this.tsmi_Oderred.Click += new System.EventHandler(this.tsmi_Oderred_Click);
             // 
             // tsmi_LogOut
             // 
@@ -159,12 +176,6 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // tsmi_Oderred
-            // 
-            this.tsmi_Oderred.Name = "tsmi_Oderred";
-            this.tsmi_Oderred.Size = new System.Drawing.Size(224, 26);
-            this.tsmi_Oderred.Text = "Sân đã đặt";
-            // 
             // SportListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -203,5 +214,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_changePw;
         private System.Windows.Forms.ToolStripMenuItem tsmi_LogOut;
         private System.Windows.Forms.ToolStripMenuItem tsmi_Oderred;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_AdminStat;
     }
 }

@@ -21,12 +21,27 @@ namespace Quan_ly_san_the_thao
         {
             InitializeComponent();
             isLoggedIn = true;
+            
             this.username = username;
             this.userDetail = new DatabaseHelper().GetUserDetails(username);
             Console.OutputEncoding = Encoding.Unicode;
             Console.InputEncoding = Encoding.Unicode;
             lb_Greeting.Text = "CHÀO MỪNG " + userDetail["TENKH"].ToString().ToUpper(new System.Globalization.CultureInfo("vi-VN")) 
                                             + "\r\nĐẾN VỚI KHU PHỨC HỢP SE SPORT";
+            if (username == "admin")
+            {
+                tsmi_AdminStat.Visible = true;
+                tsmi_Oderred.Visible = false;
+                lb_Greeting.Text = "CHÀO MỪNG QUẢN TRỊ VIÊN"
+                                            + "\r\nĐẾN VỚI KHU PHỨC HỢP SE SPORT";
+            }
+            else
+            {
+                tsmi_AdminStat.Visible = false;
+                tsmi_Oderred.Visible = true;
+                lb_Greeting.Text = "CHÀO MỪNG " + userDetail["TENKH"].ToString().ToUpper(new System.Globalization.CultureInfo("vi-VN"))
+                                            + "\r\nĐẾN VỚI KHU PHỨC HỢP SE SPORT";
+            }
         }
 
         private void AdjustFontSize(Label label)
@@ -142,6 +157,22 @@ namespace Quan_ly_san_the_thao
             //this.Close();
             this.Visible = false;
             timeselect.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void tsmi_Oderred_Click(object sender, EventArgs e)
+        {
+            Oderred or = new Oderred(userDetail);
+            this.Hide();
+            or.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void tsmi_AdminStat_Click(object sender, EventArgs e)
+        {
+            AdminStat adm = new AdminStat();
+            this.Hide();
+            adm.ShowDialog();
             this.Visible = true;
         }
     }

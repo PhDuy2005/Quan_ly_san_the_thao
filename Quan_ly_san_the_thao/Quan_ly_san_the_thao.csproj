@@ -130,6 +130,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminStat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminStat.Designer.cs">
+      <DependentUpon>AdminStat.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     <Compile Include="TimeSelection.Designer.cs">
       <DependentUpon>TimeSelection.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminStat.resx">
+      <DependentUpon>AdminStat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>

@@ -29,12 +29,8 @@
         private void InitializeComponent()
         {
             this.lb_PaymentInfo = new System.Windows.Forms.Label();
-            this.dgv_FieldInfo = new System.Windows.Forms.DataGridView();
-            this.cl_Field = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_RentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_FieldInfo)).BeginInit();
+            this.dgv_OderredInfo = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_OderredInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // lb_PaymentInfo
@@ -47,60 +43,28 @@
             this.lb_PaymentInfo.Text = "Thông tin đặt sân";
             this.lb_PaymentInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dgv_FieldInfo
+            // dgv_OderredInfo
             // 
-            this.dgv_FieldInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_FieldInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cl_Field,
-            this.cl_RentTime,
-            this.cl_UnitPrice,
-            this.cl_Discount});
-            this.dgv_FieldInfo.Location = new System.Drawing.Point(12, 162);
-            this.dgv_FieldInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgv_FieldInfo.Name = "dgv_FieldInfo";
-            this.dgv_FieldInfo.RowHeadersWidth = 51;
-            this.dgv_FieldInfo.RowTemplate.Height = 24;
-            this.dgv_FieldInfo.Size = new System.Drawing.Size(776, 127);
-            this.dgv_FieldInfo.TabIndex = 38;
-            // 
-            // cl_Field
-            // 
-            this.cl_Field.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cl_Field.HeaderText = "Sân";
-            this.cl_Field.MinimumWidth = 6;
-            this.cl_Field.Name = "cl_Field";
-            // 
-            // cl_RentTime
-            // 
-            this.cl_RentTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cl_RentTime.HeaderText = "Thời gian thuê";
-            this.cl_RentTime.MinimumWidth = 6;
-            this.cl_RentTime.Name = "cl_RentTime";
-            // 
-            // cl_UnitPrice
-            // 
-            this.cl_UnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cl_UnitPrice.HeaderText = "Đơn giá";
-            this.cl_UnitPrice.MinimumWidth = 6;
-            this.cl_UnitPrice.Name = "cl_UnitPrice";
-            // 
-            // cl_Discount
-            // 
-            this.cl_Discount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cl_Discount.HeaderText = "Giảm giá";
-            this.cl_Discount.MinimumWidth = 6;
-            this.cl_Discount.Name = "cl_Discount";
+            this.dgv_OderredInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_OderredInfo.Location = new System.Drawing.Point(12, 99);
+            this.dgv_OderredInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_OderredInfo.Name = "dgv_OderredInfo";
+            this.dgv_OderredInfo.RowHeadersWidth = 51;
+            this.dgv_OderredInfo.RowTemplate.Height = 24;
+            this.dgv_OderredInfo.Size = new System.Drawing.Size(776, 306);
+            this.dgv_OderredInfo.TabIndex = 38;
             // 
             // Oderred
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dgv_FieldInfo);
+            this.Controls.Add(this.dgv_OderredInfo);
             this.Controls.Add(this.lb_PaymentInfo);
             this.Name = "Oderred";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Oderred";
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_FieldInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_OderredInfo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -108,10 +72,6 @@
         #endregion
 
         private System.Windows.Forms.Label lb_PaymentInfo;
-        private System.Windows.Forms.DataGridView dgv_FieldInfo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_Field;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_RentTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_UnitPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_Discount;
+        private System.Windows.Forms.DataGridView dgv_OderredInfo;
     }
 }
