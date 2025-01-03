@@ -35,6 +35,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_GetStatFile = new System.Windows.Forms.Button();
+            this.btn_exit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -118,20 +119,34 @@
             // 
             this.btn_GetStatFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btn_GetStatFile.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_GetStatFile.Location = new System.Drawing.Point(590, 37);
+            this.btn_GetStatFile.Location = new System.Drawing.Point(131, 190);
             this.btn_GetStatFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_GetStatFile.Name = "btn_GetStatFile";
-            this.btn_GetStatFile.Size = new System.Drawing.Size(198, 129);
+            this.btn_GetStatFile.Size = new System.Drawing.Size(184, 43);
             this.btn_GetStatFile.TabIndex = 36;
             this.btn_GetStatFile.Text = "Xuất báo cáo";
             this.btn_GetStatFile.UseVisualStyleBackColor = false;
             this.btn_GetStatFile.Click += new System.EventHandler(this.btn_GetStatFile_Click);
             // 
+            // btn_exit
+            // 
+            this.btn_exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btn_exit.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_exit.Location = new System.Drawing.Point(354, 190);
+            this.btn_exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.Size = new System.Drawing.Size(184, 43);
+            this.btn_exit.TabIndex = 37;
+            this.btn_exit.Text = "Thoát";
+            this.btn_exit.UseVisualStyleBackColor = false;
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
+            // 
             // AdminStat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(646, 275);
+            this.Controls.Add(this.btn_exit);
             this.Controls.Add(this.btn_GetStatFile);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
@@ -140,6 +155,7 @@
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
             this.Name = "AdminStat";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminStat";
             this.Load += new System.EventHandler(this.AdminStat_Load);
             this.ResumeLayout(false);
@@ -156,5 +172,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_GetStatFile;
+        private System.Windows.Forms.Button btn_exit;
     }
 }

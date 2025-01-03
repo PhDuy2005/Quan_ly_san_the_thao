@@ -45,5 +45,10 @@ namespace Quan_ly_san_the_thao
                 dgv_OderredInfo.Columns["TRIGIA"].HeaderText = "Trị giá";
             }
         }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
     }
 }

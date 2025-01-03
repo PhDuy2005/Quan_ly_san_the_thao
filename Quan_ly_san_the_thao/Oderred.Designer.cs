@@ -30,6 +30,7 @@
         {
             this.lb_PaymentInfo = new System.Windows.Forms.Label();
             this.dgv_OderredInfo = new System.Windows.Forms.DataGridView();
+            this.btn_exit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_OderredInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,11 +55,25 @@
             this.dgv_OderredInfo.Size = new System.Drawing.Size(776, 306);
             this.dgv_OderredInfo.TabIndex = 38;
             // 
+            // btn_exit
+            // 
+            this.btn_exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btn_exit.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_exit.Location = new System.Drawing.Point(604, 11);
+            this.btn_exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.Size = new System.Drawing.Size(184, 43);
+            this.btn_exit.TabIndex = 39;
+            this.btn_exit.Text = "Thoát";
+            this.btn_exit.UseVisualStyleBackColor = false;
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
+            // 
             // Oderred
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_exit);
             this.Controls.Add(this.dgv_OderredInfo);
             this.Controls.Add(this.lb_PaymentInfo);
             this.Name = "Oderred";
@@ -73,5 +88,6 @@
 
         private System.Windows.Forms.Label lb_PaymentInfo;
         private System.Windows.Forms.DataGridView dgv_OderredInfo;
+        private System.Windows.Forms.Button btn_exit;
     }
 }
